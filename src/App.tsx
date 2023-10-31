@@ -1,9 +1,15 @@
 import './App.css'
+import { ThemeProvider } from './context/ThemeProvider'
+import SwitchTheme from './SwitchTheme'
 
 function App() {
   return (
     <>
-      <p>hola mundo!</p>
+      <ThemeProvider>
+
+        <SwitchTheme />
+
+      </ThemeProvider>
     </>
   )
 }

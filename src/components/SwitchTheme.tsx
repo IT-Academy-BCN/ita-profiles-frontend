@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react'
-import { ThemeContext, ThemeContextType } from './context/ThemeContext'
+import { ThemeContext, ThemeContextType } from '../context/ThemeContext'
 
 const SwitchTheme = () => {
   const themeContext = useContext<ThemeContextType>(ThemeContext)

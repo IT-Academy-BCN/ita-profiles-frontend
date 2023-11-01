@@ -1,13 +1,16 @@
-import SwitchTheme from './components/SwitchTheme'
-import { ThemeProvider } from './context/ThemeProvider'
+import React from "react";
+import LoginButton from "./components/LoginButton";
 import './styles/App.css'
 
-function App() {
+const App: React.FC = () => {
+  function handleClick(): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <>
-      <ThemeProvider>
-        <SwitchTheme />
-      </ThemeProvider>
+     <h1>Welcome to ita profiles</h1>
+      <LoginButton onClick={handleClick}/>
     </>
   )
 }

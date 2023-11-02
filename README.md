@@ -38,8 +38,9 @@ To ensure a smooth and organized development process, please follow these guidel
 
 ### Folder Structure
 
-Components: All React components should be created within the /components folder. These components should focus solely on rendering and presenting data. They should not contain any logic or API calls.
-Pages: If it is necessary to create a new page, please do so within the /pages folder. Pages should serve as the top-level components that define the structure of a route and may contain a composition of components. Keep pages clean and avoid adding complex logic directly to them.
+- Components: All React components should be created within the /components folder. These components should focus solely on rendering and presenting data. They should not contain any logic or API calls.
+- Pages: If it is necessary to create a new page, please do so within the /pages folder. Pages should serve as the top-level components that define the structure of a route and may contain a composition of components. Keep pages clean and avoid adding complex logic directly to them.
+
 --
 
 ### Separation of Concerns

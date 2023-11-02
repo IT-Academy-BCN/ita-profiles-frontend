@@ -1,5 +1,6 @@
 import { ReactNode, useState } from 'react'
-import { ThemeContext, ThemeContextType } from './ThemeContext'
+import { ThemeContext } from './ThemeContext'
+import type { ThemeContextType } from './ThemeContext'
 
 interface ThemeProviderProps {
   children: ReactNode

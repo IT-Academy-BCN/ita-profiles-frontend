@@ -1,11 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Lock from '../assets/svg/lock-dynamic-color.svg';
+import RegisterPopup from "./RegisterPopup";
 
 type ModalProps = {
   onClose: () => void;
 };
-
 const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
+  const [showRegisterPopup, setShowRegisterPopup] = useState(false);
+  
+
+  const handleOpenRegisterPopup = () => {
+    setShowRegisterPopup(true);
+   /*  onClose(); */
+  };
+
+  const handleCloseRegisterPopup = () => {
+    setShowRegisterPopup(false);
+  };
+
   return (
     <div
       style={{
@@ -62,7 +74,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
           Acceso restringido
         </h2>
         <p style={{ fontSize: "18px", marginBottom: "30px" }}>
-          Entra o regístrate
+          Entra o regístrate para acceder al perfil
         </p>
         <div>
           <button
@@ -75,7 +87,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
               fontSize: "18px",
               marginBottom: "10px",
             }}
-            onClick={onClose}
+            onClick={handleOpenRegisterPopup}
           >
             Soy candidato/a
           </button>
@@ -94,8 +106,9 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
           </button>
         </div>
       </div>
+      {showRegisterPopup && <RegisterPopup onClose={handleCloseRegisterPopup} />}
     </div>
   );
-};
+ }; 
 
 export default RestrictedAccessPopup;

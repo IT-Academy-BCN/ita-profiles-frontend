@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react'
 import { ThemeContext } from './ThemeContext'
-import type { ThemeContextType } from './ThemeContext'
+import type { ThemeContextT } from './ThemeContext'
 
 interface ThemeProviderProps {
   children: ReactNode
@@ -9,7 +9,7 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<string>('light')
 
-  const themeValue: ThemeContextType = {
+  const themeValue: ThemeContextT = {
     theme,
     setTheme,
   }

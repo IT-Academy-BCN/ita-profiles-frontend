@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import Lock from './assets/svg/lock-dynamic-color.svg';
 import RegisterPopup from "./components/RegisterPopup";
+import LoginPopup from "./components/LoginPopup"; // Importa el nuevo componente
 
 const App: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
+  const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);
 
   const handleOpenRestrictedPopup = () => {
     setIsRestrictedPopupOpen(true);
@@ -16,57 +18,36 @@ const App: React.FC = () => {
 
   const handleOpenRegisterPopup = () => {
     setIsRegisterPopupOpen(true);
-    setIsRestrictedPopupOpen(false); // Cerrar el primer popup al abrir el segundo
+    setIsRestrictedPopupOpen(false);
   };
 
   const handleCloseRegisterPopup = () => {
     setIsRegisterPopupOpen(false);
   };
 
+  const handleOpenLoginPopup = () => {
+    setIsLoginPopupOpen(true);
+    setIsRestrictedPopupOpen(false);
+  };
+
+  const handleCloseLoginPopup = () => {
+    setIsLoginPopupOpen(false);
+  };
+
   return (
     <div>
-      <h1>Welcome to ita profiles</h1>
-      <button onClick={handleOpenRestrictedPopup}>Entrar</button>
-
+      <h1 className="text-2xl font-bold">Welcome to ita profiles</h1>
+      <button 
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={handleOpenRestrictedPopup}
+      >
+        Entrar
+      </button>
       {isRestrictedPopupOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 9999,
-          }}
-        >
-          <div
-            style={{
-              width: "300px",
-              borderRadius: "12px",
-              backgroundColor: "white",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              padding: "20px",
-              position: "relative",
-            }}
-          >
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="w-72 bg-white rounded-lg flex flex-col items-center p-4 relative">
             <button
-              style={{
-                position: "absolute",
-                top: "10px",
-                right: "10px",
-                width: "30px",
-                height: "30px",
-                borderRadius: "50%",
-                backgroundColor: "transparent",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="absolute top-2 right-2 w-8 h-8 rounded-full bg-transparent border-none cursor-pointer"
               onClick={handleCloseRestrictedPopup}
             >
               ✕
@@ -74,67 +55,39 @@ const App: React.FC = () => {
             <img
               src={Lock}
               alt="Lock"
-              style={{
-                width: "118px",
-                height: "118px",
-                marginBottom: "20px",
-              }}
+              className="w-24 h-24 mb-4"
             />
-            <h2 style={{ fontSize: "24px", marginBottom: "10px" }}>
+            <h2 className="text-lg font-bold mb-2">
               Acceso restringido
             </h2>
-            <p style={{ fontSize: "18px", marginBottom: "30px" }}>
+            <p className="text-base mb-6">
               Entra o regístrate para acceder al perfil
             </p>
-            <div>
+            <div className="w-full">
               <button
-                style={{
-                  width: "100%",
-                  height: "63px",
-                  borderRadius: "12px",
-                  backgroundColor: "#B91879",
-                  color: "white",
-                  fontSize: "18px",
-                  marginBottom: "10px",
-                }}
+                className="w-full h-12 rounded-lg bg-pink-500 text-white text-lg mb-2"
                 onClick={handleOpenRegisterPopup}
               >
                 Soy candidato/a
               </button>
               <button
-                style={{
-                  width: "100%",
-                  height: "63px",
-                  borderRadius: "12px",
-                  backgroundColor: "#B91879",
-                  color: "white",
-                  fontSize: "18px",
-                }}
-                onClick={handleCloseRestrictedPopup}
+                className="w-full h-12 rounded-lg bg-pink-500 text-white text-lg"
+                onClick={handleOpenLoginPopup} // Agrega el evento para abrir el tercer popup
               >
-                Soy reclutador/a
+                ¿Tienes cuenta?
               </button>
             </div>
           </div>
         </div>
       )}
-
       {isRegisterPopupOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0, 0, 0, 0.5)",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 9999,
-          }}
-        >
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
           <RegisterPopup onClose={handleCloseRegisterPopup} />
+        </div>
+      )}
+      {isLoginPopupOpen && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <LoginPopup onClose={handleCloseLoginPopup} /> // Agrega el componente del tercer popup
         </div>
       )}
     </div>

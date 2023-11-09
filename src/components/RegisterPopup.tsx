@@ -2,9 +2,11 @@ import React from 'react';
 
 type RegisterPopupProps = {
   onClose: () => void;
+  onOpenLoginPopup: () => void;
 };
 
-const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose }) => {
+
+const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose, onOpenLoginPopup }) => {
   const handleRegister = () => {
     // Handle registration logic here
     onClose(); // Close the popup after registration
@@ -89,7 +91,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose }) => {
       </form>
       <div className="text-center mt-4">
         <a
-          href="#"
+          href="#" onClick={onOpenLoginPopup}
           className="text-black font-bold cursor-pointer"
           style={{ textDecoration: 'underline' }}
         >

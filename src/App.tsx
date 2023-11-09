@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Lock from './assets/svg/lock-dynamic-color.svg';
 import RegisterPopup from "./components/RegisterPopup";
-import LoginPopup from "./components/LoginPopup"; // Importa el nuevo componente
+import LoginPopup from "./components/LoginPopup"; 
 
 const App: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -72,7 +72,7 @@ const App: React.FC = () => {
               </button>
               <button
                 className="w-full h-12 rounded-lg bg-pink-500 text-white text-lg"
-                onClick={handleOpenLoginPopup} // Agrega el evento para abrir el tercer popup
+                onClick={handleOpenLoginPopup} 
               >
                 ¿Tienes cuenta?
               </button>
@@ -82,12 +82,12 @@ const App: React.FC = () => {
       )}
       {isRegisterPopupOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <RegisterPopup onClose={handleCloseRegisterPopup} />
+          <RegisterPopup onClose={handleCloseRegisterPopup} onOpenLoginPopup={handleOpenLoginPopup} />
         </div>
       )}
       {isLoginPopupOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <LoginPopup onClose={handleCloseLoginPopup} /> // Agrega el componente del tercer popup
+          {isLoginPopupOpen && <LoginPopup onClose={handleCloseLoginPopup} /> }
         </div>
       )}
     </div>

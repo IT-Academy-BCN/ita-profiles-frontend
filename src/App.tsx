@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Lock from './assets/svg/lock-dynamic-color.svg';
-import RegisterPopup from "./components/RegisterPopup";
-import LoginPopup from "./components/LoginPopup"; 
+import LoginPopup from './components/LoginPopup';
+import RegisterPopup from './components/RegisterPopup';
 
 const App: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -27,7 +27,7 @@ const App: React.FC = () => {
 
   const handleOpenLoginPopup = () => {
     setIsLoginPopupOpen(true);
-    setIsRestrictedPopupOpen(false);
+    setIsRegisterPopupOpen(false);
   };
 
   const handleCloseLoginPopup = () => {
@@ -37,7 +37,7 @@ const App: React.FC = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold">Welcome to ita profiles</h1>
-      <button 
+      <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={handleOpenRestrictedPopup}
       >
@@ -52,14 +52,8 @@ const App: React.FC = () => {
             >
               ✕
             </button>
-            <img
-              src={Lock}
-              alt="Lock"
-              className="w-24 h-24 mb-4"
-            />
-            <h2 className="text-lg font-bold mb-2">
-              Acceso restringido
-            </h2>
+            <img src={Lock} alt="Lock" className="w-24 h-24 mb-4" />
+            <h2 className="text-lg font-bold mb-2">Acceso restringido</h2>
             <p className="text-base mb-6">
               Entra o regístrate para acceder al perfil
             </p>
@@ -72,7 +66,7 @@ const App: React.FC = () => {
               </button>
               <button
                 className="w-full h-12 rounded-lg bg-pink-500 text-white text-lg"
-                onClick={handleOpenLoginPopup} 
+                onClick={handleOpenLoginPopup}
               >
                 ¿Tienes cuenta?
               </button>
@@ -82,12 +76,15 @@ const App: React.FC = () => {
       )}
       {isRegisterPopupOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <RegisterPopup onClose={handleCloseRegisterPopup} onOpenLoginPopup={handleOpenLoginPopup} />
+          <RegisterPopup
+            onClose={handleCloseRegisterPopup}
+            onOpenLoginPopup={handleOpenLoginPopup}
+          />
         </div>
       )}
       {isLoginPopupOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-          {isLoginPopupOpen && <LoginPopup onClose={handleCloseLoginPopup} /> }
+          {isLoginPopupOpen && <LoginPopup onClose={handleCloseLoginPopup} />}
         </div>
       )}
     </div>

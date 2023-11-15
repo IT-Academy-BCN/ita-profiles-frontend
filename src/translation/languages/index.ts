@@ -1,8 +1,8 @@
-import catala from './catala.json'
-import english from './english.json'
-import espanol from './espanol.json'
+import ca from './ca.json'
+import en from './en.json'
+import es from './es.json'
 
 export {
-	catala,
-	english,
-	espanol}
+	ca,
+	en,
+	es}

@@ -7,9 +7,9 @@ const CheckTranslation = () => {
     <div>
       <h1>{t('app.title')}</h1>
       <p>{t('app.description')}</p>
-      <button onClick={() => i18n.changeLanguage('catala')}>Català</button>
-      <button onClick={() => i18n.changeLanguage('english')}>English</button>
-      <button onClick={() => i18n.changeLanguage('espanol')}>Español</button>
+      <button onClick={() => i18n.changeLanguage('ca')}>Català</button>
+      <button onClick={() => i18n.changeLanguage('en')}>English</button>
+      <button onClick={() => i18n.changeLanguage('es')}>Español</button>
     </div>
   );
 };

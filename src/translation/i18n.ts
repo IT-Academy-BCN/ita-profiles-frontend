@@ -1,20 +1,35 @@
 import i18next from 'i18next';
-import { catala, english, espanol } from './languages';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
+import { ca, en,es } from './languages';
 
-i18next.init({
-  interpolation: { escapeValue: false },
-  lng: 'catala',
-  resources: {
-    catala: {
-      translation: catala,
+i18next
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    interpolation: { escapeValue: false },
+    fallbackLng: 'ca',
+    detection: {
+      order: [
+        'htmlTag',
+        'cookie',
+        'localStorage',
+        'navigator',
+        'path',
+        'subdomain',
+      ],
     },
-    english: {
-      translation: english,
+    resources: {
+      ca: {
+        translation: ca,
+      },
+      en: {
+        translation: en,
+      },
+      es: {
+        translation: es,
+      },
     },
-    espanol: {
-      translation: espanol,
-    },
-  },
-});
+  });
 
 export default i18next;

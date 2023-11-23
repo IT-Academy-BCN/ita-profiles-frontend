@@ -2,6 +2,7 @@ import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpBackend, { HttpBackendOptions } from 'i18next-http-backend';
+import { supportedLngs } from '../lib/data/supportedLngs';
 import { localPath } from '../lib/const/endpoints';
 
 i18next
@@ -9,11 +10,12 @@ i18next
   .use(LanguageDetector)
   .use(HttpBackend)
   .init<HttpBackendOptions>({
+    supportedLngs: supportedLngs,
     fallbackLng: 'ca',
     detection: {
       order: [
-        'cookie',
         'htmlTag',
+        'cookie',
         'navigator',
         'localStorage',
         'path',

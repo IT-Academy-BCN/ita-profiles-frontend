@@ -1,11 +1,14 @@
+import cookies from 'js-cookie';
 import { useTranslation } from 'react-i18next';
 import { supportedLanguages } from '../lib/data/supportedLngs';
 
 const CheckTranslation = () => {
+  const cookieLanguage = cookies.get('i18next');
   const {
     t,
     i18n: { changeLanguage: tr },
-  } = useTranslation('translation');
+  } = useTranslation();
+  
 
   return (
     <div className="prose flex flex-col justify-center items-center gap-4 m-4">
@@ -20,7 +23,11 @@ const CheckTranslation = () => {
           Idioma / Language
         </option>
         {supportedLanguages.map(({ name, code, country_code }) => (
-          <option key={country_code} value={code}>
+          <option
+            key={country_code}
+            value={code}
+            disabled={code === cookieLanguage}
+          >
             {name}
           </option>
         ))}

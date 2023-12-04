@@ -5,7 +5,7 @@ export const supportedLanguages = [
 		country_code: 'ca'
 	},
 	{
-		name: 'Castellano',
+		name: 'Castellà',
 		code: 'es',
 		country_code: 'es'
 	},

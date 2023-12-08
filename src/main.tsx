@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './styles/normalize.css';
 import './styles/index.css';
 import { I18nextProvider } from 'react-i18next';
-import i18n from '../src/translation/i18n';
+import i18n from './locales/i18n.ts';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

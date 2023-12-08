@@ -1,6 +1,6 @@
 export const ENDPOINTS = {
   translation: {
-    localPath: 'src/translation/languages/{{lng}}/{{lng}}.json',
+    localPath: 'src/locales/languages/{{lng}}/{{lng}}.json',
   },
 };
 

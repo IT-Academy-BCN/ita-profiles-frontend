@@ -99,16 +99,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <input
-              type="text"
-              {...register('specialization')}
-              id="specialization"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="Specialization"
-            />
-          </div>
-          <div>
+        <div>
             <input
               type="password"
               {...register('confirmPassword')}
@@ -120,6 +111,17 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
             <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
           )}
           </div>
+
+          <div>
+            <input
+              type="text"
+              {...register('specialization')}
+              id="specialization"
+              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              placeholder="Specialization"
+            />
+          </div>
+          
         </div>
         <div className="flex justify-centr items-center space-x-8 p-4 md:p-5 ">
           <input type="checkbox" id="acceptTerms" className="w-6 h-6" />

@@ -24,16 +24,19 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
     register,
     handleSubmit,
     reset,
-   /*  clearErrors, */
+    /*  clearErrors, */
     formState: { errors },
   } = useForm<formSchema>({ resolver: zodResolver(UserSchema) });
 
   const sendRegister: SubmitHandler<formSchema> = async (data) => {
-    try {setTimeout(() => {
-      console.log("Formulario enviado.");
-    }, 1000);
-    reset()
-    } catch (error) {console.log(error)}
+    try {
+      setTimeout(() => {
+        console.log('Formulario enviado.');
+      }, 1000);
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -55,6 +58,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="DNI o NIE"
             />
+            {errors.dni && (
+            <p className="text-red-500">{`${errors.dni?.message}`}</p>
+          )}
           </div>
           <div>
             <input
@@ -75,6 +81,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Password"
             />
+          {errors.password && (
+            <p className="text-red-500">{`${errors.password?.message}`}</p>
+          )}
           </div>
           <div>
             <input
@@ -84,6 +93,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Email"
             />
+            {errors.email && (
+            <p className="text-red-500">{`${errors.email?.message}`}</p>
+          )}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -104,6 +116,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Confirm Password"
             />
+            {errors.confirmPassword && (
+            <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
+          )}
           </div>
         </div>
         <div className="flex justify-centr items-center space-x-8 p-4 md:p-5 ">

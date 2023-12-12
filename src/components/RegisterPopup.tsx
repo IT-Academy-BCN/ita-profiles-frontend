@@ -1,15 +1,42 @@
+import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { UserSchema } from '../schemes/schemas';
 
 type RegisterPopupProps = {
   onClose: () => void;
   onOpenLoginPopup: () => void;
 };
 
-
-const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose, onOpenLoginPopup }) => {
+const RegisterPopup: React.FC<RegisterPopupProps> = ({
+  onClose,
+  onOpenLoginPopup,
+}) => {
   const handleRegister = () => {
     // Handle registration logic here
     onClose(); // Close the popup after registration
+  };
+
+  type formSchema = z.infer<typeof UserSchema>;
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    /*  clearErrors, */
+    formState: { errors },
+  } = useForm<formSchema>({ resolver: zodResolver(UserSchema) });
+
+  const sendRegister: SubmitHandler<formSchema> = async (data) => {
+    try {
+      setTimeout(() => {
+        console.log('Formulario enviado.');
+      }, 1000);
+      reset();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -25,14 +52,19 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose, onOpenLoginPopup
         <div className="grid grid-cols-2 gap-4">
           <div>
             <input
+              {...register('dni')}
               type="text"
               id="dni"
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="DNI o NIE"
             />
+            {errors.dni && (
+            <p className="text-red-500">{`${errors.dni?.message}`}</p>
+          )}
           </div>
           <div>
             <input
+              {...register('username')}
               type="text"
               id="username"
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
@@ -43,47 +75,65 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose, onOpenLoginPopup
         <div className="grid grid-cols-2 gap-4">
           <div>
             <input
+              {...register('password')}
               type="password"
               id="password"
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Password"
             />
+          {errors.password && (
+            <p className="text-red-500">{`${errors.password?.message}`}</p>
+          )}
           </div>
           <div>
             <input
+              {...register('email')}
               type="email"
               id="email"
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Email"
             />
+            {errors.email && (
+            <p className="text-red-500">{`${errors.email?.message}`}</p>
+          )}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
+        <div>
+            <input
+              type="password"
+              {...register('confirmPassword')}
+              id="confirmPassword"
+              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              placeholder="Confirm Password"
+            />
+            {errors.confirmPassword && (
+            <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
+          )}
+          </div>
+
           <div>
             <input
               type="text"
+              {...register('specialization')}
               id="specialization"
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Specialization"
             />
           </div>
-          <div>
-            <input
-              type="password"
-              id="confirmPassword"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
-              placeholder="Confirm Password"
-            />
-          </div>
+          
         </div>
         <div className="flex justify-centr items-center space-x-8 p-4 md:p-5 ">
           <input type="checkbox" id="acceptTerms" className="w-6 h-6" />
           <label htmlFor="acceptTerms" className="text-sm">
-            Acepto <span style={{ textDecoration: 'underline' }}>términos legales</span>
+            Acepto{' '}
+            <span style={{ textDecoration: 'underline' }}>
+              términos legales
+            </span>
           </label>
           <button
             className="w-102 mr-6 md:w-60 h-12 md:h-12 rounded-lg bg-pink-500 text-white text-base md:text-lg border-none cursor-pointer"
-            onClick={handleRegister}
+            onClick={handleSubmit(sendRegister)}
           >
             Register
           </button>
@@ -91,7 +141,8 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({ onClose, onOpenLoginPopup
       </form>
       <div className="text-center mt-4">
         <a
-          href="#" onClick={onOpenLoginPopup}
+          href="#"
+          onClick={onOpenLoginPopup}
           className="text-black font-bold cursor-pointer"
           style={{ textDecoration: 'underline' }}
         >

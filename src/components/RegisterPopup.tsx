@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { UserSchema } from '../schemes/schemas';
@@ -13,27 +14,31 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
   onClose,
   onOpenLoginPopup,
 }) => {
-  const handleRegister = () => {
-    // Handle registration logic here
-    onClose(); // Close the popup after registration
-  };
-
   type formSchema = z.infer<typeof UserSchema>;
+  const [isChecked, setIsChecked] = useState(false);
+  const [checkError, setCheckError] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
-    /*  clearErrors, */
     formState: { errors },
   } = useForm<formSchema>({ resolver: zodResolver(UserSchema) });
 
   const sendRegister: SubmitHandler<formSchema> = async (data) => {
     try {
-      setTimeout(() => {
-        console.log('Formulario enviado.');
-      }, 1000);
-      reset();
+      if (isChecked) {
+        //This creates a user in db.json.
+        const response = await axios.post(
+          'http://localhost:3000/users/register',
+          data,
+        );
+        console.log('response de register =>', response.data);
+        reset();
+        onClose();
+      } else {
+        setCheckError(true);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -59,8 +64,8 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               placeholder="DNI o NIE"
             />
             {errors.dni && (
-            <p className="text-red-500">{`${errors.dni?.message}`}</p>
-          )}
+              <p className="text-red-500">{`${errors.dni?.message}`}</p>
+            )}
           </div>
           <div>
             <input
@@ -70,6 +75,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Username"
             />
+            {errors.username && (
+              <p className="text-red-500">{`${errors.username?.message}`}</p>
+            )}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -81,9 +89,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Password"
             />
-          {errors.password && (
-            <p className="text-red-500">{`${errors.password?.message}`}</p>
-          )}
+            {errors.password && (
+              <p className="text-red-500">{`${errors.password?.message}`}</p>
+            )}
           </div>
           <div>
             <input
@@ -94,12 +102,12 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               placeholder="Email"
             />
             {errors.email && (
-            <p className="text-red-500">{`${errors.email?.message}`}</p>
-          )}
+              <p className="text-red-500">{`${errors.email?.message}`}</p>
+            )}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-4">
-        <div>
+          <div>
             <input
               type="password"
               {...register('confirmPassword')}
@@ -108,8 +116,8 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               placeholder="Confirm Password"
             />
             {errors.confirmPassword && (
-            <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
-          )}
+              <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
+            )}
           </div>
 
           <div>
@@ -120,17 +128,32 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
               placeholder="Specialization"
             />
+            {errors.specialization && (
+              <p className="text-red-500">{`${errors.specialization.message}`}</p>
+            )}
           </div>
-          
         </div>
-        <div className="flex justify-centr items-center space-x-8 p-4 md:p-5 ">
-          <input type="checkbox" id="acceptTerms" className="w-6 h-6" />
-          <label htmlFor="acceptTerms" className="text-sm">
-            Acepto{' '}
-            <span style={{ textDecoration: 'underline' }}>
-              términos legales
-            </span>
-          </label>
+        <div className="flex justify-center items-center space-x-8 p-4 md:p-5 ">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1">
+              <input
+                type="checkbox"
+                id="acceptTerms"
+                className="w-6 h-6"
+                checked={isChecked}
+                onChange={(e) => setIsChecked(e.target.checked)}
+              />
+              <label htmlFor="acceptTerms" className=" mr-2 text-sm">
+                Acepto{' '}
+                <span style={{ textDecoration: 'underline' }}>
+                  términos legales
+                </span>
+              </label>
+            </div>
+            {checkError && (
+              <p className="text-red-500">Debes aceptar los términos</p>
+            )}
+          </div>
           <button
             className="w-102 mr-6 md:w-60 h-12 md:h-12 rounded-lg bg-pink-500 text-white text-base md:text-lg border-none cursor-pointer"
             onClick={handleSubmit(sendRegister)}

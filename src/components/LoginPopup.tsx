@@ -9,9 +9,7 @@ type LoginPopupProps = {
 
 const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
   const { handleSubmit, register } = useForm<loginForm>();
-  const handleLogin: SubmitHandler<any> = async (data) => {
-    console.log(data);
-
+  const handleLogin: SubmitHandler<loginForm> = async (data) => {
     try {
       const response = await axios.post('http://localhost:3000/login', data);
       console.log('El data de login =>', response.data);

@@ -151,7 +151,9 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               </label>
             </div>
             {checkError && (
-              <p className="text-red-500">Debes aceptar los términos</p>
+              <p className={`${isChecked ? 'hidden' : 'text-red-500'}`}>
+                Debes aceptar los términos
+              </p>
             )}
           </div>
           <button

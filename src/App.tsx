@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Lock from './assets/svg/lock-dynamic-color.svg';
 import LoginPopup from './components/LoginPopup';
 import RegisterPopup from './components/RegisterPopup';
+import ProfilesPage from './components/ProfilesPage'
 
 const App: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -87,6 +88,7 @@ const App: React.FC = () => {
           {isLoginPopupOpen && <LoginPopup onClose={handleCloseLoginPopup} />}
         </div>
       )}
+      <ProfilesPage />
     </div>
   );
 };

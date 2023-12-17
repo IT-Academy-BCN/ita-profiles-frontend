@@ -14,7 +14,7 @@ const ProfileCard: React.FC<Profile> = ({
   foto,
 }) => {
   return (
-    <div className="bg-white p-4 rounded-md shadow-md mb-4 flex">
+    <div className="bg-white p-4 rounded-md shadow-md mb-4 flex" style={{ width: '65%' }}>
       <div className="flex-shrink-0">
         <img
           src={foto}

@@ -8,10 +8,9 @@ const CheckTranslation = () => {
     t,
     i18n: { changeLanguage: tr },
   } = useTranslation();
-  
 
   return (
-    <div className="prose flex flex-col justify-center items-center gap-4 m-4">
+    <div className="prose flex flex-col justify-center items-center gap-4">
       <h2 className="underline underline-offset-8">{t('project.title')}</h2>
       <p className="italic">{t('project.description')}</p>
       <select

@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 
 type Profile = {
-  fullName: string;
-  profession: string;
-  languages: string[];
+  nombreCompleto: string;
+  profesion: string;
+  lenguajes: string[];
   foto: string;
 };
 
 const ProfileCard: React.FC<Profile> = ({
-  fullName,
-  profession,
-  languages,
+  nombreCompleto,
+  profesion,
+  lenguajes,
   foto,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -38,21 +38,21 @@ const ProfileCard: React.FC<Profile> = ({
           <div className="flex-shrink-0">
             <img
               src={foto}
-              alt={`Foto de ${fullName}`}
+              alt={`Foto de ${nombreCompleto}`}
               className="w-12 h-12 rounded"
             />
           </div>
           <div className="ml-4">
-            <div className="text-black font-poppins font-bold text-lg leading-4 mb-2">{fullName}</div>
-            <div className="text-gray-600 font-poppins font-medium text-base leading-4">{profession}</div>
+            <div className="text-black font-poppins font-bold text-lg leading-4 mb-2">{nombreCompleto}</div>
+            <div className="text-gray-600 font-poppins font-medium text-base leading-4">{profesion}</div>
           </div>
         </div>
 
         <div className="flex mt-2 text-sm">
-          {languages.map((language, index) => (
+          {lenguajes.map((lenguaje, index) => (
             <div key={index} className="mr-2">
               <button className="bg-gray-300 text-1E1E1E px-3 py-1 rounded border border-gray-400 font-semibold">
-                {language}
+                {lenguaje}
               </button>
             </div>
           ))}

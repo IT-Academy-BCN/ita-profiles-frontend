@@ -35,7 +35,7 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="my-2 mr-12  flex justify-end ">
+    <div className="my-4 mr-12 hidden  justify-end md:flex">
       <button
         className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
         onClick={handleOpenRestrictedPopup}

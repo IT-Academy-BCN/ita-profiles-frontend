@@ -1,26 +1,22 @@
-
 # ITA Profiles FRONTEND
 
-Welcome to the ITA FRONTEND GitHub repository! 
+Welcome to the ITA FRONTEND GitHub repository!
 
-This repository houses the source code for the IT Academy's profiles. Thi platform enables event recruiters collaborating with the IT academy to have quick access to all candidates, allowing them to filter and communicate with them effortlessly. For students, the aim is to enhance the visibility of their profiles and thereby improve their employability. 
+This repository houses the source code for the IT Academy's profiles. Thi platform enables event recruiters collaborating with the IT academy to have quick access to all candidates, allowing them to filter and communicate with them effortlessly. For students, the aim is to enhance the visibility of their profiles and thereby improve their employability.
 
-IT Academy is a leading educational institution of Barcelona dedicated to providing tech education. 
+IT Academy is a leading educational institution of Barcelona dedicated to providing tech education.
 
 **The code is developed by students who have completed the IT Academy Bootcamp** and are currently in the project phase. In these projects, there is a Product Owner and a Scrum Master to enable students to apply their knowledge in a real-world environment.
-
 
 ## Demo
 
 --
 
-
 ## Screenshots
 
 --
 
-
-## Instalation
+## Installation
 
 ```console
 git clone --
@@ -28,11 +24,19 @@ npm i
 npm run dev
 ```
 
+_Note: The next steps are only needed while there isn't a backend API_
+
+If we need to run json-server we must start a local server to keep track of the `db.json` file. For that we need to execute this command on our IDE terminal. This will run the server in `localhost:3000`.
+
+`npx json-server --watch db.json -m ./node_modules/json-server-auth`
+
+If we need to change the port of the server we add `-p xxxx`. The next example will run the server on `localhost:3001`.
+
+`npx json-server --watch -p 3001 db.json -m ./node_modules/json-server-auth`
 
 ## Contribution Guidelines
 
 Contributions are always welcome!
-
 
 To ensure a smooth and organized development process, please follow these guidelines when contributing:
 
@@ -62,16 +66,11 @@ Redux: If you're working on state management, follow the Redux pattern for actio
 
 2. Code Reviews: Be open to feedback during code reviews. Reviewers may suggest improvements or changes to ensure code quality and maintainability.
 
-
 By following these contribution guidelines, you'll help maintain a clean and organized codebase,
-
 
 ## Used By
 
 This project is being used by IT Academy at Barcelona Activa
-
-
-
 
 ## Acknowledgements
 
@@ -82,7 +81,6 @@ To all the students whose hard work makes these projects possible and move forwa
 #### What are the requirements to participate in projects?
 
 Complete the React specialization at IT Academy.
-
 
 #### Why should I collaborate on this project?
 

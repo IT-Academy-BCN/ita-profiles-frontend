@@ -1,7 +1,7 @@
 import profilesData from '../data/Profiles_JESON';
 import ProfileCard from './ProfileCard';
 
-const ProfilesPage = () => {
+const ProfilesList = () => {
   return (
     <div className="container mx-auto mt-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -13,4 +13,4 @@ const ProfilesPage = () => {
   );
 };
 
-export default ProfilesPage;
+export default ProfilesList;

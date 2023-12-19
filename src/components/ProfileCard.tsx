@@ -28,7 +28,7 @@ const ProfileCard: React.FC<Profile> = ({
               onChange={() => setIsChecked(!isChecked)}
               className="checkbox"
             />
-            <div className="checkbox-custom absolute top-0 left-0 w-6 h-6 rounded border border-gray-400 bg-white"></div>
+            <div className="checkbox-custom absolute top-0 right-0 w-6 h-6 rounded border border-gray-400 bg-white"></div>
           </label>
         </div>
       </div>

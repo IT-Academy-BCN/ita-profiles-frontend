@@ -6,10 +6,11 @@ import burgerMenu from '../../assets/svg/burgerMenu.svg';
 
 const Landing = () => {
   return (
-    <div className="flex w-full">
+    <div className="flex ">
       <MenuNavbar />
 
       <div className="h-full w-full">
+        {/* navbar visible on md screens */}
         <div className="hidden justify-end md:flex">
           <UserNavbar />
         </div>
@@ -17,6 +18,7 @@ const Landing = () => {
         {/* White board --> */}
         <div className="min-h-screen bg-white p-4 md:mb-2 md:mr-12 md:min-h-[90vh] md:rounded-[15px]">
           <div className="flex justify-end gap-3 md:hidden">
+            {/* navbar visible on small screens */}
             <div className="flex items-center justify-center  md:hidden">
               <UserNavbar />
             </div>

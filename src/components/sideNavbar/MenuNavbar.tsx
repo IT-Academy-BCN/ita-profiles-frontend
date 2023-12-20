@@ -14,6 +14,7 @@ const MenuNavbar = () => {
         {/* Menu should be placed here
          * Margins or Padding should be placed here
          * h3 should be removed and component should be placed here maybe
+         * Delete comment once this is fixed
          */}
         <h3 className="font-bold text-colortext">MenuNavbar ul</h3>
       </div>

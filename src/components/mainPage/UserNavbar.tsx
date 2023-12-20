@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Lock from '../../assets/svg/lock-dynamic-color.svg';
 import LoginPopup from '../LoginPopup';
 import RegisterPopup from '../RegisterPopup';
+import userIcon from '../../assets/svg/userIcon.svg';
 
 const UserNavbar = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -35,12 +36,12 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="my-4 mr-12 hidden  justify-end md:flex">
+    <div className="my-4 md:mr-12 ">
       <button
-        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+        className="flex items-center justify-center rounded-md bg-gray-200 font-bold text-white hover:bg-gray-300 md:bg-white"
         onClick={handleOpenRestrictedPopup}
       >
-        Entrar
+        <img src={userIcon} alt="" className="w-full px-3 py-2" />
       </button>
       {isRestrictedPopupOpen && (
         <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">

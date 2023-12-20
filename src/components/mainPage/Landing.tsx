@@ -10,18 +10,18 @@ const Landing = () => {
       <MenuNavbar />
 
       <div className="h-full w-full">
-        <UserNavbar />
+        <div className="hidden justify-end md:flex">
+          <UserNavbar />
+        </div>
 
         {/* White board --> */}
         <div className="min-h-screen bg-white p-4 md:mb-2 md:mr-12 md:min-h-[90vh] md:rounded-[15px]">
-          <div className="flex justify-end md:hidden">
-            <div className="">
-              {/* here goes userNavbar I think ... */}
-              <img
-                src={burgerMenu}
-                alt="burger menu"
-                className="h-8 w-8 cursor-pointer"
-              />
+          <div className="flex justify-end gap-3 md:hidden">
+            <div className="flex items-center justify-center  md:hidden">
+              <UserNavbar />
+            </div>
+            <div className="flex cursor-pointer items-center justify-center ">
+              <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
             </div>
           </div>
           <div className="flex items-start p-6">

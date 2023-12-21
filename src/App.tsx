@@ -6,6 +6,7 @@ import CheckTranslation from './components/CheckTranslation';
 import SwitchTheme from './components/SwitchTheme';
 import { ThemeProvider } from './context/ThemeProvider';
 import './styles/App.css';
+import ProfilesList from './components/ProfilesList';
 
 const App: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -44,8 +45,7 @@ const App: React.FC = () => {
       <CheckTranslation />
 
       <div>
-        <h1 className="text-2xl font-bold">Welcome to ita profiles</h1>
-        <button
+          <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={handleOpenRestrictedPopup}
         >
@@ -95,7 +95,8 @@ const App: React.FC = () => {
             {isLoginPopupOpen && <LoginPopup onClose={handleCloseLoginPopup} />}
           </div>
         )}
-      </div>
+        <ProfilesList/>
+    </div>
     </ThemeProvider>
   );
 };

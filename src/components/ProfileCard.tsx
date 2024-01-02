@@ -16,7 +16,7 @@ const ProfileCard: React.FC<Profile> = ({
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <div className="mb-4 flex max-w-[380px] rounded-md border p-2">
+    <div className="mb-4 flex max-w-[380px] cursor-pointer rounded-md border p-2">
       <div className="form-control flex items-center">
         <label className="label cursor-pointer">
           <input

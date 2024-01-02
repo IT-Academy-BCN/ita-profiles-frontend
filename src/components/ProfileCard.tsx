@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import 'tailwindcss/tailwind.css';
+import { useState } from 'react';
 
 type Profile = {
   nombreCompleto: string;
@@ -17,43 +16,40 @@ const ProfileCard: React.FC<Profile> = ({
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <div className="bg-white p-4 rounded-md mb-4 flex card-65-percent">
-      
-      <div className="flex-shrink-0 border-gray-400">
-        <div className="form-control flex items-center">
-          <label className="cursor-pointer label">
-            <input
-              type="checkbox"
-              checked={isChecked}
-              onChange={() => setIsChecked(!isChecked)}
-              className="checkbox"
-            />
-          </label>
-        </div>
+    <div className="mb-4 flex max-w-[380px] rounded-md border p-2">
+      <div className="form-control flex items-center">
+        <label className="label cursor-pointer">
+          <input
+            type="checkbox"
+            checked={isChecked}
+            onChange={() => setIsChecked(!isChecked)}
+            className="checkbox h-6 w-6 rounded-sm border-2 border-gray-500"
+          />
+        </label>
       </div>
 
-      <div className="ml-4 flex flex-col">
+      <div className="ml-4 flex flex-col ">
         <div className="flex items-center">
-          <div className="flex-shrink-0">
+          <div>
             <img
               src={foto}
               alt={`Foto de ${nombreCompleto}`}
-              className="w-12 h-12 rounded"
+              className="h-16 w-full rounded-md"
             />
           </div>
-          <div className="ml-4">
-            <div className="text-black font-poppins font-bold text-lg leading-4 mb-2">{nombreCompleto}</div>
-            <div className="text-gray-600 font-poppins font-medium text-base leading-4">{profesion}</div>
+          <div className="ml-4 flex flex-col">
+            <div className="mb-2 text-lg font-bold leading-4 text-black">
+              {nombreCompleto}
+            </div>
+            <div className="text-base leading-4 text-gray-400">{profesion}</div>
           </div>
         </div>
 
-        <div className="flex mt-2 text-sm">
+        <div className="mt-2 flex flex-wrap gap-1 text-xs">
           {lenguajes.map((lenguaje, index) => (
-            <div key={index} className="mr-2">
-              <button className="bg-gray-300 text-1E1E1E px-3 py-1 rounded border border-gray-400 font-semibold">
-                {lenguaje}
-              </button>
-            </div>
+            <button key={index} className=" rounded-md bg-[#D9D9D9] px-3 py-1 ">
+              {lenguaje}
+            </button>
           ))}
         </div>
       </div>

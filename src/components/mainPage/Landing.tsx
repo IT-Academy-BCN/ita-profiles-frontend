@@ -26,7 +26,7 @@ const Landing = () => {
               <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
             </div>
           </div>
-          <div className="flex items-start p-6">
+          <div className="flex items-start gap-1 p-6">
             <Filters />
             <Students />
           </div>

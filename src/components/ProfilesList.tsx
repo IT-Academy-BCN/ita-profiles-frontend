@@ -3,12 +3,10 @@ import ProfileCard from './ProfileCard';
 
 const ProfilesList = () => {
   return (
-    <div className="container mx-auto mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {profilesData.map((profile) => (
-          <ProfileCard key={profile.id} {...profile} />
-        ))}
-      </div>
+    <div className="mt-2 grid grid-cols-1 gap-4 border border-blue-700 md:grid-cols-2">
+      {profilesData.map((profile) => (
+        <ProfileCard key={profile.id} {...profile} />
+      ))}
     </div>
   );
 };

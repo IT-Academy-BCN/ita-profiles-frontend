@@ -5,10 +5,10 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
-   
     extend: {
       colors: {
-        colortext: "#282828"
+        colortext: "#282828",
+        pinkit: '#B91879',
       }
     },
   },

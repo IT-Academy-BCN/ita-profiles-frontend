@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useAppDispatch } from '../hooks/ReduxHooks';
+import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 
 type Profile = {
   nombreCompleto: string;
@@ -14,9 +16,16 @@ const ProfileCard: React.FC<Profile> = ({
   foto,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const dispatch = useAppDispatch();
+  const handleUserDetail = () => {
+    dispatch(toggleUserPanel());
+  };
 
   return (
-    <div className="mb-4 flex max-w-[380px] cursor-pointer rounded-md border p-2">
+    <div
+      className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-md p-2"
+      onClick={handleUserDetail}
+    >
       <div className="form-control flex items-center">
         <label className="label cursor-pointer">
           <input

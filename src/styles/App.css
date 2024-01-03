@@ -9,3 +9,20 @@
   background: rgb(87, 210, 10);
   border: 3px solid rgba(138, 250, 18, 0.78);
 } */
+
+.overflow-y-auto::-webkit-scrollbar {
+  overflow-y: auto;
+  width: 6px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  overflow-y: auto;
+  background: #ededed;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  overflow-y: auto;
+  background: #b0b0b0;
+  border-radius: 16px;
+  cursor: pointer;
+}

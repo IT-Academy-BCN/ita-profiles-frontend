@@ -9,7 +9,7 @@ const ProfilesList = () => {
   return (
     <div
       className={`${
-        isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'md:grid-cols-2'
+        isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'lg:grid-cols-2'
       } mt-2 grid max-h-[75vh] w-full grid-cols-1 gap-4 overflow-hidden overflow-y-auto`}
     >
       {profilesData.map((profile) => (

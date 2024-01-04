@@ -9,6 +9,8 @@ export default {
       colors: {
         colortext: "#282828",
         pinkit: '#B91879',
+        pinkit_hover:'#811155',
+        pinkit_active: '#ce5da1'
       }
     },
   },

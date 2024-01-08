@@ -25,7 +25,9 @@ const UserDetails = () => {
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-colortext">Detalle Perfil</h3>
         <div className="cursor-pointer border">
-          <img src={close} alt="close icon" onClick={handleIsPanelOpen} />
+          <button onClick={handleIsPanelOpen}>
+            <img src={close} alt="close icon" />
+          </button>
         </div>
       </div>
       {/* user bookmark and message */}

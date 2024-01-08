@@ -1,24 +1,31 @@
-import { useAppSelector } from '../../hooks/ReduxHooks';
 import bookmark from '../../assets/svg/bookmark.svg';
-import email from '../../assets/svg/email.svg';
 import close from '../../assets/svg/close.svg';
-import linkedin from '../../assets/svg/linkedin.svg';
+import email from '../../assets/svg/email.svg';
 import github from '../../assets/svg/github.svg';
+import linkedin from '../../assets/svg/linkedin.svg';
+import { useAppDispatch, useAppSelector } from '../../hooks/ReduxHooks';
+import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 
 const UserDetails = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
   );
+  const dispatch = useAppDispatch();
+
+  const handleIsPanelOpen = () => {
+    dispatch(toggleUserPanel());
+  };
+
   return (
     <div
       className={`${
         isPanelOpen ? 'block' : 'hidden'
-      } mr-2 max-h-[90vh] border border-red-400 px-2 pt-10`}
+      } mr-2 max-h-[90vh] px-2 pt-4`}
     >
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-colortext">Detalle Perfil</h3>
-        <div className="cursor-pointer">
-          <img src={close} alt="close icon" />
+        <div className="cursor-pointer border">
+          <img src={close} alt="close icon" onClick={handleIsPanelOpen} />
         </div>
       </div>
       {/* user bookmark and message */}
@@ -31,21 +38,29 @@ const UserDetails = () => {
             <p className="text-lg font-bold text-black">nombreUsu</p>
             <p className="">Full stack</p>
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-1">
+              <a
+                href="https://github.com"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
                 <img src={github} alt="github icon" />
                 <span className="text-gray-400">Github</span>
-              </div>
-              <div className="flex items-center gap-1">
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                className="flex items-center gap-1"
+              >
                 <img src={linkedin} alt="linkedin icon" />
                 <span className="text-gray-400">Linkedin</span>
-              </div>
+              </a>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <button className="h-16 w-16 rounded-xl border-2 border-[#808080]">
               <img src={bookmark} alt="bookmark icon" className="h-6 w-16" />
             </button>
-            <button className="hover:bg-pinkit_hover active:bg-pinkit_active  h-16 w-16 rounded-xl bg-pinkit">
+            <button className="h-16 w-16  rounded-xl bg-pinkit hover:bg-pinkit_hover active:bg-pinkit_active">
               <img src={email} alt="email icon" className="h-6 w-16" />
             </button>
           </div>
@@ -64,9 +79,9 @@ const UserDetails = () => {
 
       {/* Proyectos */}
       <div>
-        <div>
+        <div className="flex items-center justify-between">
           <h4 className="text-lg font-bold text-colortext">Proyectos</h4>
-          <div>arrow left and right</div>
+          <div>"left""right"</div>
         </div>
         <div>Componente proyectos. Do a map here.</div>
       </div>

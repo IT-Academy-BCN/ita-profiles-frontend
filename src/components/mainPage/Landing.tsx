@@ -10,7 +10,7 @@ const Landing = () => {
     <div className="flex ">
       <MenuNavbar />
 
-      <div className="h-full w-full">
+      <div className=" w-full">
         {/* navbar visible on md screens */}
         <div className="hidden justify-end md:flex">
           <UserNavbar />
@@ -18,9 +18,8 @@ const Landing = () => {
 
         <div className="flex">
           {/* White board --> */}
-          {/* added w-full but now panel doesnt show. maybe when panel is active
-          change the size of the white board? What about mobile version */}
-          <div className=" max-h-[90vh] w-full bg-white p-4 md:mb-2 md:mr-12 md:rounded-[15px]">
+          {/* What about mobile version ?¿ */}
+          <div className=" max-h-[95vh] w-full bg-white p-4 md:mb-2 md:mr-12 md:rounded-[15px]">
             {/* MOBILE navbar. visible on small screens */}
             <div className="flex justify-end gap-3 md:hidden">
               <div className="flex items-center justify-center  md:hidden">
@@ -30,7 +29,7 @@ const Landing = () => {
                 <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
               </div>
             </div>
-            {/* Table p-6 gives me scroll...*/}
+            {/* >>>>>>>>>> Table p-6 gives me scroll...*/}
             <div className="flex gap-1 p-6">
               <Filters />
               <Students />

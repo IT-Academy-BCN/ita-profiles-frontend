@@ -16,17 +16,14 @@ const ProfileCard: React.FC<Profile> = ({
   foto,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
-  // const [isActive, setIsActive] = useState(false);  * Doesnt really work.
   const dispatch = useAppDispatch();
   const handleUserDetail = () => {
-    // setIsActive(true);
     dispatch(toggleUserPanel());
   };
 
   return (
     <div
-      // isActive ? 'bg-[#F2F2F2]' : null
-      className={`mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2] `}
+      className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2]"
       onClick={handleUserDetail}
     >
       <div className="form-control flex items-center">

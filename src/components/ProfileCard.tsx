@@ -25,6 +25,12 @@ const ProfileCard: React.FC<Profile> = ({
     <div
       className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2]"
       onClick={handleUserDetail}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter') {
+          handleUserDetail();
+        }
+      }}
+      tabIndex={0}
     >
       <div className="form-control flex items-center">
         <label className="label cursor-pointer">
@@ -56,9 +62,9 @@ const ProfileCard: React.FC<Profile> = ({
 
         <div className="mt-2 flex flex-wrap gap-1 text-xs">
           {lenguajes.map((lenguaje, index) => (
-            <button key={index} className=" rounded-md bg-[#D9D9D9] px-3 py-1 ">
+            <span key={index} className=" rounded-md bg-[#D9D9D9] px-3 py-1 ">
               {lenguaje}
-            </button>
+            </span>
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@ import itAcademyLogo from '../../assets/svg/itacademy.svg';
 const MenuNavbar = () => {
   return (
     <div className="hidden min-h-screen w-64 flex-col items-center p-2 md:flex">
-      <div className="my-2 flex min-w-[144px] items-center justify-center">
+      <div className="my-1 flex min-w-[144px] items-center justify-center">
         <img
           src={itAcademyLogo}
           alt="itAcademy Logo"

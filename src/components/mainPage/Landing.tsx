@@ -10,17 +10,19 @@ const Landing = () => {
       <MenuNavbar />
 
       <div className=" w-full">
-        {/* vertical side navbar visible on >= md screens */}
         <div className="flex justify-end">
           <UserNavbar />
         </div>
 
         <div className="flex">
           {/* White board --> */}
-          <div className=" max-h-[95vh] w-full bg-white p-4 md:mb-2 md:mr-12 md:rounded-[15px]">
+          <div className="min-h-screen w-full rounded-[15px] bg-white p-6 md:mb-2 md:mr-12 md:min-h-[85vh] lg:min-h-[90vh]">
             {/* >>>>>>>>>> Table p-6 gives me scroll...*/}
-            <div className="flex gap-1 p-6">
+            <div className="relative flex gap-1 ">
               <Filters />
+              {/* <button type="button" className="absolute right-4 top-4">
+                Filtrar
+              </button> */}
               <Students />
             </div>
           </div>

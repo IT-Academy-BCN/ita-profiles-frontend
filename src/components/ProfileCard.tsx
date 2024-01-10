@@ -22,28 +22,28 @@ const ProfileCard: React.FC<Profile> = ({
   };
 
   return (
-    <div
-      className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2]"
-      onClick={handleUserDetail}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter') {
-          handleUserDetail();
-        }
-      }}
-      tabIndex={0}
-    >
+    <div className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2]">
       <div className="form-control flex items-center">
         <label className="label cursor-pointer">
           <input
             type="checkbox"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
-            className="checkbox h-6 w-6 rounded-sm border-2 border-gray-500"
+            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 [--chkbg:theme(colors.pink.700)] [--chkfg:white] checked:border-transparent"
           />
         </label>
       </div>
 
-      <div className="ml-4 flex flex-col ">
+      <div
+        className="ml-4 flex flex-col "
+        onClick={handleUserDetail}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleUserDetail();
+          }
+        }}
+        tabIndex={0}
+      >
         <div className="flex items-center">
           <div>
             <img

@@ -20,9 +20,6 @@ const Landing = () => {
             {/* >>>>>>>>>> Table p-6 gives me scroll...*/}
             <div className="relative flex gap-1 ">
               <Filters />
-              {/* <button type="button" className="absolute right-4 top-4">
-                Filtrar
-              </button> */}
               <Students />
             </div>
           </div>

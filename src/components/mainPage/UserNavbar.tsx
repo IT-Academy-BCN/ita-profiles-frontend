@@ -37,7 +37,7 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="mx-4 my-3 flex w-full justify-between md:mr-12 md:justify-end">
+    <div className="mx-4 my-3 flex w-full justify-between md:mr-8 md:justify-end">
       <div className="flex cursor-pointer items-center justify-center md:hidden ">
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>

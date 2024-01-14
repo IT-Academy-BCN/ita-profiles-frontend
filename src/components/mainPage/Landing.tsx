@@ -6,26 +6,27 @@ import UserDetails from '../userDetailsPanel/UserDetails';
 
 const Landing = () => {
   return (
-    <div className="flex ">
+    <div className="grid min-h-screen grid-cols-8">
       <MenuNavbar />
 
-      <div className=" w-full">
-        <div className="flex justify-end">
-          <UserNavbar />
-        </div>
-
-        <div className="flex">
-          {/* White board --> */}
-          <div className="min-h-screen w-full rounded-[15px] bg-white p-6 md:mb-2 md:mr-12 md:min-h-[85vh] lg:min-h-[90vh]">
-            {/* >>>>>>>>>> Table p-6 gives me scroll...*/}
-            <div className="relative flex gap-1 ">
-              <Filters />
-              <Students />
-            </div>
+      <div className="col-span-8 w-full md:col-span-7">
+        <div className="w-full">
+          <div className=" flex justify-end ">
+            <UserNavbar />
           </div>
 
-          {/* Profile Details */}
-          <UserDetails />
+          <main className="flex">
+            {/* White board --> */}
+            <div className="w-full rounded-[15px] bg-white p-6  md:mr-8">
+              <div className="relative flex gap-1 ">
+                <Filters />
+                <Students />
+              </div>
+            </div>
+
+            {/* Profile Details */}
+            <UserDetails />
+          </main>
         </div>
       </div>
     </div>

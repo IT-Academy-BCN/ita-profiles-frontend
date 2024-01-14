@@ -10,7 +10,7 @@ const ProfilesList = () => {
     <div
       className={`${
         isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'lg:grid-cols-2'
-      } mt-4 grid max-h-[75vh] w-full grid-cols-1 gap-3 overflow-hidden overflow-y-auto `}
+      } mt-4 grid max-h-[85vh] w-full grid-cols-1 gap-3 overflow-hidden overflow-y-auto md:max-h-[75vh] `}
     >
       {profilesData.map((profile) => (
         <ProfileCard key={profile.id} {...profile} />

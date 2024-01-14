@@ -7,18 +7,18 @@ const Students = () => {
         <h3 className="text-2xl font-bold text-colortext">Alumn@s</h3>
         <button
           type="button"
-          className="rounded-lg border border-gray-400 px-4 py-1 font-semibold md:hidden"
+          className="rounded-lg border border-gray-400 px-4 py-1 font-semibold hover:bg-gray-100 md:hidden"
         >
           Filtrar
         </button>
       </div>
-      <div className="mt-2 flex items-center justify-end gap-2">
+      {/* <div className="mt-2 flex items-center justify-end gap-2">
         <div>
-          <button>
+          <button className="flex h-8 w-8 items-center justify-center border md:h-16 md:w-16 md:rounded-xl md:border-2 md:p-2">
             <svg
               width="16"
-              height="23"
-              viewBox="0 0 16 23"
+              height="24"
+              viewBox="0 0 16 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -35,7 +35,7 @@ const Students = () => {
           </button>
         </div>
         <div>
-          <button>
+          <button className="flex h-8 w-8 items-center justify-center border">
             <svg
               width="25"
               height="24"
@@ -50,7 +50,7 @@ const Students = () => {
             </svg>
           </button>
         </div>
-      </div>
+      </div> */}
       <ProfilesList />
     </div>
   );

@@ -21,7 +21,7 @@ const Filters = () => {
           <label className="cursor-pointer label">
             <input
               type="checkbox"
-              className="checkbox"
+              className="checkbox  checkbox-primary"
             />
             <span>Fullstack</span>
           </label>

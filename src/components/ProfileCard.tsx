@@ -17,12 +17,19 @@ const ProfileCard: React.FC<Profile> = ({
 }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useAppDispatch();
-  const handleUserDetail = () => {
+  const isMobile = window.innerWidth <= 768;
+
+  const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel());
+    if (isMobile && document) {
+      (
+        document.getElementById('userDetailModal') as HTMLFormElement
+      ).showModal();
+    }
   };
 
   return (
-    <div className="mb-4 mr-8 flex max-w-[380px] cursor-pointer rounded-2xl p-2 hover:bg-[#F2F2F2]">
+    <div className="mb-4 mr-8 flex w-full cursor-pointer rounded-2xl p-3 hover:bg-[#F2F2F2] md:max-w-[380px]">
       <div className="form-control flex items-center">
         <label className="label cursor-pointer">
           <input
@@ -36,10 +43,10 @@ const ProfileCard: React.FC<Profile> = ({
 
       <div
         className="ml-4 flex flex-col "
-        onClick={handleUserDetail}
+        onClick={handleUserDetailToggler}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            handleUserDetail();
+            handleUserDetailToggler();
           }
         }}
         tabIndex={0}

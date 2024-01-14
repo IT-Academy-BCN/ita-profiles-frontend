@@ -6,7 +6,7 @@ interface Props {
 
 const UserDetailsModal = ({ handleIsPanelOpen }: Props) => {
   return (
-    <dialog id="userDetailModal" className="modal">
+    <dialog id="userDetailModal" className="modal modal-open">
       <div className="modal-box">
         <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
       </div>

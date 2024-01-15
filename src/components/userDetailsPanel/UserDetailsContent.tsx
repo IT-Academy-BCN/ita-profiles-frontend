@@ -15,7 +15,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
   return (
     <>
       <div className="mb-1 flex items-center justify-between gap-3 md:hidden">
-        <div>
+        <div className="flex gap-1">
           <Buttons />
         </div>
         <div className="block cursor-pointer md:hidden ">

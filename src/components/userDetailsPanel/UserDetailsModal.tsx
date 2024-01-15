@@ -7,12 +7,9 @@ interface Props {
 const UserDetailsModal = ({ handleIsPanelOpen }: Props) => {
   return (
     <dialog id="userDetailModal" className="modal modal-open">
-      <div className="modal-box">
+      <div className="modal-box overflow-y-auto bg-white">
         <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
       </div>
-      <form method="dialog" className="modal-backdrop">
-        <button>close</button>
-      </form>
     </dialog>
   );
 };

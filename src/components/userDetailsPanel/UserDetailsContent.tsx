@@ -1,6 +1,4 @@
-import bookmark from '../../assets/svg/bookmark.svg';
 import close from '../../assets/svg/close.svg';
-import email from '../../assets/svg/email.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
 import dog from '../../assets/img/stud_1.png';
@@ -8,6 +6,7 @@ import Projects from './projects/Projects';
 import Resources from './resources/Resources';
 import Challenges from './challenges/Challenges';
 import Bootcamp from './bootcamp/Bootcamp';
+import Buttons from './buttons/Buttons';
 
 interface Props {
   handleIsPanelOpen: () => void;
@@ -15,9 +14,19 @@ interface Props {
 const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
   return (
     <>
+      <div className="mb-1 flex items-center justify-between gap-3 md:hidden">
+        <div>
+          <Buttons />
+        </div>
+        <div className="block cursor-pointer md:hidden ">
+          <button onClick={handleIsPanelOpen}>
+            <img src={close} alt="close icon" />
+          </button>
+        </div>
+      </div>
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-colortext">Detalle Perfil</h3>
-        <div className="cursor-pointer ">
+        <div className="hidden cursor-pointer md:flex">
           <button onClick={handleIsPanelOpen}>
             <img src={close} alt="close icon" />
           </button>
@@ -51,13 +60,8 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
               </a>
             </div>
           </div>
-          <div className="flex items-center gap-3">
-            <button className="h-16 w-16 rounded-xl border-2 border-[#808080]">
-              <img src={bookmark} alt="bookmark icon" className="h-6 w-16" />
-            </button>
-            <button className="h-16 w-16  rounded-xl bg-pinkit hover:bg-pinkit_hover active:bg-pinkit_active">
-              <img src={email} alt="email icon" className="h-6 w-16" />
-            </button>
+          <div className="hidden items-center gap-3 md:flex">
+            <Buttons />
           </div>
         </div>
       </div>

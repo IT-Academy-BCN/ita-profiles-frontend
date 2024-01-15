@@ -26,7 +26,7 @@ const UserDetails = () => {
       ) : (
         <div
           className={`${
-            isPanelOpen ? 'block' : 'hidden'
+            isPanelOpen ? 'block overflow-hidden overflow-y-auto' : 'hidden'
           } mr-2 max-h-[90vh] px-2 pt-4`}
         >
           <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />

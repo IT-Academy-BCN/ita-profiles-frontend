@@ -4,6 +4,10 @@ import email from '../../assets/svg/email.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
 import dog from '../../assets/img/stud_1.png';
+import Projects from './projects/Projects';
+import Resources from './resources/Resources';
+import Challenges from './challenges/Challenges';
+import Bootcamp from './bootcamp/Bootcamp';
 
 interface Props {
   handleIsPanelOpen: () => void;
@@ -68,25 +72,34 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
         <div>map on each tech.</div>
       </div>
       {/* Proyectos */}
-      <div>
+      <div className="flex flex-col">
         <div className="flex items-center justify-between">
           <h4 className="text-lg font-bold text-colortext">Proyectos</h4>
           <div>"left""right"</div>
         </div>
-        <div>Componente proyectos con DaisyUI carrousel?</div>
+
+        <div className="flex max-w-lg overflow-hidden overflow-y-auto">
+          {/* Componente proyectos map! con DaisyUI carrousel? */}
+          <Projects />
+          <Projects />
+          <Projects />
+        </div>
       </div>
       {/* Colaboración */}
       <div>
         <h4 className="text-lg font-bold text-colortext">Colaboración</h4>
-        <div>
-          <div>Recursos subidos componente</div>
-          <div>Retos completados componente</div>
+        <div className="flex flex-col items-center justify-center gap-1 border md:flex-row">
+          {/* Recursos subidos componente */}
+          <Resources />
+          <Challenges />
         </div>
       </div>
       {/* Datos del bootcamp */}
       <div>
         <h4 className="text-lg font-bold text-colortext">Datos del bootcamp</h4>
-        <div>Full-stack PHP!!</div>
+        <div>
+          <Bootcamp />
+        </div>
       </div>
     </>
   );

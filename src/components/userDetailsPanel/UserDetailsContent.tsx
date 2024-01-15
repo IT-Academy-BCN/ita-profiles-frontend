@@ -3,6 +3,7 @@ import close from '../../assets/svg/close.svg';
 import email from '../../assets/svg/email.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
+import dog from '../../assets/img/stud_1.png';
 
 interface Props {
   handleIsPanelOpen: () => void;
@@ -21,7 +22,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       {/* user bookmark and message */}
       <div className="flex">
         <div>
-          <img src="" alt="image here" className="h-16 w-full" />
+          <img src={dog} alt="image here" className="h-full w-full" />
         </div>
         <div className="flex w-full justify-between">
           <div className="flex flex-col">

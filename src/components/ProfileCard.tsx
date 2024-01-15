@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../hooks/ReduxHooks';
 import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 
@@ -19,13 +19,20 @@ const ProfileCard: React.FC<Profile> = ({
   const dispatch = useAppDispatch();
   const isMobile = window.innerWidth <= 768;
 
+  useEffect(() => {
+    if (isMobile && document) {
+      const userDetailModal = document.getElementById(
+        'userDetailModal',
+      ) as HTMLFormElement;
+
+      if (userDetailModal) {
+        userDetailModal.showModal();
+      }
+    }
+  }, [isMobile]);
+
   const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel());
-    if (isMobile && document) {
-      (
-        document.getElementById('userDetailModal') as HTMLFormElement
-      ).showModal();
-    }
   };
 
   return (

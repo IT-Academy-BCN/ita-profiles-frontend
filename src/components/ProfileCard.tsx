@@ -18,16 +18,15 @@ const ProfileCard: React.FC<Profile> = ({
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useAppDispatch();
   const isMobile = window.innerWidth <= 768;
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
 
   useEffect(() => {
     if (isMobile && document) {
-      const userDetailModal = document.getElementById(
-        'userDetailModal',
-      ) as HTMLFormElement;
-
-      if (userDetailModal) {
-        userDetailModal.showModal();
-      }
+      handleOpenModal();
     }
   }, [isMobile]);
 
@@ -43,7 +42,7 @@ const ProfileCard: React.FC<Profile> = ({
             type="checkbox"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
-            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 [--chkbg:theme(colors.pink.700)] [--chkfg:white] checked:border-transparent"
+            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 [--chkbg:theme(colors.pinkit)] [--chkfg:white] checked:border-transparent"
           />
         </label>
       </div>

@@ -20,9 +20,7 @@ const UserDetails = () => {
   return (
     <>
       {isMobile && isPanelOpen ? (
-        <>
-          <UserDetailsModal handleIsPanelOpen={handleIsPanelOpen} />
-        </>
+        <UserDetailsModal handleIsPanelOpen={handleIsPanelOpen} />
       ) : (
         <div
           className={`${

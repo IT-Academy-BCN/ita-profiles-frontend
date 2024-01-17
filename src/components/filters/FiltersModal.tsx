@@ -12,7 +12,10 @@ const FiltersModal = ({ handleOpenModal }: Props) => {
         <div className="modal-action">
           <form method="dialog" className="flex w-full justify-center ">
             {/* if there is a button in form, it will close the modal */}
-            <button className="font-semibold" onClick={handleOpenModal}>
+            <button
+              className="w-full rounded-lg border border-gray-400 px-4 py-1 font-semibold hover:bg-gray-100"
+              onClick={handleOpenModal}
+            >
               Cerrar
             </button>
           </form>

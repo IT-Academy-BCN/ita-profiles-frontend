@@ -3,16 +3,23 @@ import daisyui from 'daisyui';
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+   darkMode: 'class',
   theme: {
     extend: {
       colors: {
         colortext: "#282828",
         pinkit: '#B91879',
         pinkit_hover:'#811155',
-        pinkit_active: '#ce5da1'
-      }
+        pinkit_active: '#ce5da1',
+        primary: '#ff00ff',
+        white: '#ffffff',
+      },
+      borderColor: {
+        primary: '#ff00ff',
+      },
     },
   },
-  plugins: [typography, daisyui],
-};
+  plugins: [typography, 
+    require('daisyui')
+  ],
+}; 

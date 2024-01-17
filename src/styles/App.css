@@ -10,6 +10,11 @@
   border: 3px solid rgba(138, 250, 18, 0.78);
 } */
 
+/* Clase para el fondo del checkbox cuando está marcado */
+.checkbox:checked + .label::before {
+  background-color: #ff00ff;
+}
+
 .overflow-y-auto::-webkit-scrollbar {
   overflow-y: auto;
   width: 6px;

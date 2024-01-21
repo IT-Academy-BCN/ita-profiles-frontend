@@ -11,9 +11,13 @@ import Buttons from './buttons/Buttons';
 interface Props {
   handleIsPanelOpen: () => void;
 }
+
 const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
+  const isMobile = window.innerWidth < 768;
+
   return (
-    <>
+    <div className={` ${isMobile ? 'modal-box bg-white' : 'bg-transparent'}  `}>
+      {/* div only seen in small screens */}
       <div className="mb-1 flex items-center justify-between gap-3 md:hidden">
         <div className="flex gap-1">
           <Buttons />
@@ -24,6 +28,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
           </button>
         </div>
       </div>
+      {/* div seen in md or bigger screens */}
       <div className="flex items-center justify-between">
         <h3 className="text-2xl font-bold text-colortext">Detalle Perfil</h3>
         <div className="hidden cursor-pointer md:flex">
@@ -105,7 +110,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
           <Bootcamp />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

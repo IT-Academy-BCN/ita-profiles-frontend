@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useAppDispatch } from '../hooks/ReduxHooks';
 import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 
@@ -17,18 +17,6 @@ const ProfileCard: React.FC<Profile> = ({
 }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useAppDispatch();
-  const isMobile = window.innerWidth <= 768;
-  const [openModal, setOpenModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
-
-  useEffect(() => {
-    if (isMobile && document) {
-      handleOpenModal();
-    }
-  }, [isMobile]);
 
   const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel());
@@ -48,7 +36,7 @@ const ProfileCard: React.FC<Profile> = ({
       </div>
 
       <div
-        className="ml-4 flex flex-col "
+        className="ml-4 flex w-full flex-col"
         onClick={handleUserDetailToggler}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

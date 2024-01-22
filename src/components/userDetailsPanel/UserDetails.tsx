@@ -1,7 +1,9 @@
-import UserDetailsContent from './UserDetailsContent';
+import { useContext, useEffect } from 'react';
+import { SmallScreenContext } from '../../context/smallScreenContext';
 import { useAppDispatch, useAppSelector } from '../../hooks/ReduxHooks';
+import { SmallScreenContextT } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
-import { useEffect, useState } from 'react';
+import UserDetailsContent from './UserDetailsContent';
 
 const UserDetails = () => {
   // aqui cogemos el estado que viene por default "false".
@@ -15,11 +17,12 @@ const UserDetails = () => {
     dispatch(toggleUserPanel());
   };
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const { isMobile, setIsMobile }: SmallScreenContextT =
+    useContext(SmallScreenContext);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth < 768);
     };
 
     window.addEventListener('resize', handleResize);
@@ -27,22 +30,16 @@ const UserDetails = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [setIsMobile]);
+
+  const mobileScreen = isMobile
+    ? 'modal modal-open md:hidden'
+    : 'max-h-[90vh] overflow-hidden overflow-y-auto md:block';
 
   return (
-    <>
-      <div
-        className={`${
-          isPanelOpen
-            ? isMobile
-              ? 'modal modal-open md:hidden'
-              : 'max-h-[90vh] overflow-hidden overflow-y-auto md:block'
-            : 'hidden'
-        } mr-2 px-2 pt-4 `}
-      >
-        <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
-      </div>
-    </>
+    <div className={`${isPanelOpen ? mobileScreen : 'hidden'} mr-2 px-2 pt-4 `}>
+      <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
+    </div>
   );
 };
 

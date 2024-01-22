@@ -1,19 +1,22 @@
+import { useContext } from 'react';
+import dog from '../../assets/img/stud_1.png';
 import close from '../../assets/svg/close.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
-import dog from '../../assets/img/stud_1.png';
-import Projects from './projects/Projects';
-import Resources from './resources/Resources';
-import Challenges from './challenges/Challenges';
+import { SmallScreenContext } from '../../context/smallScreenContext';
+import { SmallScreenContextT } from '../../interfaces/interfaces';
 import Bootcamp from './bootcamp/Bootcamp';
 import Buttons from './buttons/Buttons';
+import Challenges from './challenges/Challenges';
+import Projects from './projects/Projects';
+import Resources from './resources/Resources';
 
 interface Props {
   handleIsPanelOpen: () => void;
 }
 
 const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
-  const isMobile = window.innerWidth < 768;
+  const { isMobile }: SmallScreenContextT = useContext(SmallScreenContext);
 
   return (
     <div className={` ${isMobile ? 'modal-box bg-white' : 'bg-transparent'}  `}>

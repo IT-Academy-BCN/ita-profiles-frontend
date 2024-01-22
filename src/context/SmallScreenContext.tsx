@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react';
-import { SmallScreenContextT, childrenProps } from '../interfaces/interfaces';
+import { SmallScreenContextT, ChildrenProps } from '../interfaces/interfaces';
 
 export const SmallScreenContext = createContext<SmallScreenContextT>(
   {} as SmallScreenContextT,
 );
 
-const SmallScreenProvider = ({ children }: childrenProps) => {
+const SmallScreenProvider = ({ children }: ChildrenProps) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   return (

@@ -8,7 +8,7 @@ export interface loginForm {
 
 // This could be used globally if we're passing just the children props.
 // Good for providers
-export interface childrenProps{
+export interface ChildrenProps{
   children: ReactNode;
 }
 

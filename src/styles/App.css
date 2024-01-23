@@ -5,13 +5,18 @@
   color: #282828;
 }
 
+input {
+  accent-color: #ff00ff;
+}
+
 /* [type='checkbox']:checked {
   background: rgb(87, 210, 10);
   border: 3px solid rgba(138, 250, 18, 0.78);
 } */
 
 /* Clase para el fondo del checkbox cuando está marcado */
-.checkbox:checked + .label::before {
+.checkbox:checked + .label::before,
+.checkbox:checked {
   background-color: #ff00ff;
 }
 

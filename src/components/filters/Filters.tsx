@@ -5,19 +5,19 @@ const Filters = () => {
       <div>
         <h4 className="font-bold mt-4 mb-2">Roles</h4>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox mr-2 border-primary bg-primary_checked" />
+          <input type="checkbox" className="checkbox mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Frontend</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary" />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Backend</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary" />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Fullstack</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary" />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Data Science</span>
         </label>
       </div>
@@ -25,19 +25,19 @@ const Filters = () => {
       <div>
         <h4 className="font-bold mt-4 mb-2">Desarollo</h4>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary " />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Spring</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox mr-2 border-primary " />
+          <input type="checkbox" className="checkbox mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Laravel</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary" />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Angular</span>
         </label>
         <label className="label cursor-pointer justify-start">
-          <input type="checkbox" className="checkbox  mr-2 border-primary" />
+          <input type="checkbox" className="checkbox  mr-2 border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>React</span>
         </label>
       </div>

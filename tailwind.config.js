@@ -17,6 +17,9 @@ export default {
       borderColor: {
         primary: '#ff00ff',
       },
+      accentColor: {
+        primary: "#ff00ff"
+      }
     },
   },
   plugins: [typography, 

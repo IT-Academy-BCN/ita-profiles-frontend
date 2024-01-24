@@ -3,6 +3,7 @@ import Lock from '../../assets/svg/lock-dynamic-color.svg';
 import LoginPopup from '../LoginPopup';
 import RegisterPopup from '../RegisterPopup';
 import userIcon from '../../assets/svg/userIcon.svg';
+import burgerMenu from '../../assets/svg/burgerMenu.svg';
 
 const UserNavbar = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -36,9 +37,12 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="my-4 md:mr-12 ">
+    <div className="mx-4 my-3 flex w-full justify-between md:mr-8 md:justify-end">
+      <div className="flex cursor-pointer items-center justify-center md:hidden ">
+        <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
+      </div>
       <button
-        className="flex items-center justify-center rounded-md bg-gray-200 font-bold text-white hover:bg-gray-300 md:bg-white"
+        className="flex items-center justify-center rounded-full bg-white font-bold  hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
         <img src={userIcon} alt="" className="w-full px-3 py-2" />

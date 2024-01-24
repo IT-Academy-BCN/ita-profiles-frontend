@@ -1,3 +1,5 @@
+import FiltersContent from './FiltersContent';
+
 const Filters = () => {
   return (
     <div>

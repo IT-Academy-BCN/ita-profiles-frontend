@@ -2,13 +2,9 @@ import itAcademyLogo from '../../assets/svg/itacademy.svg';
 
 const MenuNavbar = () => {
   return (
-    <div className="hidden min-h-screen w-64 flex-col items-center p-2 md:flex">
-      <div className="my-2 flex min-w-[144px] items-center justify-center">
-        <img
-          src={itAcademyLogo}
-          alt="itAcademy Logo"
-          className="h-full w-full  rounded-md"
-        />
+    <nav className="hidden w-64 items-center p-2 md:block">
+      <div className="my-1 flex min-w-[144px] items-center justify-start">
+        <img src={itAcademyLogo} alt="itAcademy Logo" className="h-full" />
       </div>
       <div className="mt-24 flex flex-col">
         {/* Menu should be placed here
@@ -18,7 +14,7 @@ const MenuNavbar = () => {
          */}
         <h3 className="font-bold text-colortext">MenuNavbar ul</h3>
       </div>
-    </div>
+    </nav>
   );
 };
 

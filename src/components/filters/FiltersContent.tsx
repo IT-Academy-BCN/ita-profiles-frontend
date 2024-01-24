@@ -5,19 +5,19 @@ const FiltersContent = () => {
       <div>
         <h4 className="mb-2 mt-4 font-bold">Roles</h4>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox mr-2" />
+          <input type="checkbox" className="checkbox mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Frontend</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Backend</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Fullstack</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Data Science</span>
         </label>
       </div>
@@ -25,19 +25,19 @@ const FiltersContent = () => {
       <div>
         <h4 className="mb-2 mt-4 font-bold">Desarrollo</h4>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Spring</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox mr-2" />
+          <input type="checkbox" className="checkbox mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Laravel</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>Angular</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
-          <input type="checkbox" className="checkbox  mr-2" />
+          <input type="checkbox" className="checkbox  mr-2  border-primary [--chkbg:theme(colors.pink.700)]" />
           <span>React</span>
         </label>
       </div>
@@ -46,7 +46,7 @@ const FiltersContent = () => {
         <label className="label cursor-pointer justify-start p-1">
           <input
             type="checkbox"
-            className="radio-secondary checkbox radio  mr-2"
+            className="radio-secondary checkbox radio  mr-2 "
           />
           <span>Tod@s</span>
         </label>

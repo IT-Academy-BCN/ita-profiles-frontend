@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
 
 export interface loginForm {
-  //this must be changed to 'dni' instead of 'email' but for json-server we need it to be 'email'
-  email: string;
+  dni: string;
   password: string;
 }
 
@@ -17,3 +16,7 @@ export type SmallScreenContextT = {
   isMobile: boolean;
   setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+export interface IstepsProps {
+  step: string;
+}

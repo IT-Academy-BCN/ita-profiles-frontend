@@ -1,8 +1,10 @@
-import Filters from '../filters/Filters';
+// import Filters from '../filters/Filters';
 import MenuNavbar from '../sideNavbar/MenuNavbar';
-import Students from '../students/Students';
+// import Students from '../students/Students';
 import UserNavbar from './UserNavbar';
 import UserDetails from '../userDetailsPanel/UserDetails';
+import CreateProfileProgress from '../userDetailsPanel/createProfileProgress/CreateProfileProgress';
+import EditUserDetails from '../userDetailsPanel/EditUserDetails';
 
 const Landing = () => {
   return (
@@ -17,10 +19,14 @@ const Landing = () => {
 
           <main className="flex">
             {/* White board --> */}
-            <div className="w-full rounded-[15px] bg-white p-6  md:mr-8">
-              <div className="relative flex gap-1 ">
+            <div className=" min-h-[90vh] w-full rounded-[15px] bg-white p-6 pb-0 md:mr-8">
+              {/* <div className="flex h-full gap-1 ">
                 <Filters />
                 <Students />
+              </div> */}
+              <div className="flex h-full gap-1">
+                <CreateProfileProgress />
+                <EditUserDetails />
               </div>
             </div>
 

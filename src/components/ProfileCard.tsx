@@ -30,7 +30,7 @@ const ProfileCard: React.FC<Profile> = ({
             type="checkbox"
             checked={isChecked}
             onChange={() => setIsChecked(!isChecked)}
-            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 [--chkbg:theme(colors.pinkit)] [--chkfg:white] checked:border-transparent"
+            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 checkbox-primary"
           />
         </label>
       </div>

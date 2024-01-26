@@ -11,9 +11,9 @@ export default {
 
           "primary": "#B91879",
 
-          "pinkit_hover":'#811155',
+          "primary-hover":'#811155',
 
-          "pinkit_active": '#ce5da1',
+          "primary-active": '#ce5da1',
 
           "secondary": "#F9BB47",
 

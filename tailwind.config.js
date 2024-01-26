@@ -4,22 +4,16 @@ import daisyui from 'daisyui';
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
-  /* theme: {
-    extend: {
-      colors: {
-        colortext: "#282828",
-        primary: '#B91879',
-        pinkit_hover:'#811155',
-        pinkit_active: '#ce5da1',
-      },
-      }
-  }, */
   daisyui: {
     themes: [
       {
-        mytheme: {
+        itacademy: {
 
           "primary": "#B91879",
+
+          "pinkit_hover":'#811155',
+
+          "pinkit_active": '#ce5da1',
 
           "secondary": "#F9BB47",
 

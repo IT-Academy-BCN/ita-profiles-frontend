@@ -47,7 +47,7 @@ export default {
 
           "grey-3": "#7E7E7E",
 
-          "grey-4-base": "##EBEBEB",
+          "grey-4-base": "#EBEBEB",
 
         },
       },

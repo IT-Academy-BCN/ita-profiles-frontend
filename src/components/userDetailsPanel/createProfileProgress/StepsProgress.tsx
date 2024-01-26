@@ -7,7 +7,7 @@ const StepsProgress = ({ step }: IstepsProps) => {
   // usestate temporal. for testing purposes. shouldnt be final!!
   const [thumbup, setThumbup] = useState(false);
   return (
-    <div className=" flex flex-col px-4">
+    <div className="my-1 flex flex-col px-4">
       <p
         onClick={() => setThumbup(!thumbup)}
         className={`${

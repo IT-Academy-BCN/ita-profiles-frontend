@@ -17,7 +17,8 @@ export default {
         "gray-2": "#808080",
         "gray-3": "#7E7E7E",
         "gray-4-base": "#EBEBEB", //background of the app
-
+        "ita-wiki": "#3E6990",
+        "ita-challenges": "#F29559"
       }
     },
   },

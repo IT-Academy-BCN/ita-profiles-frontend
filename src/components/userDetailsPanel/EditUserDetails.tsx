@@ -16,7 +16,7 @@ const EditUserDetails = () => {
   }
   return (
     // Each section should be its own component. mucho texto
-    <div className="mb-2 md:w-2/4">
+    <div className="mb-2 max-h-[83vh] overflow-hidden overflow-y-auto md:w-2/4">
       <h3 className="my-8 w-40 text-2xl font-bold text-black-3">Mi perfil</h3>
       {/* About section */}
       <div className="flex gap-2">
@@ -39,7 +39,7 @@ const EditUserDetails = () => {
               className="flex items-center gap-1"
             >
               <img src={github} alt="github icon" />
-              <span className="text-gray-400">Github</span>
+              <span className="text-gray-3">Github</span>
             </a>
             <a
               href="https://linkedin.com"
@@ -47,7 +47,7 @@ const EditUserDetails = () => {
               className="flex items-center gap-1"
             >
               <img src={linkedin} alt="linkedin icon" />
-              <span className="text-gray-400">Linkedin</span>
+              <span className="text-gray-3">Linkedin</span>
             </a>
           </div>
         </div>
@@ -96,16 +96,16 @@ const EditUserDetails = () => {
         <div className="flex items-center justify-between">
           <div className="flex  gap-1">
             <h4 className="font-bold text-black-3">Proyectos</h4>
-            <button className="rounded-md border px-1 hover:bg-gray-4-base">
+            <button className="rounded-md border px-1 hover:bg-gray-4-base/50">
               Nuevo proyecto
             </button>
           </div>
 
           <div className="flex">
-            <button>
+            <button className="hover:scale-125">
               <img src={arrowLeft} alt="left arrow icon" />
             </button>
-            <button>
+            <button className="hover:scale-125">
               <img src={arrowRight} alt="right arrow icon" />
             </button>
           </div>

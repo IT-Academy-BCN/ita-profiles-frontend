@@ -8,7 +8,7 @@ import EditUserDetails from '../userDetailsPanel/EditUserDetails';
 
 const Landing = () => {
   return (
-    <div className="grid min-h-screen grid-cols-8">
+    <div className="bg-gray-4-base grid min-h-screen grid-cols-8">
       <MenuNavbar />
 
       <div className="col-span-8 w-full md:col-span-7">
@@ -24,7 +24,7 @@ const Landing = () => {
                 <Filters />
                 <Students />
               </div> */}
-              <div className="flex h-full gap-1">
+              <div className="flex h-full flex-col gap-1 md:flex-row">
                 <CreateProfileProgress />
                 <EditUserDetails />
               </div>

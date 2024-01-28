@@ -11,14 +11,10 @@ const StepsProgress = ({ step }: IstepsProps) => {
       <p
         onClick={() => setThumbup(!thumbup)}
         className={`${
-          thumbup ? 'text-primary' : 'text-gray-300'
-        } flex items-center text-primary`}
+          thumbup ? 'text-primary' : 'text-gray-2'
+        } flex items-center`}
       >
-        <img
-          src={`${thumbup ? thumbUpPink : thumbUp}`}
-          alt="thumb up icon"
-          sizes=""
-        />
+        <img src={`${thumbup ? thumbUpPink : thumbUp}`} alt="thumb up icon" />
         {step}
       </p>
     </div>

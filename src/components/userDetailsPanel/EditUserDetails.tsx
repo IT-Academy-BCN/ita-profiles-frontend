@@ -7,6 +7,7 @@ import arrowLeft from '../../assets/svg/arrow-left.svg';
 import arrowRight from '../../assets/svg/arrow-right.svg';
 import Resources from './resources/Resources';
 import Challenges from './challenges/Challenges';
+import Projects from './projects/Projects';
 
 const EditUserDetails = () => {
   {
@@ -16,7 +17,7 @@ const EditUserDetails = () => {
   }
   return (
     // Each section should be its own component. mucho texto
-    <div className="mb-2 max-h-[83vh] overflow-hidden overflow-y-auto md:w-2/4">
+    <div className="mb-2 md:max-h-[83vh] md:w-2/4 md:overflow-hidden md:overflow-y-auto">
       <h3 className="my-8 w-40 text-2xl font-bold text-black-3">Mi perfil</h3>
       {/* About section */}
       <div className="flex gap-2">
@@ -92,11 +93,11 @@ const EditUserDetails = () => {
       {/* linea divisoria */}
       <div className="my-4 border border-gray-4-base/25" />
       {/* Proyectos */}
-      <div>
+      <div className="carousel flex flex-col gap-2">
         <div className="flex items-center justify-between">
           <div className="flex  gap-1">
             <h4 className="font-bold text-black-3">Proyectos</h4>
-            <button className="rounded-md border px-1 hover:bg-gray-4-base/50">
+            <button className="rounded-md border px-1 text-sm hover:bg-gray-4-base/50">
               Nuevo proyecto
             </button>
           </div>
@@ -108,6 +109,24 @@ const EditUserDetails = () => {
             <button className="hover:scale-125">
               <img src={arrowRight} alt="right arrow icon" />
             </button>
+          </div>
+        </div>
+        {/* projects */}
+        <div className="carousel flex gap-2 overflow-hidden overflow-x-auto">
+          {/* use this carousel with the arrows like in  https://daisyui.com/components/carousel/ 
+            each project should have an unique id and that id should be used dinamically? to the arrows.
+          */}
+          <div className="carousel-item">
+            <Projects />
+          </div>
+          <div className="carousel-item">
+            <Projects />
+          </div>
+          <div className="carousel-item">
+            <Projects />
+          </div>
+          <div className="carousel-item">
+            <Projects />
           </div>
         </div>
       </div>

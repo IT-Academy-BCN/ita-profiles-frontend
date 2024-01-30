@@ -16,9 +16,14 @@ const MenuNavbar = () => {
           <div
             key={item}
             onClick={() => setActiveItem(item)}
-            className={`p-2 ${activeItem === item ? 'text-black border-l-4 border-primary' : 'text-gray-500'}`}
+            className={`p-2 flex items-center ${activeItem === item ? 'text-black border-l-4' : 'text-gray-500'}`}
           >
-            {item}
+            {activeItem === item && (
+              <div
+                className="w-2 h-2 bg-primary rounded-full mr-2"
+              />
+            )}
+            <p className={`font-poppins text-sm font-semibold leading-4 tracking-tight text-left ${activeItem === item ? 'text-black' : 'text-gray-500'}`}>{item}</p>
           </div>
         ))}
       </div>

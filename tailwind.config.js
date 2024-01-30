@@ -12,9 +12,8 @@ export default {
         "primary-active": '#CE5DA1',
         "black-2": "#1D1D1D",
         "black-3": "#282828", //used in titles
-        "gray": "#333333",
-        "gray-1": "#4F4F4F",
-        "gray-2": "#808080",
+        "gray-1": "#333333",
+        "gray-2": "#4F4F4F",
         "gray-3": "#7E7E7E",
         "gray-4-base": "#EBEBEB", //background of the app
         "ita-wiki": "#3E6990",
@@ -23,10 +22,12 @@ export default {
     },
   },
   daisyui: {
+    // https://daisyui.com/docs/colors/
     themes: [
       {
         itacademy: {
           "primary": "#B91879",
+          "primary-content": "#ffffff",
           "base-content": "#333333",
           "secondary": "#F9BB47",
           "accent": "#27AE60",

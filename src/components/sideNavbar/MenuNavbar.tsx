@@ -16,7 +16,7 @@ const MenuNavbar = () => {
           <div
             key={item}
             onClick={() => setActiveItem(item)}
-            className={`p-2 flex items-center ${activeItem === item ? 'text-black border-l-4' : 'text-gray-500'}`}
+            className={`p-2 flex items-center ${activeItem === item ? 'text-black' : 'text-gray-500'}`}
           >
             {activeItem === item && (
               <div

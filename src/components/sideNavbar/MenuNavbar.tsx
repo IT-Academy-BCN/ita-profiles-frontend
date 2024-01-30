@@ -13,7 +13,7 @@ const MenuNavbar = () => {
       </div>
       <div className="mt-24 flex flex-col">
       {menuItems.map((item) => (
-          <div
+          <button
             key={item}
             onClick={() => setActiveItem(item)}
             className={`p-2 flex items-center ${activeItem === item ? 'text-black' : 'text-gray-500'}`}
@@ -24,7 +24,7 @@ const MenuNavbar = () => {
               />
             )}
             <p className={`font-poppins text-sm font-semibold leading-4 tracking-tight text-left ${activeItem === item ? 'text-black' : 'text-gray-500'}`}>{item}</p>
-          </div>
+          </button>
         ))}
       </div>
     </nav>

@@ -16,7 +16,7 @@ const Skills = ({ isEdit }: IisEdit) => {
 
       {/* is this button an individual component? inside a modal? how does this behave */}
       <button className="flex items-center gap-2 rounded-md bg-gray-4-base px-2 py-1 text-sm ">
-        Nueva skill
+        <p>Nueva skill</p>
         <img src={plus} alt="plus icon" />
       </button>
     </>

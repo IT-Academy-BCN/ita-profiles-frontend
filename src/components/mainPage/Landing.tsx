@@ -3,8 +3,8 @@ import MenuNavbar from '../sideNavbar/MenuNavbar';
 import Students from '../students/Students';
 import UserNavbar from './UserNavbar';
 import UserDetails from '../userDetailsPanel/UserDetails';
-import CreateProfileProgress from '../userDetailsPanel/createProfileProgress/CreateProfileProgress';
-import EditUserDetails from '../userDetailsPanel/EditUserDetails';
+// import CreateProfileProgress from '../userDetailsPanel/createProfileProgress/CreateProfileProgress';
+// import EditUserDetails from '../userDetailsPanel/EditUserDetails';
 
 const Landing = () => {
   return (
@@ -24,6 +24,7 @@ const Landing = () => {
                 <Filters />
                 <Students />
               </div>
+              {/* PR: uncomment this and comment the upper div until routing is added to the app. */}
               {/* <div className="flex h-full flex-col gap-1 md:flex-row">
                 <CreateProfileProgress />
                 <EditUserDetails />

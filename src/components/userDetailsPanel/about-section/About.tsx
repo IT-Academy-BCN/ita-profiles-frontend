@@ -75,10 +75,9 @@ const About = ({ isEdit }: IisEdit) => {
           Div is empty until we know how to ->
           Integrate the Ver Mas / Ver Menos button  */}
         <p className="max-h-12 overflow-hidden">
-          overflowhidden
           <span className="text-red-500">
-            small issue: how to do a see more button at the end of the text!!!
-            max-characters?{' '}
+            overflowhidden small issue: how to do a see more button at the end
+            of the text!!! max-characters?{' '}
           </span>{' '}
           Lorem ipsum dolor, sit asum, dolor sit amet consectetur adipisicing
           elit. Officiis, ipsam!

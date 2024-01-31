@@ -1,5 +1,6 @@
 import pencil from '../../../assets/svg/pencil.svg';
 import remote from '../../../assets/svg/remote.svg';
+import LanguagesCard from './LanguagesCard';
 import { IisEdit } from '../../../interfaces/interfaces';
 
 const Languages = ({ isEdit }: IisEdit) => {
@@ -15,9 +16,8 @@ const Languages = ({ isEdit }: IisEdit) => {
       </div>
 
       <div className="flex flex-col">
-        {/* comp indivi de idiomaCard?  */}
-        <p className="my-1 font-medium">Inglés · Intermedio</p>
-        <p className="my-1 font-medium">Francés · Básico</p>
+        <LanguagesCard />
+        <LanguagesCard />
       </div>
 
       <h4 className="my-3 font-bold text-black-3">Modalidad</h4>

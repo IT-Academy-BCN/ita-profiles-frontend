@@ -11,9 +11,7 @@ const ModalAbout = ({ onClose }: Props) => {
         <form className="flex h-auto flex-col items-center md:max-h-96 lg:max-h-fit">
           {/* nombre y apellidos */}
           <label className="form-control w-full max-w-xs p-1">
-            <div className="label">
-              <span className="label-text">Nombre y apellidos</span>
-            </div>
+            <span>Nombre y apellidos</span>
             <input
               type="text"
               placeholder="Maria Oliveras Guerra"
@@ -22,9 +20,7 @@ const ModalAbout = ({ onClose }: Props) => {
           </label>
           {/* Role */}
           <label className="form-control w-full max-w-xs p-1">
-            <div className="label">
-              <span className="label-text">Titular</span>
-            </div>
+            <span>Titular</span>
             <input
               type="text"
               placeholder="Full-stack developer PHP"
@@ -36,9 +32,7 @@ const ModalAbout = ({ onClose }: Props) => {
           <div className="my-3 w-full max-w-xs border border-gray-4-base/50" />
           {/* Link Perfil Github */}
           <label className="form-control w-full max-w-xs p-1">
-            <div className="label">
-              <span className="label-text">Link perfil de Github</span>
-            </div>
+            <span>Link perfil de Github</span>
             <input
               type="text"
               placeholder="github.com/martaoli"
@@ -48,9 +42,7 @@ const ModalAbout = ({ onClose }: Props) => {
           {/* Link Perfil Linkedin */}
 
           <label className="form-control w-full max-w-xs p-1">
-            <div className="label">
-              <span className="label-text">Link perfil de Linkedin</span>
-            </div>
+            <span>Link perfil de Linkedin</span>
             <input
               type="text"
               placeholder="linkedin.com/martaoli"
@@ -63,9 +55,7 @@ const ModalAbout = ({ onClose }: Props) => {
           {/* Descripción */}
 
           <label className="form-control w-full max-w-xs p-1">
-            <div className="label">
-              <span className="label-text">Descripción</span>
-            </div>
+            <span>Descripción</span>
             <textarea
               className="textarea textarea-bordered h-24"
               placeholder="Escribir código es mega chuli!"

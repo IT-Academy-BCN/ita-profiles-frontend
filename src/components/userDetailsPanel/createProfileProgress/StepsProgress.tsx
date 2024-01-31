@@ -8,7 +8,7 @@ const StepsProgress = ({ step }: IstepsProps) => {
   const [thumbup, setThumbup] = useState(false);
   return (
     <div className="my-1 flex flex-col px-4">
-      <p
+      <button
         onClick={() => setThumbup(!thumbup)}
         className={`${
           thumbup ? 'text-primary' : 'text-gray-2'
@@ -16,7 +16,7 @@ const StepsProgress = ({ step }: IstepsProps) => {
       >
         <img src={`${thumbup ? thumbUpPink : thumbUp}`} alt="thumb up icon" />
         {step}
-      </p>
+      </button>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import pencil from '../../../assets/svg/pencil.svg';
 import medal from '../../../assets/img/medal.png';
 import { IisEdit } from '../../../interfaces/interfaces';
+import FormationCard from './FormationCard';
 const Bootcamp = ({ isEdit }: IisEdit) => {
   return (
     <>
@@ -23,16 +24,9 @@ const Bootcamp = ({ isEdit }: IisEdit) => {
         </div>
       </div>
       <h4 className="mt-6 font-bold text-black-3">Otra formación</h4>
-      {/* TODO: individual component */}
-      <div className="my-2 flex flex-col items-start justify-start">
-        <p className="font-semibold">FP aplicaciones móviles</p>
-        <p>Instituto Lope de Vega</p>
-        <p>2019-2021 · 450 horas</p>
-      </div>
-      <div className="my-2 flex flex-col items-start justify-start">
-        <p className="font-semibold">Desarrollo backend con Java</p>
-        <p>Instituto Lope de Vega</p>
-        <p>2019-2021 · 450 horas</p>
+      <div className="flex flex-col">
+        <FormationCard />
+        <FormationCard />
       </div>
     </>
   );

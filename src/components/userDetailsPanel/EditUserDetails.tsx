@@ -22,7 +22,7 @@ const EditUserDetails = () => {
       <div className="my-4 border border-gray-4-base/25" />
 
       {/* Proyectos */}
-      <Projects />
+      <Projects isEdit={true} />
 
       {/* linea divisoria */}
       <div className="my-4 border border-gray-4-base/25" />

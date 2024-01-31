@@ -3,11 +3,11 @@ import dog from '../../../assets/img/stud_1.png';
 import github from '../../../assets/svg/github.svg';
 import linkedin from '../../../assets/svg/linkedin.svg';
 import pencil from '../../../assets/svg/pencil.svg';
-
 import ModalAbout from './ModalAbout';
 import Buttons from '../buttons/Buttons';
+import { IisEdit } from '../../../interfaces/interfaces';
 
-const About = () => {
+const About = ({ isEdit }: IisEdit) => {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
 
   const handleAboutModal = () => {
@@ -48,21 +48,32 @@ const About = () => {
             </a>
           </div>
         </div>
-        <Buttons />
 
-        <button
+        {isEdit ? (
+          <button
+            className="min-w-fit hover:scale-125"
+            onClick={handleAboutModal}
+          >
+            <img src={pencil} alt="pencil icon" />
+          </button>
+        ) : (
+          <Buttons />
+        )}
+
+        {/* <button
           className="min-w-fit hover:scale-125"
           onClick={handleAboutModal}
         >
           <img src={pencil} alt="pencil icon" />
-        </button>
+        </button> */}
       </div>
       {/* About - description. */}
       <h4 className="mt-6 font-bold text-black-3">About</h4>
       <div className="">
-        {/* flex flex-col ???
+        {/* ### ISSUE
+          flex flex-col ???
           Div is empty until we know how to ->
-          Integrate the Ver Mas button */}
+          Integrate the Ver Mas / Ver Menos button  */}
         <p className="max-h-12 overflow-hidden">
           overflowhidden
           <span className="text-red-500">
@@ -72,7 +83,9 @@ const About = () => {
           Lorem ipsum dolor, sit asum, dolor sit amet consectetur adipisicing
           elit. Officiis, ipsam!
         </p>
-        {/* <button>... ver más</button> */}
+        {/* <button className="rounded-lg border border-gray-3 p-1">
+          ... ver más
+        </button> */}
       </div>
 
       {isAboutModalOpen && <ModalAbout onClose={handleAboutModal} />}

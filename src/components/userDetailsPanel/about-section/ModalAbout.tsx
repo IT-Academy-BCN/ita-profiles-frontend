@@ -6,9 +6,72 @@ interface Props {
 const ModalAbout = ({ onClose }: Props) => {
   return (
     <ModalFormLayout onClose={onClose}>
-      <div className="flex flex-col">
+      <div className="my-2 flex flex-col overflow-hidden overflow-y-auto">
         <h2 className="text-2xl font-bold text-black-3">Editar Datos</h2>
-        <form></form>
+        <form className="flex h-auto flex-col items-center md:max-h-96 lg:max-h-fit">
+          {/* nombre y apellidos */}
+          <label className="form-control w-full max-w-xs p-1">
+            <div className="label">
+              <span className="label-text">Nombre y apellidos</span>
+            </div>
+            <input
+              type="text"
+              placeholder="Maria Oliveras Guerra"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          {/* Role */}
+          <label className="form-control w-full max-w-xs p-1">
+            <div className="label">
+              <span className="label-text">Titular</span>
+            </div>
+            <input
+              type="text"
+              placeholder="Full-stack developer PHP"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          {/* add an input-file here for the photo */}
+
+          <div className="my-3 w-full max-w-xs border border-gray-4-base/50" />
+          {/* Link Perfil Github */}
+          <label className="form-control w-full max-w-xs p-1">
+            <div className="label">
+              <span className="label-text">Link perfil de Github</span>
+            </div>
+            <input
+              type="text"
+              placeholder="github.com/martaoli"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+          {/* Link Perfil Linkedin */}
+
+          <label className="form-control w-full max-w-xs p-1">
+            <div className="label">
+              <span className="label-text">Link perfil de Linkedin</span>
+            </div>
+            <input
+              type="text"
+              placeholder="linkedin.com/martaoli"
+              className="input input-bordered w-full max-w-xs"
+            />
+          </label>
+
+          <div className="my-3 w-full max-w-xs border border-gray-4-base/50" />
+
+          {/* Descripción */}
+
+          <label className="form-control w-full max-w-xs p-1">
+            <div className="label">
+              <span className="label-text">Descripción</span>
+            </div>
+            <textarea
+              className="textarea textarea-bordered h-24"
+              placeholder="Escribir código es mega chuli!"
+            ></textarea>
+          </label>
+        </form>
       </div>
     </ModalFormLayout>
   );

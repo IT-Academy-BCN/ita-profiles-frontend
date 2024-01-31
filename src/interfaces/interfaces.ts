@@ -20,3 +20,7 @@ export type SmallScreenContextT = {
 export interface IstepsProps {
   step: string;
 }
+
+export interface IisEdit {
+  isEdit: boolean;
+}

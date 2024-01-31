@@ -1,6 +1,6 @@
-// import Filters from '../filters/Filters';
+import Filters from '../filters/Filters';
 import MenuNavbar from '../sideNavbar/MenuNavbar';
-// import Students from '../students/Students';
+import Students from '../students/Students';
 import UserNavbar from './UserNavbar';
 import UserDetails from '../userDetailsPanel/UserDetails';
 import CreateProfileProgress from '../userDetailsPanel/createProfileProgress/CreateProfileProgress';

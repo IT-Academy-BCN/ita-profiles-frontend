@@ -11,9 +11,8 @@ const ModalFormLayout = ({ children, onClose }: Props) => {
     <dialog className="modal modal-open">
       <div className="modal-box">
         <form method="dialog">
-          {/* if there is a button in form, it will close the modal */}
           <button
-            className="btn btn-circle btn-ghost btn-sm absolute right-2 top-2"
+            className="btn btn-circle btn-ghost btn-sm absolute right-3 top-3"
             onClick={onClose}
           >
             <img src={close} alt="" />
@@ -33,7 +32,7 @@ const ModalFormLayout = ({ children, onClose }: Props) => {
         </div>
       </div>
       <form method="dialog" className="modal-backdrop">
-        <button onClick={onClose}>close</button>
+        <button onClick={onClose}></button>
       </form>
     </dialog>
   );

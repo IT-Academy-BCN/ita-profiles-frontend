@@ -3,12 +3,13 @@ import close from '../../assets/svg/close.svg';
 
 import { SmallScreenContext } from '../../context/smallScreenContext';
 import { SmallScreenContextT } from '../../interfaces/interfaces';
-import Buttons from './buttons/Buttons';
-import Challenges from './collaboration-section/Challenges';
-import Resources from './collaboration-section/Resources';
-import Bootcamp from './bootcamp-section/Bootcamp';
 import About from './about-section/About';
+import Bootcamp from './bootcamp-section/Bootcamp';
+import Buttons from './buttons/Buttons';
+import Collaboration from './collaboration-section/Collaboration';
 import Projects from './projects-section/Projects';
+import Skills from './skills-section/Skills';
+import Languages from './languages-section/Languages';
 
 interface Props {
   handleIsPanelOpen: () => void;
@@ -39,26 +40,17 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
           </button>
         </div>
       </div>
-
-      <About />
-
+      {/* About */}
+      <About isEdit={false} />
+      <Skills isEdit={false} />
       {/* Proyectos */}
-
       <Projects />
       {/* Colaboración */}
-      <div>
-        <h4 className="text-colortext text-lg font-bold">Colaboración</h4>
-        <div className="flex flex-col items-center justify-center gap-1 md:flex-row">
-          {/* Recursos subidos componente */}
-          <Resources />
-          <Challenges />
-        </div>
-      </div>
+      <Collaboration isEdit={false} />
       {/* Datos del bootcamp */}
-      <div>
-        <h4 className="text-colortext text-lg font-bold">Datos del bootcamp</h4>
-        <Bootcamp />
-      </div>
+      <Bootcamp isEdit={false} />
+      {/* Idiomas */}
+      <Languages isEdit={false} />
     </div>
   );
 };

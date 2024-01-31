@@ -1,14 +1,17 @@
 import pencil from '../../../assets/svg/pencil.svg';
 import remote from '../../../assets/svg/remote.svg';
+import { IisEdit } from '../../../interfaces/interfaces';
 
-const Languages = () => {
+const Languages = ({ isEdit }: IisEdit) => {
   return (
     <>
       <div className="mb-2 flex justify-between gap-1">
         <h4 className="font-bold text-black-3">Idiomas</h4>
-        <button className="hover:scale-125">
-          <img src={pencil} alt="pencil icon" />
-        </button>
+        {isEdit && (
+          <button className="hover:scale-125">
+            <img src={pencil} alt="pencil icon" />
+          </button>
+        )}
       </div>
 
       <div className="flex flex-col">

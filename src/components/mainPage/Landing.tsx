@@ -20,14 +20,14 @@ const Landing = () => {
           <main className="flex">
             {/* White board --> */}
             <div className="min-h-[90vh] w-full rounded-[15px] bg-white p-6 pb-0 md:mr-8">
-              {/* <div className="flex h-full gap-1 ">
+              <div className="flex h-full gap-1 ">
                 <Filters />
                 <Students />
-              </div> */}
-              <div className="flex h-full flex-col gap-1 md:flex-row">
+              </div>
+              {/* <div className="flex h-full flex-col gap-1 md:flex-row">
                 <CreateProfileProgress />
                 <EditUserDetails />
-              </div>
+              </div> */}
             </div>
 
             {/* Profile Details */}

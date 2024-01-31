@@ -40,17 +40,32 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
           </button>
         </div>
       </div>
+
+      <div className="my-6" />
+
       {/* About */}
       <About isEdit={false} />
+      <div className="my-6" />
+
+      {/* Skills */}
       <Skills isEdit={false} />
+      <div className="my-6" />
+
       {/* Proyectos */}
-      <Projects />
+      <Projects isEdit={false} />
+      <div className="my-6" />
+
       {/* Colaboración */}
       <Collaboration isEdit={false} />
+      <div className="my-6" />
+
       {/* Datos del bootcamp */}
       <Bootcamp isEdit={false} />
+      <div className="my-6" />
+
       {/* Idiomas */}
       <Languages isEdit={false} />
+      <div className="my-6" />
     </div>
   );
 };

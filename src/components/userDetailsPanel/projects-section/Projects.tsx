@@ -3,8 +3,9 @@ import ModalProjects from './ModalProjects';
 import arrowLeft from '../../../assets/svg/arrow-left.svg';
 import arrowRight from '../../../assets/svg/arrow-right.svg';
 import ProjectCard from './ProjectCard';
+import { IisEdit } from '../../../interfaces/interfaces';
 
-const Projects = () => {
+const Projects = ({ isEdit }: IisEdit) => {
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
   const handleProjectModal = () => {
@@ -16,12 +17,14 @@ const Projects = () => {
       <div className="flex items-center justify-between">
         <div className="flex  gap-1">
           <h4 className="font-bold text-black-3">Proyectos</h4>
-          <button
-            className="rounded-md border border-gray-3 px-1 text-sm hover:bg-gray-4-base/50"
-            onClick={handleProjectModal}
-          >
-            Nuevo proyecto
-          </button>
+          {isEdit && (
+            <button
+              className="rounded-md border border-gray-3 px-1 text-sm hover:bg-gray-4-base/50"
+              onClick={handleProjectModal}
+            >
+              Nuevo proyecto
+            </button>
+          )}
         </div>
 
         <div className="flex">

@@ -4,9 +4,8 @@ import RegisterPopup from "./RegisterPopup";
 
 type ModalProps = {
   onClose: () => void;
-  onOpenLoginPopup: () => void;
 };
-const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose, onOpenLoginPopup }) => {
+const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
   
 
@@ -107,7 +106,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose, onOpenLoginPopup
           </button>
         </div>
       </div>
-      {showRegisterPopup && <RegisterPopup onClose={handleCloseRegisterPopup} />}
+      {showRegisterPopup && <RegisterPopup onClose={handleCloseRegisterPopup} onOpenLoginPopup={handleOpenRegisterPopup} />}
     </div>
   );
  }; 

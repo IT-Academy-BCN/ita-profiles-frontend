@@ -1,4 +1,4 @@
-// import React, { useState } from 'react';
+import { useState } from 'react';
 import itAcademyLogo from '../../assets/svg/itacademy.svg';
 
 const MenuNavbar = () => {

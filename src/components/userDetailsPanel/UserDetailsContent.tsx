@@ -3,7 +3,7 @@ import dog from '../../assets/img/stud_1.png';
 import close from '../../assets/svg/close.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
-import { SmallScreenContext } from '../../context/smallScreenContext';
+import { SmallScreenContext } from '../../context/SmallScreenContext';
 import { SmallScreenContextT } from '../../interfaces/interfaces';
 import Bootcamp from './bootcamp/Bootcamp';
 import Buttons from './buttons/Buttons';

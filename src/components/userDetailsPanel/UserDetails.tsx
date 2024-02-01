@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { SmallScreenContext } from '../../context/smallScreenContext';
+import { SmallScreenContext } from '../../context/SmallScreenContext';
 import { useAppDispatch, useAppSelector } from '../../hooks/ReduxHooks';
 import { SmallScreenContextT } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';

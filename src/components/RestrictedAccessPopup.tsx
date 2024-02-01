@@ -4,8 +4,9 @@ import RegisterPopup from "./RegisterPopup";
 
 type ModalProps = {
   onClose: () => void;
+  onOpenLoginPopup: () => void;
 };
-const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
+const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose, onOpenLoginPopup }) => {
   const [showRegisterPopup, setShowRegisterPopup] = useState(false);
   
 

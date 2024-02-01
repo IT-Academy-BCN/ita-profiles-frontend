@@ -1,4 +1,4 @@
-import SmallScreenProvider from './context/smallScreenContext';
+import SmallScreenProvider from './context/SmallScreenContext';
 import Home from './pages/Home';
 import './styles/App.css';
 

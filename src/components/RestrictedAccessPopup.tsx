@@ -106,7 +106,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
           </button>
         </div>
       </div>
-      {showRegisterPopup && <RegisterPopup onClose={handleCloseRegisterPopup} />}
+      {showRegisterPopup && <RegisterPopup onClose={handleCloseRegisterPopup} onOpenLoginPopup={handleOpenRegisterPopup} />}
     </div>
   );
  }; 

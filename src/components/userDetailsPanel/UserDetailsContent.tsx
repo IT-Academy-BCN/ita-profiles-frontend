@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import close from '../../assets/svg/close.svg';
-
-import { SmallScreenContext } from '../../context/smallScreenContext';
+import { SmallScreenContext } from '../../context/SmallScreenContext';
 import { SmallScreenContextT } from '../../interfaces/interfaces';
 import About from './about-section/About';
 import Bootcamp from './bootcamp-section/Bootcamp';

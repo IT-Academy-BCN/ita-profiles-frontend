@@ -74,4 +74,4 @@ const profilesData = [
     "id": 10
   }
 ]
-export default proflilesData;
+export default profilesData;

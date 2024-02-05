@@ -3,20 +3,19 @@ import itAcademyLogo from '../../assets/svg/itacademy.svg';
 
 const MenuNavbar = () => {
   const [activeItem, setActiveItem] = useState('Perfiles');
-
   const menuItems = ['Perfiles', 'Matching', 'Proyectos', 'Estadísticas', 'Guías útiles'];
 
   return (
-    <nav className="hidden w-64 items-center p-2 md:block">
-      <div className="my-1 flex min-w-[144px] items-center justify-start">
-        <img src={itAcademyLogo} alt="itAcademy Logo" className="h-full" />
+    <nav className="hidden md:flex md:flex-col w-[188px] pt-[35px] pl-[28px] gap-[127px]">
+      <div>
+        <img src={itAcademyLogo} alt="itAcademy Logo"/>
       </div>
-      <div className="mt-24 flex flex-col">
+      <div className="flex flex-col gap-[38px]">
       {menuItems.map((item) => (
           <button
             key={item}
             onClick={() => setActiveItem(item)}
-            className={`p-2 flex items-center ${activeItem === item ? 'text-black' : 'text-gray-500'}`}
+            className={`flex items-center ${activeItem === item ? 'text-black' : 'text-gray-500'}`}
           >
             {activeItem === item && (
               <div

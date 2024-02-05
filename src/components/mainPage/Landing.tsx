@@ -17,7 +17,7 @@ const Landing = () => {
 
           <main className="flex">
             {/* White board --> */}
-            <div className="w-full rounded-[15px] bg-white p-6  md:mr-8">
+            <div className="w-full rounded-[15px] bg-white px-6 pb-2 pt-6 md:mr-8">
               <div className="relative flex gap-1 ">
                 <Filters />
                 <Students />

@@ -1,4 +1,4 @@
-import profilesData from '../data/profiles.json';
+import profilesData from '../data/profiles';
 import ProfileCard from './ProfileCard';
 import { useAppSelector } from '../hooks/ReduxHooks';
 

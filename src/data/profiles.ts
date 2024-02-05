@@ -2,7 +2,7 @@ import stud1 from "../assets/img/stud_1.png";
 import stud2 from "../assets/img/stud_2.png";
 import stud3 from "../assets/img/stud_3.png";
 
-const proflilesData = [
+const profilesData = [
   {
     "nombreCompleto": "Juan Pérez",
     "profesion": "Desarrollador Frontend",

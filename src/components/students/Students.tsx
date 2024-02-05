@@ -10,7 +10,7 @@ const Students = () => {
   return (
     <div className="w-full">
       <div className="flex items-center justify-between">
-        <h3 className="text-colortext mb-6 text-2xl font-bold">Alumn@s</h3>
+        <h3 className="mb-6 text-2xl font-bold">Alumn@s</h3>
         {/* Filter button only seen in small screens */}
         <button
           type="button"

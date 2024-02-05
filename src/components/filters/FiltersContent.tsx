@@ -1,7 +1,7 @@
 const FiltersContent = () => {
   return (
     <>
-      <h3 className="text-colortext mb-6 w-40 text-2xl font-bold">Filtros</h3>
+      <h3 className="mb-6 w-40 text-2xl font-bold">Filtros</h3>
       <div>
         <h4 className="mb-2 mt-4 font-bold">Roles</h4>
         <label className="label cursor-pointer justify-start p-1">

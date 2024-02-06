@@ -15,7 +15,6 @@ const ProfileCard: React.FC<Profile> = ({
   lenguajes,
   foto,
 }) => {
-  const [isChecked, setIsChecked] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleUserDetailToggler = () => {
@@ -24,17 +23,6 @@ const ProfileCard: React.FC<Profile> = ({
 
   return (
     <div className="mb-4 mr-8 flex w-full cursor-pointer rounded-2xl p-3 hover:bg-[#F2F2F2] md:max-w-[380px]">
-      <div className="form-control flex items-center">
-        <label className="label cursor-pointer">
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-            className="checkbox h-6 w-6 rounded-md border-2 border-gray-500 checkbox-primary"
-          />
-        </label>
-      </div>
-
       <div
         className="ml-4 flex w-full flex-col"
         onClick={handleUserDetailToggler}

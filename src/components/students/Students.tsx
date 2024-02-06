@@ -8,7 +8,7 @@ const Students = () => {
     setOpenModal(!openModal);
   };
   return (
-    <div className="w-full">
+    <div className="w-full pr-4">
       <div className="flex items-center justify-between">
         <h3 className="mb-6 text-2xl font-bold">Alumn@s</h3>
         {/* Filter button only seen in small screens */}

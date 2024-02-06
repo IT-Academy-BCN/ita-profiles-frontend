@@ -24,7 +24,7 @@ const ProfileCard: React.FC<Profile> = ({
   return (
     <div className="mb-4 mr-8 flex w-full cursor-pointer rounded-2xl p-3 hover:bg-[#F2F2F2] md:max-w-[380px]">
       <div
-        className="ml-4 flex w-full flex-col"
+        className="flex w-full flex-col"
         onClick={handleUserDetailToggler}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

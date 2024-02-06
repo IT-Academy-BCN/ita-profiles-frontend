@@ -6,11 +6,11 @@ const MenuNavbar = () => {
   const menuItems = ['Perfiles', 'Matching', 'Proyectos', 'Estadísticas', 'Guías útiles'];
 
   return (
-    <nav className="hidden md:flex md:flex-col w-[188px] pt-[35px] pl-[28px] gap-[127px]">
+    <nav className="hidden md:flex md:flex-col w-48 pt-9 pl-7 gap-32">
       <div>
         <img src={itAcademyLogo} alt="itAcademy Logo"/>
       </div>
-      <div className="flex flex-col gap-[38px]">
+      <div className="flex flex-col gap-9">
       {menuItems.map((item) => (
           <button
             key={item}

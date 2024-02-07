@@ -41,11 +41,22 @@ const UserNavbar = () => {
       <div className="flex cursor-pointer items-center justify-center md:hidden ">
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
+
+      <details className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-grey-2 hover:bg-gray-300 md:rounded-md">
+        <summary className="w-full px-3 py-2">ES </summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1]">
+            <li><a>Español</a></li>
+            <li><a>English</a></li>
+          </ul>
+      </details>
+
       <button
-        className="flex items-center justify-center rounded-full bg-white font-bold  hover:bg-gray-300 md:rounded-md"
+        className="flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-grey-2 hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
-        <img src={userIcon} alt="" className="w-full px-3 py-2" />
+        <p className="w-full px-3 py-2" >
+          Login/registro
+        </p>
       </button>
       {isRestrictedPopupOpen && (
         <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">

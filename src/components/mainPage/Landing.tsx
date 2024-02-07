@@ -6,27 +6,26 @@ import UserDetails from '../userDetailsPanel/UserDetails';
 
 const Landing = () => {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex">
       <MenuNavbar />
       <div className="flex-1">
-        <div className="w-full">
-          <div className="flex justify-end ">
-            <UserNavbar />
+        {/* login nav to the up-right */}
+        <div className="flex justify-end">
+          <UserNavbar />
+        </div>
+
+        <main className="flex">
+          {/* White board --> */}
+          <div className="min-h-[85vh] w-full rounded-[15px] bg-white md:mr-8">
+            <div className="relative flex gap-1 pb-2 pl-12 pt-12">
+              <Filters />
+              <Students />
+            </div>
           </div>
 
-          <main className="flex">
-            {/* White board --> */}
-            <div className="w-full rounded-[15px] bg-white py-10 pb-2 pl-12 md:mr-8">
-              <div className="relative flex gap-1">
-                <Filters />
-                <Students />
-              </div>
-            </div>
-
-            {/* Profile Details */}
-            <UserDetails />
-          </main>
-        </div>
+          {/* Profile Details */}
+          <UserDetails />
+        </main>
       </div>
     </div>
   );

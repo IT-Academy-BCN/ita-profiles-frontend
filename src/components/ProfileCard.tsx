@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useAppDispatch } from '../hooks/ReduxHooks';
 import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 

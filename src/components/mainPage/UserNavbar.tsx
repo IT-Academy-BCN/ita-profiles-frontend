@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Lock from '../../assets/svg/lock-dynamic-color.svg';
 import LoginPopup from '../LoginPopup';
 import RegisterPopup from '../RegisterPopup';
-import userIcon from '../../assets/svg/userIcon.svg';
+import Vector from'../../assets/svg/vector1.svg';
 import burgerMenu from '../../assets/svg/burgerMenu.svg';
 
 const UserNavbar = () => {
@@ -42,16 +42,21 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <details className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-grey-2 hover:bg-gray-300 md:rounded-md">
-        <summary className="w-full px-3 py-2">ES </summary>
-          <ul className="p-2 shadow menu dropdown-content z-[1]">
-            <li><a>Español</a></li>
-            <li><a>English</a></li>
-          </ul>
-      </details>
+      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md">
+      <div className="flex items-center">
+        <div tabIndex={0} role="button" className="px-3 py-2">ES</div>
+        <div style={{ marginLeft: '[-2]rem' }}> {/* Adjust margin left as needed */}
+          <img src={Vector} alt="Vector" className="h-2 w-4" />
+       </div>
+      </div>
+        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a>Español</a></li>
+          <li><a>Englis</a></li>
+        </ul>
+     </div>
 
       <button
-        className="flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-grey-2 hover:bg-gray-300 md:rounded-md"
+        className="flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
         <p className="w-full px-3 py-2" >

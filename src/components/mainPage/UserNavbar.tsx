@@ -42,9 +42,9 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md">
+      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-medium text-base hover:bg-gray-300 md:rounded-md">
       <div className="flex items-center relative mx-2">
-        <div tabIndex={0} role="button" className="pl-1 pr-0 py-2" style={{ color: '#808080' }}>ES</div>
+        <div tabIndex={0} role="button" className="pl-1 pr-0 py-2 text-[#808080]">ES</div>
         <img src={ArrowDown} alt="Vector" className="h-2 w-4 mt-0.5 ml-1.5 " />
       </div>
         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -58,7 +58,7 @@ const UserNavbar = () => {
         className="flex items-center justify-center rounded-full bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
-        <p className="w-full px-3 py-2" style={{ color: '#808080' }} >
+        <p className="w-full px-3 py-2 text-[#808080]">
           Login/registro
         </p>
       </button>

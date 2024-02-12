@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Lock from '../../assets/svg/lock-dynamic-color.svg';
 import LoginPopup from '../LoginPopup';
 import RegisterPopup from '../RegisterPopup';
-import Vector from'../../assets/svg/vector1.svg';
+import ArrowDown from'../../assets/svg/arrow-down.svg';
 import burgerMenu from '../../assets/svg/burgerMenu.svg';
 
 const UserNavbar = () => {
@@ -42,10 +42,10 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md">
+      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md">
       <div className="flex items-center relative mx-2">
         <div tabIndex={0} role="button" className="pl-1 pr-0 py-2" style={{ color: '#808080' }}>ES</div>
-        <img src={Vector} alt="Vector" className="h-2 w-4 mt-0.5 ml-1.5 " />
+        <img src={ArrowDown} alt="Vector" className="h-2 w-4 mt-0.5 ml-1.5 " />
       </div>
         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
           <li><a>Español</a></li>
@@ -55,7 +55,7 @@ const UserNavbar = () => {
      
 
       <button
-        className="flex items-center justify-center rounded-full bg-white font-poppins font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md"
+        className="flex items-center justify-center rounded-full bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
         <p className="w-full px-3 py-2" style={{ color: '#808080' }} >

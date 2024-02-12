@@ -42,14 +42,18 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <div className="dropdown relative mx-4 flex items-center justify-center rounded-full bg-white font-medium text-base hover:bg-gray-300 md:rounded-md">
-      <div className="flex items-center relative mx-2">
-        <div tabIndex={0} role="button" className="pl-1 pr-0 py-2 text-[#808080]">ES</div>
-        <img src={ArrowDown} alt="Vector" className="h-2 w-4 mt-0.5 ml-1.5 " />
-      </div>
+      <div className="dropdown dropdown-end mx-4 rounded-full bg-white font-medium text-base hover:bg-gray-300 md:rounded-md">
+      
+        <div tabIndex={0} role="button" className="w-full px-3 py-2 text-[#808080]">
+          <div className="flex items-center relative mx-0.1">
+          <span className="text-[#808080]">ES</span>
+          <img src={ArrowDown} alt="Vector" className="h-2 w-4 mt-0.5 ml-1" />
+          </div>
+        </div>
+       
         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a>Español</a></li>
-          <li><a>Englis</a></li>
+          <li className="text-[#808080]"><a>Español</a></li>
+          <li className="text-[#808080]"><a>English</a></li>
         </ul>
      </div>
      

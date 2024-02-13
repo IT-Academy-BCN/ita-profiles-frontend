@@ -17,3 +17,17 @@ export type SmallScreenContextT = {
   isMobile: boolean;
   setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
 };
+
+// === studentList ===
+export interface StudentList {
+  fullname: string;
+  subtitle: string;
+  photo:    string;
+  tags:     Tag[];
+  id:       number;
+}
+
+export interface Tag {
+  id:   number;
+  name: string;
+}

@@ -5,7 +5,7 @@ const FiltersContent = () => {
   const [roles, setRoles] = useState([]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/student/list/for-home").then((response) => {
+    axios.get("https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home").then((response) => {
       setRoles(response.data);
     })
     .catch((error) => {

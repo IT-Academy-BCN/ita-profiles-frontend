@@ -23,8 +23,6 @@ const ProfilesList = () => {
     fetchStudents();
   }, []);
 
-  // console.log('students', students);
-
   return (
     <div
       className={`${

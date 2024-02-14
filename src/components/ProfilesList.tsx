@@ -1,8 +1,8 @@
 import ProfileCard from './ProfileCard';
 import { useAppSelector } from '../hooks/ReduxHooks';
 import { useEffect, useState } from 'react';
-import { FetchStudentsListHome } from '../api/fetchStudentsListHome';
 import { IStudentList } from '../interfaces/interfaces';
+import { FetchStudentsListHome } from '../api/FetchStudentsList';
 
 const ProfilesList = () => {
   const isPanelOpen = useAppSelector(

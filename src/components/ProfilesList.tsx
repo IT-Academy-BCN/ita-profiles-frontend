@@ -1,28 +1,29 @@
-import profilesData from '../data/profiles';
 import ProfileCard from './ProfileCard';
 import { useAppSelector } from '../hooks/ReduxHooks';
-import { fetchCall } from '../api/testcall';
 import { useEffect, useState } from 'react';
-// import { StudentList } from '../interfaces/interfaces';
+import { FetchStudentsListHome } from '../api/fetchStudentsListHome';
+import { IStudentList } from '../interfaces/interfaces';
 
 const ProfilesList = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
   );
-  const [data, setData] = useState();
+
+  const [students, setStudents] = useState<IStudentList[]>();
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const mydata = await fetchCall();
-        setData(mydata);
+        const studentsList = await FetchStudentsListHome();
+        setStudents(studentsList);
       } catch (error) {
         console.error('Error fetching students:', error);
       }
     };
     fetchStudents();
   }, []);
-  console.log('data', data);
+
+  // console.log('students', students);
 
   return (
     <div
@@ -30,9 +31,11 @@ const ProfilesList = () => {
         isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'lg:grid-cols-2'
       } mt-4 grid max-h-[85vh] grid-cols-1 gap-3 overflow-hidden overflow-y-auto md:max-h-[70vh]`}
     >
-      {profilesData.map((profile) => (
-        <ProfileCard key={profile.id} {...profile} />
-      ))}
+      {students ? (
+        students.map((student) => <ProfileCard key={student.id} {...student} />)
+      ) : (
+        <p>Loading students data</p>
+      )}
     </div>
   );
 };

@@ -19,15 +19,15 @@ export type SmallScreenContextT = {
 };
 
 // === studentList ===
-export interface StudentList {
+export interface IStudentList {
   fullname: string;
   subtitle: string;
   photo:    string;
-  tags:     Tag[];
+  tags:     ITag[];
   id:       number;
 }
 
-export interface Tag {
+export interface ITag {
   id:   number;
   name: string;
 }

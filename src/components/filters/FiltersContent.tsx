@@ -1,4 +1,23 @@
-const FiltersContent = () => {
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+
+const FiltersContent: React.FC = () => {
+  const [specialities, setSpecialities] = useState([]);
+
+  const url: string =
+    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then((response) => {
+        setSpecialities(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }, [url]);
+
   return (
     <>
       <h3 className="mb-7 w-40 text-2xl font-bold md:mb-14">Filtros</h3>
@@ -36,34 +55,19 @@ const FiltersContent = () => {
 
       <div>
         <h4 className="mb-2 mt-4 font-bold">Desarrollo</h4>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Spring</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Laravel</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Angular</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>React</span>
-        </label>
+        {specialities &&
+          specialities.map((speciality, index) => (
+            <label
+              key={index}
+              className="label cursor-pointer justify-start p-1"
+            >
+              <input
+                type="checkbox"
+                className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+              />
+              <span>{speciality}</span>
+            </label>
+          ))}
       </div>
     </>
   );

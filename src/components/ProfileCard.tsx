@@ -1,10 +1,8 @@
 import { useAppDispatch } from '../hooks/ReduxHooks';
 import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 import { IStudentList } from '../interfaces/interfaces';
-import { useState } from 'react';
 
 const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
-  const [isChecked, setIsChecked] = useState(false);
   const dispatch = useAppDispatch();
 
   const handleUserDetailToggler = () => {
@@ -13,17 +11,6 @@ const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
 
   return (
     <div className="mb-4 mr-8 flex w-full cursor-pointer rounded-2xl p-3 hover:bg-[#F2F2F2] md:max-w-[380px]">
-      <div className="form-control flex items-center">
-        <label className="label cursor-pointer">
-          <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={() => setIsChecked(!isChecked)}
-            className="checkbox-primary checkbox h-6 w-6 rounded-md border-2 border-gray-500"
-          />
-        </label>
-      </div>
-
       <div
         className="flex w-full flex-col"
         onClick={handleUserDetailToggler}

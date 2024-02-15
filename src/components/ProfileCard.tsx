@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { useAppDispatch } from '../hooks/ReduxHooks';
 import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
 import { IStudentList } from '../interfaces/interfaces';
+import { useState } from 'react';
 
 const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -25,7 +25,7 @@ const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
       </div>
 
       <div
-        className="ml-4 flex w-full flex-col"
+        className="flex w-full flex-col"
         onClick={handleUserDetailToggler}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {

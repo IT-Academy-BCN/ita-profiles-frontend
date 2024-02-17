@@ -1,4 +1,4 @@
-import profilesData from '../data/profiles.json';
+import profilesData from '../data/profiles';
 import ProfileCard from './ProfileCard';
 import { useAppSelector } from '../hooks/ReduxHooks';
 
@@ -10,7 +10,7 @@ const ProfilesList = () => {
     <div
       className={`${
         isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'lg:grid-cols-2'
-      } mt-4 grid max-h-[85vh] w-full grid-cols-1 gap-3 overflow-hidden overflow-y-auto md:max-h-[75vh] `}
+      } mt-4 grid max-h-[85vh] grid-cols-1 gap-3 overflow-hidden overflow-y-auto md:max-h-[70vh]`}
     >
       {profilesData.map((profile) => (
         <ProfileCard key={profile.id} {...profile} />

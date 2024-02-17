@@ -5,7 +5,7 @@ const FiltersContent = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    axios.get("https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home").then((response) => {
+    axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
       setStudents(response.data);
     })
     .catch((error) => {
@@ -14,7 +14,7 @@ const FiltersContent = () => {
   }, []);
 
   // Extraer todos los roles de todos los estudiantes
-  const roles = students.flatMap(student => student.tags.map(tag => tag.name));
+  const roles = students.flatMap(student => student.tag.map(tag => tag.name));
 
   return (
     <>

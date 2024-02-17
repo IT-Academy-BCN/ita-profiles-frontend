@@ -3,18 +3,21 @@ import { useEffect, useState } from "react";
 
 const FiltersContent = () => {
   const [students, setStudents] = useState([]);
+  const [roles, setRoles] = useState([]);
 
   useEffect(() => {
     axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
       setStudents(response.data);
+    });
+
+    axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
+      setRoles(response.data);
     })
     .catch((error) => {
       console.log(error);
     });
   }, []);
 
-  // Extraer todos los roles de todos los estudiantes
-  const roles = students.flatMap(student => student.tag.map(tag => tag.name));
 
   return (
     <>

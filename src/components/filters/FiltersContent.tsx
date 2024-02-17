@@ -15,7 +15,6 @@ const FiltersContent = () => {
     });
   }, []);
 
-
   return (
     <>
       <h3 className="mb-7 w-40 text-2xl font-bold md:mb-14">Filtros</h3>

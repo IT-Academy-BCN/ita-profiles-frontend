@@ -2,14 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 const FiltersContent = () => {
-  const [students, setStudents] = useState([]);
+
   const [roles, setRoles] = useState([]);
 
   useEffect(() => {
-    axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
-      setStudents(response.data);
-    });
-
+   
     axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
       setRoles(response.data);
     })

@@ -34,6 +34,38 @@ const FiltersContent = () => {
           </label>
         ))}
       </div>
+      
+      <div>
+        <h4 className="mb-2 mt-4 font-bold">Desarrollo</h4>
+        <label className="label cursor-pointer justify-start p-1">
+          <input
+            type="checkbox"
+            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+          />
+          <span>Spring</span>
+        </label>
+        <label className="label cursor-pointer justify-start p-1">
+          <input
+            type="checkbox"
+            className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
+          />
+          <span>Laravel</span>
+        </label>
+        <label className="label cursor-pointer justify-start p-1">
+          <input
+            type="checkbox"
+            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+          />
+          <span>Angular</span>
+        </label>
+        <label className="label cursor-pointer justify-start p-1">
+          <input
+            type="checkbox"
+            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+          />
+          <span>React</span>
+        </label>
+      </div>
     </>
   );
 };

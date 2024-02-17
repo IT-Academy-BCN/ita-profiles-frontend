@@ -12,12 +12,12 @@ const MenuNavbar = () => {
   ];
 
   return (
-    <nav className="hidden w-[188px] gap-[127px] pl-[28px] pt-[35px] md:flex md:flex-col">
+    <nav className="hidden md:flex md:flex-col w-48 pt-9 pl-7 gap-32">
       <div>
         <img src={itAcademyLogo} alt="itAcademy Logo" />
       </div>
-      <div className="flex flex-col gap-[38px]">
-        {menuItems.map((item) => (
+      <div className="flex flex-col gap-9">
+      {menuItems.map((item) => (
           <button
             key={item}
             onClick={() => setActiveItem(item)}

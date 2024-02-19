@@ -44,13 +44,13 @@ const ProfileCard: React.FC<Profile> = ({
             <div className="mb-2 text-lg font-bold leading-4 text-black">
               {nombreCompleto}
             </div>
-            <div className="text-base leading-4 text-gray-400">{profesion}</div>
+            <div className="leading-4 text-gray-3">{profesion}</div>
           </div>
         </div>
 
         <div className="mt-2 flex flex-wrap gap-1 text-xs">
           {lenguajes.map((lenguaje, index) => (
-            <span key={index} className=" rounded-md bg-[#D9D9D9] px-3 py-1 ">
+            <span key={index} className=" rounded-md bg-gray-4-base px-3 py-1 ">
               {lenguaje}
             </span>
           ))}

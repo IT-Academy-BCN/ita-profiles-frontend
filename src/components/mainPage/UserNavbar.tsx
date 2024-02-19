@@ -42,7 +42,7 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <div className="dropdown dropdown-end mx-4 rounded-lg bg-white font-medium text-base hover:bg-gray-300 md:rounded-md md:w-34 md:h-10 md:top-18 md:left-62">
+      <div className="dropdown dropdown-end mx-4 rounded-lg bg-white font-medium text-base hover:bg-gray-300 md:rounded-md sm:w-34 sm:h-10 sm:top-18 sm:left-62">
       
         <div tabIndex={0} role="button" className="w-full px-3 py-2 text-[#808080]">
           <div className="flex items-center relative mx-0.1">
@@ -59,7 +59,7 @@ const UserNavbar = () => {
      
 
       <button
-        className="flex items-center justify-center rounded-lg bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md md:w-34 md:h-10 md:top-18 md:left-62"
+        className="flex items-center justify-center rounded-lg bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md sm:w-34 sm:h-10 sm:top-18 sm:left-62"
         onClick={handleOpenRestrictedPopup}
       >
         <p className="w-full px-3 py-2 text-[#808080]">

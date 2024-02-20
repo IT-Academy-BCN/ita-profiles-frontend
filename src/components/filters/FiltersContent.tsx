@@ -17,7 +17,9 @@ const FiltersContent = () => {
 
   return (
     <>
-      <h3 className="mb-7 w-40 text-2xl font-bold md:mb-14">Filtros</h3>
+      <h3 className="mb-7 w-40 text-2xl font-bold text-black-3 md:mb-14">
+        Filtros
+      </h3>
       <div>
         <h4 className="mb-2 font-bold">Roles</h4>
         {roles.map((role, index) => (

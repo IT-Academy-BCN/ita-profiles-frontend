@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Lock from '../../assets/svg/lock-dynamic-color.svg';
 import LoginPopup from '../LoginPopup';
 import RegisterPopup from '../RegisterPopup';
-import ArrowDown from'../../assets/svg/arrow-down.svg';
+import ArrowDown from '../../assets/svg/arrow-down.svg';
 import burgerMenu from '../../assets/svg/burgerMenu.svg';
 
 const UserNavbar = () => {
@@ -42,29 +42,32 @@ const UserNavbar = () => {
         <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
-      <div className="dropdown dropdown-end mx-4 rounded-full bg-white font-medium text-base hover:bg-gray-300 md:rounded-md">
-      
-        <div tabIndex={0} role="button" className="w-full px-3 py-2 text-[#808080]">
-          <div className="flex items-center relative mx-0.1">
-          <span className="text-[#808080]">ES</span>
-          <img src={ArrowDown} alt="Vector" className="h-2 w-4 mt-0.5 ml-1" />
+      <div className="dropdown dropdown-end mx-4 rounded-full bg-white font-medium hover:bg-gray-300 md:rounded-md">
+        <div tabIndex={0} role="button" className="w-full px-3 py-2">
+          <div className="mx-0.1 relative flex items-center">
+            <span className="text-gray">ES</span>
+            <img src={ArrowDown} alt="Vector" className="ml-1 mt-0.5 h-2 w-4" />
           </div>
         </div>
-       
-        <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-          <li className="text-[#808080]"><a>Español</a></li>
-          <li className="text-[#808080]"><a>English</a></li>
+
+        <ul
+          tabIndex={0}
+          className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+        >
+          <li className="text-gray">
+            <a>Español</a>
+          </li>
+          <li className="text-gray">
+            <a>English</a>
+          </li>
         </ul>
-     </div>
-     
+      </div>
 
       <button
-        className="flex items-center justify-center rounded-full bg-white font-medium text-base text-gray-800 hover:bg-gray-300 md:rounded-md"
+        className="text-gray flex items-center justify-center rounded-full bg-white font-medium hover:bg-gray-300 md:rounded-md"
         onClick={handleOpenRestrictedPopup}
       >
-        <p className="w-full px-3 py-2 text-[#808080]">
-          Login/registro
-        </p>
+        <p className="text-gray w-full px-3 py-2">Login/registro</p>
       </button>
       {isRestrictedPopupOpen && (
         <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
@@ -77,18 +80,16 @@ const UserNavbar = () => {
             </button>
             <img src={Lock} alt="Lock" className="mb-4 h-24 w-24" />
             <h2 className="mb-2 text-lg font-bold">Acceso restringido</h2>
-            <p className="mb-6 text-base">
-              Entra o regístrate para acceder al perfil
-            </p>
+            <p className="mb-6 ">Entra o regístrate para acceder al perfil</p>
             <div className="w-full">
               <button
-                className="mb-2 h-12 w-full rounded-lg bg-pink-500 text-lg text-white"
+                className="mb-2 h-12 w-full rounded-lg bg-primary text-lg text-white"
                 onClick={handleOpenRegisterPopup}
               >
                 Soy candidato/a
               </button>
               <button
-                className="h-12 w-full rounded-lg bg-pink-500 text-lg text-white"
+                className="h-12 w-full rounded-lg bg-primary text-lg text-white"
                 onClick={handleOpenLoginPopup}
               >
                 ¿Tienes cuenta?

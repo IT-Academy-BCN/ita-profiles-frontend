@@ -33,13 +33,13 @@ const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
             <div className="mb-2 text-lg font-bold leading-4 text-black">
               {fullname}
             </div>
-            <div className="text-base leading-4 text-gray-400">{subtitle}</div>
+            <div className="leading-4 text-gray-3">{subtitle}</div>
           </div>
         </div>
 
         <div className="mt-2 flex flex-wrap gap-1 text-xs">
           {tags?.map((tag) => (
-            <span key={tag.id} className=" rounded-md bg-[#D9D9D9] px-3 py-1 ">
+            <span key={tag.id} className="rounded-md bg-gray-4-base px-3 py-1 ">
               {tag.name}
             </span>
           ))}

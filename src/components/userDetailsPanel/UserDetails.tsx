@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import { useAppDispatch, useAppSelector } from '../../hooks/ReduxHooks';
-import { SmallScreenContextT } from '../../interfaces/interfaces';
+import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import UserDetailsContent from './UserDetailsContent';
 
@@ -17,7 +17,7 @@ const UserDetails: React.FC = () => {
     dispatch(toggleUserPanel());
   };
 
-  const { isMobile, setIsMobile }: SmallScreenContextT =
+  const { isMobile, setIsMobile }: TSmallScreenContext =
     useContext(SmallScreenContext);
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import close from '../../assets/svg/close.svg';
 import github from '../../assets/svg/github.svg';
 import linkedin from '../../assets/svg/linkedin.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
-import { SmallScreenContextT } from '../../interfaces/interfaces';
+import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Bootcamp from './bootcamp/Bootcamp';
 import Buttons from './buttons/Buttons';
 import Challenges from './challenges/Challenges';
@@ -16,7 +16,7 @@ type TUserDetailsContent = {
 }
 
 const UserDetailsContent: React.FC<TUserDetailsContent> = ({ handleIsPanelOpen }) => {
-  const { isMobile }: SmallScreenContextT = useContext(SmallScreenContext);
+  const { isMobile }: TSmallScreenContext = useContext(SmallScreenContext);
 
   return (
     <div className={` ${isMobile ? 'modal-box bg-white' : 'bg-transparent'}  `}>

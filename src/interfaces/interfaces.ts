@@ -13,7 +13,7 @@ export interface ChildrenProps{
 }
 
 // === SmallScreenContext ===
-export type SmallScreenContextT = {
+export type TSmallScreenContext = {
   isMobile: boolean;
   setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
 };

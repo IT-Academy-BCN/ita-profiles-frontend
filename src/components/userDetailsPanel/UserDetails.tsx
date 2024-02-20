@@ -5,7 +5,7 @@ import { SmallScreenContextT } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import UserDetailsContent from './UserDetailsContent';
 
-const UserDetails = () => {
+const UserDetails: React.FC = () => {
   // aqui cogemos el estado que viene por default "false".
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
@@ -37,7 +37,7 @@ const UserDetails = () => {
     : 'max-h-[90vh] overflow-hidden overflow-y-auto md:block';
 
   return (
-    <div className={`${isPanelOpen ? mobileScreen : 'hidden'} mr-2 px-2 pt-4 `}>
+    <div className={`${isPanelOpen ? mobileScreen : 'hidden'}`}>
       <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
     </div>
   );

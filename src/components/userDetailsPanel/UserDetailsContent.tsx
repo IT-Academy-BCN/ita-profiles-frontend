@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import dog from '../../assets/img/stud_1.png';
 import close from '../../assets/svg/close.svg';
 import github from '../../assets/svg/github.svg';
@@ -11,11 +11,11 @@ import Challenges from './challenges/Challenges';
 import Projects from './projects/Projects';
 import Resources from './resources/Resources';
 
-interface Props {
+type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
 }
 
-const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
+const UserDetailsContent: React.FC<TUserDetailsContent> = ({ handleIsPanelOpen }) => {
   const { isMobile }: SmallScreenContextT = useContext(SmallScreenContext);
 
   return (
@@ -33,7 +33,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       </div>
       {/* div seen in md or bigger screens */}
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-colortext">Detalle Perfil</h3>
+        <h3 className="text-colortext text-2xl font-bold">Detalle Perfil</h3>
         <div className="hidden cursor-pointer md:flex">
           <button onClick={handleIsPanelOpen}>
             <img src={close} alt="close icon" />
@@ -75,7 +75,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       </div>
       {/* about */}
       <div>
-        <h4 className="text-lg font-bold text-colortext">About</h4>
+        <h4 className="text-colortext text-lg font-bold">About</h4>
         <p className="my-1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga porro ea
           incidunt cumque perferendis corporis nobis! Deserunt vero quod
@@ -86,7 +86,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       {/* Proyectos */}
       <div className="flex flex-col">
         <div className="flex items-center justify-between">
-          <h4 className="text-lg font-bold text-colortext">Proyectos</h4>
+          <h4 className="text-colortext text-lg font-bold">Proyectos</h4>
           <div>"left""right"</div>
         </div>
 
@@ -99,7 +99,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       </div>
       {/* Colaboración */}
       <div>
-        <h4 className="text-lg font-bold text-colortext">Colaboración</h4>
+        <h4 className="text-colortext text-lg font-bold">Colaboración</h4>
         <div className="flex flex-col items-center justify-center gap-1 border md:flex-row">
           {/* Recursos subidos componente */}
           <Resources />
@@ -108,7 +108,7 @@ const UserDetailsContent = ({ handleIsPanelOpen }: Props) => {
       </div>
       {/* Datos del bootcamp */}
       <div>
-        <h4 className="text-lg font-bold text-colortext">Datos del bootcamp</h4>
+        <h4 className="text-colortext text-lg font-bold">Datos del bootcamp</h4>
         <div>
           <Bootcamp />
         </div>

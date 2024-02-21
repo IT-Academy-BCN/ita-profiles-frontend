@@ -7,7 +7,6 @@ const Students = () => {
   const handleOpenModal = () => {
     setOpenModal(!openModal);
   };
-  
   return (
     <div className="w-full pr-4">
       <div className="flex items-center justify-between md:mb-0 mb-12">

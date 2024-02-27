@@ -14,7 +14,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
 
   return (
     <div
-      className={`flex flex-col w-full ${
+      className={`flex w-full flex-col ${
         isMobile &&
         'gray-4-base relative h-[760px] max-w-[370px] rounded-2xl bg-white'
       }`}
@@ -37,16 +37,10 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
       )}
 
       {/* content */}
-      <div className="mr-2 pr-4 pl-5 mb-4 mt-20 overflow-auto">
+      <div className="mb-4 mr-2 mt-20 overflow-auto pl-5 pr-4">
         <div className="flex flex-col gap-8">
-          <div className="border-gray-300 h-[80px] rounded-xl border-2 p-2">
-            User Data component
-          </div>
-          <div className="border-gray-300 h-[80px] rounded-xl border-2 p-2">
-            About component
-          </div>
-          <div className="border-gray-300 h-[60px] rounded-xl border-2 p-2">
-            Skills component
+          <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
+            User Data component<p> (user + about + skills)</p>
           </div>
           <div className="border-gray-300 h-[175px] rounded-xl border-2 p-2">
             Project component

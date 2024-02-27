@@ -8,12 +8,12 @@ export interface loginForm {
 
 // This could be used globally if we're passing just the children props.
 // Good for providers
-export interface ChildrenProps{
+export type TchildrenProps = {
   children: ReactNode;
 }
 
 // === SmallScreenContext ===
-export type SmallScreenContextT = {
+export type TSmallScreenContext = {
   isMobile: boolean;
   setIsMobile: React.Dispatch<React.SetStateAction<boolean>>;
 };

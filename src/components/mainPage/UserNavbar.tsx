@@ -46,7 +46,7 @@ const UserNavbar = () => {
         <div tabIndex={0} role="button" className="w-full px-3 py-2">
           <div className="mx-0.1 relative flex items-center">
             <span className="text-gray">ES</span>
-            <img src={ArrowDown} alt="Vector" className="ml-1 mt-0.5 h-2 w-4" />
+            <img src={ArrowDown} alt="Vector" className="ml-1 mr-2 mt-0.5 h-2 w-4" />
           </div>
         </div>
 

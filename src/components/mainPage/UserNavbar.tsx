@@ -37,12 +37,12 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="mx-4 my-3 flex w-full justify-between md:mr-8 md:justify-end">
+    <div className="mx-4 my-3 flex w-full md:mr-8 md:justify-end">
       <div className="flex cursor-pointer items-center justify-center md:hidden ">
-        <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
+        <img src={burgerMenu} alt="burger menu" className="h-8 w-8 min-h-8 min-w-8" />
       </div>
 
-      <div className="dropdown dropdown-end rounded-lg bg-white font-medium hover:bg-gray-300 md:rounded-md ml-1 md:ml-4">
+      <div className="dropdown dropdown-end rounded-lg bg-white font-medium hover:bg-gray-300 md:rounded-md ml-28 mr-5 md:ml-4">
         <div tabIndex={0} role="button" className="w-full px-3 py-2">
           <div className="mx-0.1 relative flex items-center">
             <span className="text-gray">ES</span>

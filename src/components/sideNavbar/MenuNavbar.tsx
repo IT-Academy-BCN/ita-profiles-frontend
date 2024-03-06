@@ -12,17 +12,17 @@ const MenuNavbar = () => {
   ];
 
   return (
-    <nav className="hidden w-[188px] gap-[127px] pl-[28px] pt-[35px] md:flex md:flex-col">
+    <nav className="hidden w-48 gap-32 pl-7 pt-9 md:flex md:flex-col">
       <div>
         <img src={itAcademyLogo} alt="itAcademy Logo" />
       </div>
-      <div className="flex flex-col gap-[38px]">
+      <div className="flex flex-col gap-9">
         {menuItems.map((item) => (
           <button
             key={item}
             onClick={() => setActiveItem(item)}
             className={`flex items-center ${
-              activeItem === item ? 'text-black' : 'text-gray-500'
+              activeItem === item ? 'text-black' : 'text-gray-3'
             }`}
           >
             {activeItem === item && (
@@ -30,7 +30,7 @@ const MenuNavbar = () => {
             )}
             <p
               className={`font-poppins text-left text-sm font-semibold leading-4 tracking-tight ${
-                activeItem === item ? 'text-black' : 'text-gray-500'
+                activeItem === item ? 'text-black' : 'text-gray-3'
               }`}
             >
               {item}

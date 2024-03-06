@@ -45,11 +45,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
   };
 
   return (
-    <div className="relative w-120 rounded-lg bg-white flex flex-col items-center p-5 md:p-20">
-      <h2 className="text-lg md:text-2xl font-bold">Registro</h2>
+    <div className="w-120 relative flex flex-col items-center rounded-lg bg-white p-5 md:p-20">
+      <h2 className="text-lg font-bold md:text-2xl">Registro</h2>
       <form className="flex flex-col space-y-4">
         <button
-          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-transparent border-none cursor-pointer"
+          className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
           onClick={onClose}
         >
           ✕
@@ -60,11 +60,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('dni')}
               type="text"
               id="dni"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="DNI o NIE"
             />
             {errors.dni && (
-              <p className="text-red-500">{`${errors.dni?.message}`}</p>
+              <p className="text-error">{`${errors.dni?.message}`}</p>
             )}
           </div>
           <div>
@@ -72,11 +72,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('username')}
               type="text"
               id="username"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Username"
             />
             {errors.username && (
-              <p className="text-red-500">{`${errors.username?.message}`}</p>
+              <p className="text-error">{`${errors.username?.message}`}</p>
             )}
           </div>
         </div>
@@ -86,11 +86,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('password')}
               type="password"
               id="password"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Password"
             />
             {errors.password && (
-              <p className="text-red-500">{`${errors.password?.message}`}</p>
+              <p className="text-error">{`${errors.password?.message}`}</p>
             )}
           </div>
           <div>
@@ -98,11 +98,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('email')}
               type="email"
               id="email"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Email"
             />
             {errors.email && (
-              <p className="text-red-500">{`${errors.email?.message}`}</p>
+              <p className="text-error">{`${errors.email?.message}`}</p>
             )}
           </div>
         </div>
@@ -112,11 +112,11 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               type="password"
               {...register('confirmPassword')}
               id="confirmPassword"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Confirm Password"
             />
             {errors.confirmPassword && (
-              <p className="text-red-500">{`${errors.confirmPassword?.message}`}</p>
+              <p className="text-error">{`${errors.confirmPassword?.message}`}</p>
             )}
           </div>
 
@@ -125,21 +125,21 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               type="text"
               {...register('specialization')}
               id="specialization"
-              className="w-full p-2 md:p-4 px-4 md:px-6 py-4 md:py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Specialization"
             />
             {errors.specialization && (
-              <p className="text-red-500">{`${errors.specialization.message}`}</p>
+              <p className="text-error">{`${errors.specialization.message}`}</p>
             )}
           </div>
         </div>
-        <div className="flex justify-center items-center space-x-8 p-4 md:p-5 ">
+        <div className="flex items-center justify-center space-x-8 p-4 md:p-5 ">
           <div className="flex flex-col">
             <div className="flex items-center gap-1">
               <input
                 type="checkbox"
                 id="acceptTerms"
-                className="w-6 h-6"
+                className="h-6 w-6"
                 checked={isChecked}
                 onChange={(e) => setIsChecked(e.target.checked)}
               />
@@ -151,24 +151,24 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               </label>
             </div>
             {checkError && (
-              <p className={`${isChecked ? 'hidden' : 'text-red-500'}`}>
+              <p className={`${isChecked ? 'hidden' : 'text-error'}`}>
                 Debes aceptar los términos
               </p>
             )}
           </div>
           <button
-            className="w-102 mr-6 md:w-60 h-12 md:h-12 rounded-lg bg-pink-500 text-white text-base md:text-lg border-none cursor-pointer"
+            className="w-102 mr-6 h-12 cursor-pointer rounded-lg border-none bg-primary text-white md:h-12 md:w-60 md:text-lg"
             onClick={handleSubmit(sendRegister)}
           >
             Register
           </button>
         </div>
       </form>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <a
           href="#"
           onClick={onOpenLoginPopup}
-          className="text-black font-bold cursor-pointer"
+          className="cursor-pointer font-bold text-black"
           style={{ textDecoration: 'underline' }}
         >
           ¿Tienes cuenta? acceder

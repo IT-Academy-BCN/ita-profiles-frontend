@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import close from '../../assets/svg/close.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
+import Projects from './projects/ProjectsCard';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -30,8 +31,8 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>
           </div>
-          <div className="border-gray-300 h-[175px] rounded-xl border-2 p-2">
-            Project component
+          <div className="h-[175px]">
+            <Projects />
           </div>
           <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
             Challenges component

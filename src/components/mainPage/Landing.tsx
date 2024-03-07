@@ -31,7 +31,6 @@ const Landing = () => {
               </div> */}
             </div>
 
-            {/* Profile Details */}
             <UserDetails />
           </main>
         </div>

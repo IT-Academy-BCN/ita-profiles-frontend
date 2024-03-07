@@ -3,6 +3,7 @@ import close from '../../assets/svg/close.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
+import Collaboration from './collaboration-section/Collaboration';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -15,10 +16,12 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
 
   return (
     <div
-      className={`flex flex-col gap-4 ${isMobile && 'modal-box rounded-2xl p-2'}`}
+      className={`flex flex-col gap-4 ${
+        isMobile && 'modal-box rounded-2xl p-2'
+      }`}
     >
-      <div className="flex items-center justify-end md:justify-between p-3">
-        <h3 className="text-colortext hidden md:block text-2xl font-bold">
+      <div className="flex items-center justify-end p-3 md:justify-between">
+        <h3 className="text-colortext hidden text-2xl font-bold md:block">
           Detalle Perfil
         </h3>
         <button className="cursor-pointer " onClick={handleIsPanelOpen}>
@@ -34,12 +37,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
           <div className="h-[175px]">
             <Projects />
           </div>
-          <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
-            Challenges component
-          </div>
-          <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
-            Resources component
-          </div>
+          <Collaboration />
           <div className="border-gray-300 h-[400px] rounded-xl border-2 p-2">
             Bootcamp component
           </div>

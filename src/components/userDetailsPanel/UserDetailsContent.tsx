@@ -14,30 +14,18 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
 
   return (
     <div
-      className={`flex w-full flex-col ${
-        isMobile &&
-        'gray-4-base relative h-[760px] max-w-[370px] rounded-2xl bg-white'
-      }`}
+      className={`flex flex-col gap-4 ${isMobile && 'modal-box rounded-2xl p-2'}`}
     >
-      {/* mobile */}
-      {isMobile && (
-        <button
-          className="absolute right-4 top-5 cursor-pointer"
-          onClick={handleIsPanelOpen}
-        >
+      <div className="flex items-center justify-end md:justify-between p-3">
+        <h3 className="text-colortext hidden md:block text-2xl font-bold">
+          Detalle Perfil
+        </h3>
+        <button className="cursor-pointer " onClick={handleIsPanelOpen}>
           <img src={close} alt="close icon" className="h-5" />
         </button>
-      )}
+      </div>
 
-      {/* tablet & desktop */}
-      {!isMobile && (
-        <div className="flex items-center justify-between">
-          <h3 className="text-colortext text-2xl font-bold">Detalle Perfil</h3>
-        </div>
-      )}
-
-      {/* content */}
-      <div className="mb-4 mr-2 mt-20 overflow-auto pl-5 pr-4">
+      <div className="overflow-auto pr-3">
         <div className="flex flex-col gap-8">
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>

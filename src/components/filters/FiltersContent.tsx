@@ -1,18 +1,18 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const FiltersContent = () => {
-
   const [roles, setRoles] = useState([]);
 
   useEffect(() => {
-   
-    axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
-      setRoles(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    axios
+      .get('https://itaperfils.eurecatacademy.org/api/v1/specialization/list')
+      .then((response) => {
+        setRoles(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (
@@ -26,40 +26,40 @@ const FiltersContent = () => {
           <label key={index} className="label cursor-pointer justify-start p-1">
             <input
               type="checkbox"
-              className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
+              className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
             />
             <span>{role}</span>
           </label>
         ))}
       </div>
-      
+
       <div>
         <h4 className="mb-2 mt-4 font-bold">Desarrollo</h4>
         <label className="label cursor-pointer justify-start p-1">
           <input
             type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+            className="border-gray-500  checkbox-primary checkbox mr-2 rounded-md border-2"
           />
           <span>Spring</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
           <input
             type="checkbox"
-            className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
+            className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
           />
           <span>Laravel</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
           <input
             type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+            className="border-gray-500  checkbox-primary checkbox mr-2 rounded-md border-2"
           />
           <span>Angular</span>
         </label>
         <label className="label cursor-pointer justify-start p-1">
           <input
             type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+            className="border-gray-500  checkbox-primary checkbox mr-2 rounded-md border-2"
           />
           <span>React</span>
         </label>

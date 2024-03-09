@@ -1,6 +1,6 @@
-import { useAppDispatch } from '../hooks/ReduxHooks';
-import { toggleUserPanel } from '../store/reducers/getUserDetail/apiGetUserDetail';
-import { IStudentList } from '../interfaces/interfaces';
+import { useAppDispatch } from '../../hooks/ReduxHooks';
+import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
+import { IStudentList } from '../../interfaces/interfaces';
 
 const ProfileCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
   const dispatch = useAppDispatch();

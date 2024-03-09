@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import ProfilesList from '../ProfilesList';
+import ProfilesList from '../Profiles/ProfilesList';
 import FiltersModal from '../filters/FiltersModal';
 
 const Students = () => {
@@ -8,18 +8,16 @@ const Students = () => {
     setOpenModal(!openModal);
   };
   return (
-    <div className="w-full pr-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-2xl font-bold text-black-3 md:mb-6">Alumn@s</h3>
-        {/* Filter button only seen in small screens */}
-        <button
-          type="button"
-          className="rounded-lg border border-gray-400 px-4 py-1 font-semibold hover:bg-gray-100 md:hidden"
-          onClick={handleOpenModal}
-        >
-          Filtrar
-        </button>
-      </div>
+    <div className="flex flex-col">
+      <h3 className="text-2xl font-bold text-black-3 md:mb-14">Alumn@s</h3>
+      {/* Filter button only seen in small screens */}
+      <button
+        type="button"
+        className="border-gray-400 hover:bg-gray-100 rounded-lg border px-4 py-1 font-semibold md:hidden"
+        onClick={handleOpenModal}
+      >
+        Filtrar
+      </button>
 
       <ProfilesList />
       {openModal && <FiltersModal handleOpenModal={handleOpenModal} />}

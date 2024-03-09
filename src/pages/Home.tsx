@@ -1,4 +1,4 @@
-import Landing from '../components/mainPage/Landing';
+import Landing from '../components/landing/Landing';
 // import CheckTranslation from '../components/CheckTranslation';
 
 const Home = () => {

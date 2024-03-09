@@ -12,7 +12,7 @@ const MenuNavbar = () => {
   ];
 
   return (
-    <nav className="hidden w-48 gap-32 pl-7 pt-9 md:flex md:flex-col">
+    <nav className="hidden py-7 px-6 gap-28 md:flex md:flex-col">
       <div>
         <img src={itAcademyLogo} alt="itAcademy Logo" />
       </div>

@@ -1,28 +1,30 @@
 import React, { useContext } from 'react';
-import close from '../../assets/svg/close.svg';
+import { Close } from '../../assets/svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import Projects from './projects/ProjectsCard';
+import Projects from '../profileCards/Projects';
 
-type TUserDetailsContent = {
+type TProfileDetailsContent = {
   handleIsPanelOpen: () => void;
 };
 
-const UserDetailsContent: React.FC<TUserDetailsContent> = ({
+const ProfileDetailsContent: React.FC<TProfileDetailsContent> = ({
   handleIsPanelOpen,
 }) => {
   const { isMobile }: TSmallScreenContext = useContext(SmallScreenContext);
 
   return (
     <div
-      className={`flex flex-col gap-4 ${isMobile && 'modal-box rounded-2xl p-2'}`}
+      className={`flex flex-col gap-4 ${
+        isMobile && 'modal-box rounded-2xl p-2'
+      }`}
     >
-      <div className="flex items-center justify-end md:justify-between p-3">
-        <h3 className="text-colortext hidden md:block text-2xl font-bold">
+      <div className="flex items-center justify-end p-3 md:justify-between">
+        <h3 className="text-colortext hidden text-2xl font-bold md:block">
           Detalle Perfil
         </h3>
         <button className="cursor-pointer " onClick={handleIsPanelOpen}>
-          <img src={close} alt="close icon" className="h-5" />
+          <img src={Close} alt="close icon" className="h-5" />
         </button>
       </div>
 
@@ -55,4 +57,4 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
   );
 };
 
-export default UserDetailsContent;
+export default ProfileDetailsContent;

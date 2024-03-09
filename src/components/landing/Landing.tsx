@@ -1,8 +1,8 @@
-import Filters from '../filters/Filters';
+import Filters from '../profileFilters/ProfileFiltersLayout';
 import MenuNavbar from '../menuNavbar/MenuNavbar';
-import Students from '../students/Students';
+import ProfilesList from '../Profiles/ProfilesList';
 import UserNavbar from '../userNavBar/UserNavbar';
-import UserDetails from '../userDetailsPanel/UserDetails';
+import ProfileDetails from '../profile/ProfileDetails';
 
 const Landing = () => {
   return (
@@ -15,14 +15,14 @@ const Landing = () => {
         </div>
 
         <div className="flex">
-          {/* White board --> */}
-          <div className="flex w-full min-h-screen gap-2 rounded-xl bg-white p-10">
+          {/* Profiles --> */}
+          <div className="flex w-full gap-2 rounded-xl bg-white p-10">
             <Filters />
-            <Students />
+            <ProfilesList />
           </div>
 
           {/* Profile Details */}
-          <UserDetails />
+          <ProfileDetails />
         </div>
       </div>
     </div>

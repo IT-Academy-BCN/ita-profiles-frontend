@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import Lock from '../../assets/svg/lock-dynamic-color.svg';
-import LoginPopup from '../LoginPopup';
-import RegisterPopup from '../RegisterPopup';
-import ArrowDown from '../../assets/svg/arrow-down.svg';
-import burgerMenu from '../../assets/svg/burgerMenu.svg';
+import { Lock, ArrowDown, BurguerMenu } from '../../assets/svg';
+import LoginPopup from '../login_&_register/LoginPopup';
+import RegisterPopup from '../login_&_register/RegisterPopup';
 
 const UserNavbar = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
@@ -39,7 +37,7 @@ const UserNavbar = () => {
   return (
     <div className="flex w-full justify-between md:justify-end">
       <div className="flex cursor-pointer items-center justify-center md:hidden ">
-        <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
+        <img src={BurguerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
 
       <div className="hover:bg-gray-300 dropdown dropdown-end mx-4 rounded-full bg-white font-medium md:rounded-md">

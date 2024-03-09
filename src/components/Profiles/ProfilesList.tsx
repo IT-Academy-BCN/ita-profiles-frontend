@@ -26,8 +26,8 @@ const ProfilesList = () => {
   return (
     <div
       className={`${
-        isPanelOpen ? 'min-w-[350px] md:grid-cols-1' : 'lg:grid-cols-2'
-      } mt-4 grid max-h-[85vh] grid-cols-1 gap-3 overflow-hidden overflow-y-auto md:max-h-[70vh]`}
+        isPanelOpen ? 'md:grid-cols-1' : 'lg:grid-cols-2'
+      } mt-4 grid max-h-[85vh] grid-cols-1 gap-3 overflow-hidden overflow-y-auto`}
     >
       {students ? (
         students.map((student) => <ProfileCard key={student.id} {...student} />)

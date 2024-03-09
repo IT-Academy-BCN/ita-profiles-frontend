@@ -1,19 +1,19 @@
-import FiltersContent from './FiltersContent';
+import ProfileFiltersContent from "./ProfileFiltersContent";
 
 interface Props {
   handleOpenModal: () => void;
 }
 
-const FiltersModal = ({ handleOpenModal }: Props) => {
+const ProfilesFiltersModal = ({ handleOpenModal }: Props) => {
   return (
     <dialog id="filtersModal" className="modal modal-open modal-bottom ">
       <div className="modal-box bg-white shadow-sm ">
-        <FiltersContent />
+        <ProfileFiltersContent />
         <div className="modal-action">
           <form method="dialog" className="flex w-full justify-center ">
             {/* if there is a button in form, it will close the modal */}
             <button
-              className="w-full rounded-lg border border-gray-400 px-4 py-1 font-semibold hover:bg-gray-100"
+              className="border-gray-400 hover:bg-gray-100 w-full rounded-lg border px-4 py-1 font-semibold"
               onClick={handleOpenModal}
             >
               Cerrar
@@ -25,4 +25,4 @@ const FiltersModal = ({ handleOpenModal }: Props) => {
   );
 };
 
-export default FiltersModal;
+export default ProfilesFiltersModal;

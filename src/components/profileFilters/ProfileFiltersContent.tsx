@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const FiltersContent = () => {
+const ProfileFiltersContent = () => {
   const [roles, setRoles] = useState([]);
 
   useEffect(() => {
@@ -68,4 +68,4 @@ const FiltersContent = () => {
   );
 };
 
-export default FiltersContent;
+export default ProfileFiltersContent;

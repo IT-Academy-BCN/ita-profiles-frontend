@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import ProfilesList from '../Profiles/ProfilesList';
-import FiltersModal from '../filters/FiltersModal';
+import ProfilesList from './ProfilesList';
+import ProfilesFiltersModal from '../profileFilters/ProfileFiltersModal';
 
-const Students = () => {
+const ProfilesLayout = () => {
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
     setOpenModal(!openModal);
@@ -20,8 +20,8 @@ const Students = () => {
       </button>
 
       <ProfilesList />
-      {openModal && <FiltersModal handleOpenModal={handleOpenModal} />}
+      {openModal && <ProfilesFiltersModal handleOpenModal={handleOpenModal} />}
     </div>
   );
 };
-export default Students;
+export default ProfilesLayout;

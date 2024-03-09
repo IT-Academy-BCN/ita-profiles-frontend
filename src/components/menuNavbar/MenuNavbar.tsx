@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import itAcademyLogo from '../../assets/svg/itacademy.svg';
+import { ItAcademyLogo } from '../../assets/svg';
 
 const MenuNavbar = () => {
   const [activeItem, setActiveItem] = useState('Perfiles');
@@ -12,9 +12,9 @@ const MenuNavbar = () => {
   ];
 
   return (
-    <nav className="hidden py-7 px-6 gap-28 md:flex md:flex-col">
+    <nav className="hidden gap-28 px-6 py-7 md:flex md:flex-col">
       <div>
-        <img src={itAcademyLogo} alt="itAcademy Logo" />
+        <img src={ItAcademyLogo} alt="itAcademy Logo" />
       </div>
       <div className="flex flex-col gap-9">
         {menuItems.map((item) => (

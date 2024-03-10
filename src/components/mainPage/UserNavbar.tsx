@@ -47,10 +47,10 @@ const UserNavbar = () => {
       </div>
       <div className="flex cursor-pointer items-center gap-4">
         <div className="p-.5 dropdown relative rounded-xl  bg-white px-3 py-2 font-medium">
-          <button tabIndex={0} role="button" className="flex items-center gap-1 text-gray">
+          <div tabIndex={0} role="button" className="flex items-center gap-1 text-gray">
             ES
             <img src={ArrowDown} alt="Vector" />
-          </button>
+          </div>
           <ul
             tabIndex={0}
             className="menu dropdown-content absolute left-0 top-12 z-[1] rounded-box bg-base-100 shadow"

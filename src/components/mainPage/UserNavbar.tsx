@@ -47,7 +47,7 @@ const UserNavbar = () => {
       </div>
       <div className="flex cursor-pointer items-center gap-4">
         <div className="p-.5 dropdown relative rounded-xl  bg-white px-3 py-2 font-medium">
-          <button tabIndex={0} role="button" className="flex gap-1 text-gray">
+          <button tabIndex={0} role="button" className="flex items-center gap-1 text-gray">
             ES
             <img src={ArrowDown} alt="Vector" />
           </button>

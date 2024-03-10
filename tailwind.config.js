@@ -20,6 +20,12 @@ export default {
         'ita-wiki': '#3E6990',
         'ita-challenges': '#F29559',
       },
+      boxShadow: {
+        'custom': '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+      },
     },
   },
   daisyui: {

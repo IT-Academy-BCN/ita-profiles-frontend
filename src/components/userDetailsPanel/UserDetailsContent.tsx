@@ -3,6 +3,7 @@ import close from '../../assets/svg/close.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
+import BootcampComponent from '../BootcampComponent';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -40,8 +41,8 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
           <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
             Resources component
           </div>
-          <div className="border-gray-300 h-[400px] rounded-xl border-2 p-2">
-            Bootcamp component
+          <div className="p-2">
+          <BootcampComponent />
           </div>
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Languages component

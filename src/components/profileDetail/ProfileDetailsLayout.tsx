@@ -5,7 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import ProfileDetailsContent from './ProfileDetailsContent';
 
-const ProfileDetails: React.FC = () => {
+const ProfileDetailsLayout: React.FC = () => {
   // aqui cogemos el estado que viene por default "false".
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
@@ -43,4 +43,4 @@ const ProfileDetails: React.FC = () => {
   );
 };
 
-export default ProfileDetails;
+export default ProfileDetailsLayout;

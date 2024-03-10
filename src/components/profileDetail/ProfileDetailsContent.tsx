@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Close } from '../../assets/svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import Projects from '../profileCards/Projects';
+import Projects from '../profileDetailCards/Projects';
 
 type TProfileDetailsContent = {
   handleIsPanelOpen: () => void;

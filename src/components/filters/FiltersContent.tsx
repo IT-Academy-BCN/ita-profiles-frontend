@@ -1,19 +1,36 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
-const FiltersContent = () => {
+const FiltersContent: React.FC = () => {
+  const [specialities, setSpecialities] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
 
-  const [roles, setRoles] = useState([]);
+  const urlSpecialities: string =
+    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
+  const urlTags: string =
+    'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+
+  const fetchData = (
+    url: string,
+    setData: React.Dispatch<React.SetStateAction<string[]>>,
+  ) => {
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   useEffect(() => {
-   
-    axios.get("https://itaperfils.eurecatacademy.org/api/v1/specialization/list").then((response) => {
-      setRoles(response.data);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }, []);
+    fetchData(urlSpecialities, setSpecialities);
+  }, [urlSpecialities, setSpecialities]);
+
+  useEffect(() => {
+    fetchData(urlTags, setTags);
+  }, [urlTags, setTags]);
 
   return (
     <>
@@ -21,48 +38,36 @@ const FiltersContent = () => {
         Filtros
       </h3>
       <div>
-        <h4 className="mb-2 font-bold">Roles</h4>
-        {roles.map((role, index) => (
-          <label key={index} className="label cursor-pointer justify-start p-1">
-            <input
-              type="checkbox"
-              className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
-            />
-            <span>{role}</span>
-          </label>
-        ))}
+        <h4 className="mb-2 mt-4 font-bold">Roles</h4>
+        {tags &&
+          tags.map((tag, index) => (
+            <label
+              key={index}
+              className="label cursor-pointer justify-start p-1"
+            >
+              <input
+                type="checkbox"
+                className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+              />
+              <span>{tag}</span>
+            </label>
+          ))}
       </div>
-      
       <div>
         <h4 className="mb-2 mt-4 font-bold">Desarrollo</h4>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Spring</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Laravel</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>Angular</span>
-        </label>
-        <label className="label cursor-pointer justify-start p-1">
-          <input
-            type="checkbox"
-            className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
-          />
-          <span>React</span>
-        </label>
+        {specialities &&
+          specialities.map((speciality, index) => (
+            <label
+              key={index}
+              className="label cursor-pointer justify-start p-1"
+            >
+              <input
+                type="checkbox"
+                className="checkbox-primary  checkbox mr-2 rounded-md border-2 border-gray-500"
+              />
+              <span>{speciality}</span>
+            </label>
+          ))}
       </div>
     </>
   );

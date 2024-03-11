@@ -9,7 +9,7 @@ const Students = () => {
   };
   return (
     <div className="w-full pr-4">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between md:mb-0 mb-12">
         <h3 className="text-2xl font-bold text-black-3 md:mb-6">Alumn@s</h3>
         {/* Filter button only seen in small screens */}
         <button

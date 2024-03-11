@@ -1,5 +1,5 @@
 import medal from '../assets/img/medal-dynamic-color.png'; 
-const BootcampComponent = () => {
+const Bootcamp = () => {
   return (
     <div>
        <h1 className="text-start font-bold mb-5 mt-8 text-lg">Datos del bootcamp</h1>
@@ -14,4 +14,4 @@ const BootcampComponent = () => {
   );
 };
 
-export default BootcampComponent;
+export default Bootcamp;

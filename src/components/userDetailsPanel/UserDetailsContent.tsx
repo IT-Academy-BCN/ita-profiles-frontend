@@ -3,7 +3,7 @@ import close from '../../assets/svg/close.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
-import Collaboration from './collaboration-section/Collaboration';
+import Collaboration from './collaborationSection/Collaboration';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;

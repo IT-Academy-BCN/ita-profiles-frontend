@@ -37,38 +37,40 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="mx-4 my-3 flex w-full justify-between md:mr-8 md:justify-end">
-      <div className="flex cursor-pointer items-center justify-center md:hidden ">
-        <img src={burgerMenu} alt="burger menu" className="h-8 w-8 " />
+    <div className="mx-4 mb-4 mt-3 flex w-full items-center justify-between md:mr-8 md:justify-end">
+      <div className="md:hidden">
+        <img
+          src={burgerMenu}
+          alt="burger menu"
+          className="w-8 cursor-pointer"
+        />
       </div>
-
-      <div className="dropdown dropdown-end mx-4 rounded-full bg-white font-medium hover:bg-gray-300 md:rounded-md">
-        <div tabIndex={0} role="button" className="w-full px-3 py-2">
-          <div className="mx-0.1 relative flex items-center">
-            <span className="text-gray">ES</span>
-            <img src={ArrowDown} alt="Vector" className="ml-1 mt-0.5 h-2 w-4" />
+      <div className="flex cursor-pointer items-center gap-4">
+        <div className="p-.5 dropdown relative rounded-xl  bg-white px-3 py-2 font-medium">
+          <div tabIndex={0} role="button" className="flex items-center gap-1 text-gray">
+            ES
+            <img src={ArrowDown} alt="Vector" />
           </div>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content absolute left-0 top-12 z-[1] rounded-box bg-base-100 shadow"
+          >
+            <li className="text-gray">
+              <a>Español</a>
+            </li>
+            <li className="text-gray">
+              <a>English</a>
+            </li>
+          </ul>
         </div>
-
-        <ul
-          tabIndex={0}
-          className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+        <button
+          className="rounded-xl bg-white px-3 py-2 font-medium text-gray"
+          onClick={handleOpenRestrictedPopup}
         >
-          <li className="text-gray">
-            <a>Español</a>
-          </li>
-          <li className="text-gray">
-            <a>English</a>
-          </li>
-        </ul>
+          Login/registro
+        </button>
       </div>
 
-      <button
-        className="text-gray flex items-center justify-center rounded-full bg-white font-medium hover:bg-gray-300 md:rounded-md"
-        onClick={handleOpenRestrictedPopup}
-      >
-        <p className="text-gray w-full px-3 py-2">Login/registro</p>
-      </button>
       {isRestrictedPopupOpen && (
         <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
           <div className="relative flex w-72 flex-col items-center rounded-lg bg-white p-4">

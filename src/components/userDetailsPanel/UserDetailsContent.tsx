@@ -4,6 +4,7 @@ import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
 import Collaboration from './collaborationSection/Collaboration';
+import Bootcamp from './bootcampSection/BootcampCard';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -38,9 +39,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
             <Projects />
           </div>
           <Collaboration />
-          <div className="border-gray-300 h-[400px] rounded-xl border-2 p-2">
-            Bootcamp component
-          </div>
+          <Bootcamp />
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Languages component
           </div>

@@ -2,13 +2,13 @@ import React, { useContext } from 'react';
 import { Close } from '../../assets/svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import Projects from '../profileDetailCards/Projects';
+import Projects from '../studentDetailCards/Projects';
 
-type TProfileDetailsContent = {
+type StudentDetailsContent = {
   handleIsPanelOpen: () => void;
 };
 
-const ProfileDetailsContent: React.FC<TProfileDetailsContent> = ({
+const StudentDetailsContent: React.FC<StudentDetailsContent> = ({
   handleIsPanelOpen,
 }) => {
   const { isMobile }: TSmallScreenContext = useContext(SmallScreenContext);
@@ -16,11 +16,11 @@ const ProfileDetailsContent: React.FC<TProfileDetailsContent> = ({
   return (
     <div
       className={`flex flex-col gap-4 ${
-        isMobile && 'modal-box rounded-2xl p-2'
+        isMobile && 'modal-box rounded-2xl pl-4 p-2'
       }`}
     >
       <div className="flex items-center justify-end p-3 md:justify-between">
-        <h3 className="text-colortext hidden text-2xl font-bold md:block">
+        <h3 className="hidden text-2xl font-bold md:block">
           Detalle Perfil
         </h3>
         <button className="cursor-pointer " onClick={handleIsPanelOpen}>
@@ -28,14 +28,12 @@ const ProfileDetailsContent: React.FC<TProfileDetailsContent> = ({
         </button>
       </div>
 
-      <div className="overflow-auto pr-3">
+      <div className="overflow-auto pr-4">
         <div className="flex flex-col gap-8">
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>
           </div>
-          <div className="h-[175px]">
-            <Projects />
-          </div>
+          <Projects />
           <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
             Challenges component
           </div>
@@ -57,4 +55,4 @@ const ProfileDetailsContent: React.FC<TProfileDetailsContent> = ({
   );
 };
 
-export default ProfileDetailsContent;
+export default StudentDetailsContent;

@@ -1,10 +1,10 @@
-import ProfileCard from './ProfileCard';
+import StudentCard from './StudentCard';
 import { useAppSelector } from '../../hooks/ReduxHooks';
 import { useEffect, useState } from 'react';
 import { IStudentList } from '../../interfaces/interfaces';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
-const ProfilesList = () => {
+const StudentsList = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
   );
@@ -26,11 +26,13 @@ const ProfilesList = () => {
   return (
     <div
       className={`${
-        isPanelOpen ? 'md:grid-cols-1' : 'lg:grid-cols-2'
-      } mt-4 grid max-h-[85vh] grid-cols-1 gap-3 overflow-hidden overflow-y-auto`}
+        isPanelOpen
+          ? 'md:grid-cols-[minmax(250px,384px)]'
+          : 'lg:grid-cols-[minmax(250px,384px)_minmax(250px,384px)]'
+      } grid gap-y-1 gap-x-6 pr-8 overflow-auto`}
     >
       {students ? (
-        students.map((student) => <ProfileCard key={student.id} {...student} />)
+        students.map((student) => <StudentCard key={student.id} {...student} />)
       ) : (
         <p>Loading students data</p>
       )}
@@ -38,4 +40,4 @@ const ProfilesList = () => {
   );
 };
 
-export default ProfilesList;
+export default StudentsList;

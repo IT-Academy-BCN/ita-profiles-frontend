@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import ProfilesList from './ProfilesList';
-import ProfilesFiltersModal from '../profileFilters/ProfileFiltersModal';
+import StudentsList from './StudentsList';
+import StudentsFiltersModal from '../studentFilters/StudentFiltersModal';
 
-const ProfilesLayout = () => {
+const StudentsLayout = () => {
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
     setOpenModal(!openModal);
   };
   return (
-    <div className="flex flex-col">
-      <h3 className="text-2xl font-bold text-black-3 md:mb-14">Alumn@s</h3>
+    <div className="flex w-full flex-col">
+      <h3 className="pl-5 text-2xl font-bold text-black-3 md:mb-16">Alumn@s</h3>
       {/* Filter button only seen in small screens */}
       <button
         type="button"
@@ -19,9 +19,9 @@ const ProfilesLayout = () => {
         Filtrar
       </button>
 
-      <ProfilesList />
-      {openModal && <ProfilesFiltersModal handleOpenModal={handleOpenModal} />}
+      <StudentsList />
+      {openModal && <StudentsFiltersModal handleOpenModal={handleOpenModal} />}
     </div>
   );
 };
-export default ProfilesLayout;
+export default StudentsLayout;

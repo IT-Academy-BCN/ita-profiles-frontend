@@ -17,9 +17,9 @@ const MenuNavbar = () => {
         <img src={ItAcademyLogo} alt="itAcademy Logo" />
       </div>
       <div className="flex flex-col gap-9">
-        {menuItems.map((item) => (
+        {menuItems.map((item, index) => (
           <button
-            key={item}
+            key={index}
             onClick={() => setActiveItem(item)}
             className={`flex items-center ${
               activeItem === item ? 'text-black' : 'text-gray-3'

@@ -19,6 +19,7 @@ export default {
         'gray-4-base': '#EBEBEB', //background of the app
         'ita-wiki': '#3E6990',
         'ita-challenges': '#F29559',
+        'bootcamp': '#D9D9D9',
       },
       boxShadow: {
         'custom': '0px 4px 0px 0px rgba(0, 0, 0, 0.25)',

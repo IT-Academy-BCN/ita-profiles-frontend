@@ -39,7 +39,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
             <Projects />
           </div>
           <Collaboration />
-          <Bootcamp/>
+          <Bootcamp />
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Languages component
           </div>

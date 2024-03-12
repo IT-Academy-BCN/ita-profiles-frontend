@@ -32,12 +32,10 @@ const StudentDetailsLayout: React.FC = () => {
     };
   }, [setIsMobile]);
 
-  const mobileScreen = isMobile
-    ? 'modal modal-open md:hidden'
-    : 'w-2/6';
+  const mobileScreen = isMobile ? 'modal modal-open md:hidden' : 'w-1/3';
 
   return (
-    <div className={`${isPanelOpen ? mobileScreen : 'hidden'}`}>
+    <div className= {`${isPanelOpen ? mobileScreen : 'hidden'}`}>
       <StudentDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
     </div>
   );

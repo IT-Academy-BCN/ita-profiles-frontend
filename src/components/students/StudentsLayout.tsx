@@ -8,9 +8,9 @@ const StudentsLayout = () => {
     setOpenModal(!openModal);
   };
   return (
-    <div className="flex w-full flex-col">
-      <div className="flex items-start justify-between">
-        <h3 className="pl-5 text-2xl font-bold text-black-3 mb-16">Alumn@s</h3>
+    <div className="flex flex-col w-full gap-20">
+      <div className="flex justify-between">
+        <h3 className="pl-5 text-2xl font-bold text-black-3">Alumn@s</h3>
         {/* Filter button only seen in small screens */}
         <button
           type="button"
@@ -20,7 +20,6 @@ const StudentsLayout = () => {
           Filtrar
         </button>
       </div>
-
       <StudentsList />
       {openModal && <StudentsFiltersModal handleOpenModal={handleOpenModal} />}
     </div>

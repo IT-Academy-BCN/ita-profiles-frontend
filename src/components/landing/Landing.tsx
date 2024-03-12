@@ -6,18 +6,16 @@ import StudentFiltersLayout from '../studentFilters/StudentFiltersLayout';
 
 const Landing = () => {
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex h-screen">
       <MenuNavbar />
-      <div className="flex w-full flex-col gap-3 p-2 pb-8 pr-14">
-        <div className="flex justify-end">
-          <UserNavbar />
-        </div>
-        <div className="flex h-full gap-10 ">
-          <div className='flex w-full rounded-xl bg-white p-10'>
+      <div className="flex flex-1 flex-col gap-3 p-2 pb-8 pr-14">
+        <UserNavbar />
+        <div className="flex h-[90vh] gap-10">
+          <div className="flex flex-1 w-auto h-full rounded-xl bg-white p-10">
             <StudentFiltersLayout />
             <StudentsLayout />
           </div>
-        <StudentDetailsLayout />
+          <StudentDetailsLayout />
         </div>
       </div>
     </div>

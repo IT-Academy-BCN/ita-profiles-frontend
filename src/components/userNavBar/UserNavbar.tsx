@@ -35,7 +35,7 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="flex w-full justify-between md:justify-end">
+    <div className="flex justify-between md:justify-end">
       <div className="flex cursor-pointer items-center justify-center md:hidden ">
         <img src={BurguerMenu} alt="burger menu" className="h-8 w-8 " />
       </div>
@@ -60,6 +60,7 @@ const UserNavbar = () => {
           </li>
         </ul>
       </div>
+
 
       <button
         className="hover:bg-gray-300 flex items-center justify-center rounded-full bg-white font-medium text-gray md:rounded-md"

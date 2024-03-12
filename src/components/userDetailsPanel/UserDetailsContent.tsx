@@ -3,6 +3,7 @@ import close from '../../assets/svg/close.svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
+import StudentData from './studentData/StudentData';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -28,9 +29,9 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
 
       <div className="overflow-auto pr-3">
         <div className="flex flex-col gap-8">
-          <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
-            User Data component<p> (user + about + skills)</p>
-          </div>
+          
+            <StudentData />
+          
           <div className="h-[175px]">
             <Projects />
           </div>

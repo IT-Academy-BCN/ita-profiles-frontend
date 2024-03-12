@@ -19,6 +19,7 @@ export default {
         'gray-4-base': '#EBEBEB', //background of the app
         'ita-wiki': '#3E6990',
         'ita-challenges': '#F29559',
+        'gray-5-background': '#D9D9D9',
       },
     },
   },

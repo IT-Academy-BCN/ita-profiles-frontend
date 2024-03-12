@@ -2,7 +2,9 @@ import React, { useContext } from 'react';
 import { Close } from '../../assets/svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import Projects from '../studentDetailCards/projectsSection/ProjectsCard';
+import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
+import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
+import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -31,15 +33,11 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>
           </div>
-          <Projects />
-          <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
-            Challenges component
-          </div>
-          <div className="border-gray-300 h-[140px] rounded-xl border-2 p-2">
-            Resources component
-          </div>
-          <div className="border-gray-300 h-[400px] rounded-xl border-2 p-2">
-            Bootcamp component
+          <ProjectsCard />
+          <CollaborationCard />
+          <BootcampCard />
+          <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
+            Other Education
           </div>
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Languages component

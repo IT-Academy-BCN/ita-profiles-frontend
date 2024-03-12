@@ -2,7 +2,7 @@ import ArrowDown from './arrow-down.svg';
 import ArrowRight from './arrow-right.svg';
 import ArrowLeft from './arrow-left.svg';
 import Bookmark from './bookmark.svg';
-import BurguerMenu from './burgerMenu.svg';
+import BurgerMenu from './burgerMenu.svg';
 import Close from './close.svg';
 import Email from './email.svg';
 import Github from './github.svg';
@@ -17,7 +17,7 @@ export {
   ArrowRight,
   ArrowLeft,
   Bookmark,
-  BurguerMenu,
+  BurgerMenu,
   Close,
   Email,
   Github,

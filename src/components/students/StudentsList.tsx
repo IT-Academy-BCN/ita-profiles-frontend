@@ -1,7 +1,7 @@
 import StudentCard from './StudentCard';
 import { useAppSelector } from '../../hooks/ReduxHooks';
 import { useEffect, useState } from 'react';
-import { IStudentList } from '../../interfaces/interfaces';
+import {  IStudentList } from '../../interfaces/interfaces';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
 const StudentsList: React.FC = () => {

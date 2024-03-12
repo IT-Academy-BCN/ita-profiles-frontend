@@ -31,3 +31,24 @@ export interface ITag {
   id:   number;
   name: string;
 }
+
+export interface IStudentData {
+  student_id: number;
+  profile_detail: {
+    fullname: string;
+    subtitle: string;
+    social_media: {
+      linkedin: {
+        url: string;
+      },
+      github: {
+        url: string;
+      }
+    }
+    about: {
+      description: string;
+    },
+    tags: ITag[];
+  }
+}
+     

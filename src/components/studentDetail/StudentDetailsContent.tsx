@@ -21,12 +21,12 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
     >
       <div className="flex items-center justify-end p-3 md:justify-between">
         <h3 className="hidden text-2xl font-bold md:block">Detalle Perfil</h3>
-        <button className="cursor-pointer " onClick={handleIsPanelOpen}>
+        <button className="cursor-pointer" onClick={handleIsPanelOpen}>
           <img src={Close} alt="close icon" className="h-5" />
         </button>
       </div>
 
-      <div className={`overflow-auto ${isMobile ? 'pr-4' : 'pr-14'}`}>
+      <div className={`overflow-auto ${isMobile ? 'pr-4' : 'pr-12'}`}>
         <div className="flex flex-col gap-8">
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>

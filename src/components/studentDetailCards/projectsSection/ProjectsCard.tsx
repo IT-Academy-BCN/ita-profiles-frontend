@@ -1,8 +1,8 @@
-import { Github, Dots, ArrowLeft, ArrowRight } from '../../assets/svg';
-import { ArrowRightProjects } from '../../assets/img';
+import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg';
+import { ArrowRightProjects } from '../../../assets/img';
 import { useRef } from 'react';
 
-const Projects = () => {
+const ProjectsCard = () => {
   const projects = [
     {
       name: 'ITA-Landing',
@@ -101,4 +101,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsCard;

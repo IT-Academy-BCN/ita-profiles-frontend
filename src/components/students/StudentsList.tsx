@@ -27,8 +27,8 @@ const StudentsList = () => {
     <div
       className={`${
         isPanelOpen
-          ? 'md:grid-cols-[minmax(250px,384px)]'
-          : 'lg:grid-cols-[minmax(250px,384px)_minmax(250px,384px)]'
+          ? 'md:grid-cols-[minmax(250px,448px)]'
+          : 'lg:grid-cols-[minmax(250px,448px)_minmax(250px,448px)]'
       } grid gap-y-1 gap-x-6 pr-8 overflow-auto`}
     >
       {students ? (

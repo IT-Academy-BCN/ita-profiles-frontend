@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Close } from '../../assets/svg';
 import { SmallScreenContext } from '../../context/SmallScreenContext';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import Projects from '../studentDetailCards/Projects';
+import Projects from '../studentDetailCards/projectsSection/ProjectsCard';
 
 type StudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -16,13 +16,11 @@ const StudentDetailsContent: React.FC<StudentDetailsContent> = ({
   return (
     <div
       className={`flex flex-col gap-4 ${
-        isMobile && 'modal-box rounded-2xl pl-4 p-2'
+        isMobile && 'modal-box rounded-2xl p-2 pl-4'
       }`}
     >
       <div className="flex items-center justify-end p-3 md:justify-between">
-        <h3 className="hidden text-2xl font-bold md:block">
-          Detalle Perfil
-        </h3>
+        <h3 className="hidden text-2xl font-bold md:block">Detalle Perfil</h3>
         <button className="cursor-pointer " onClick={handleIsPanelOpen}>
           <img src={Close} alt="close icon" className="h-5" />
         </button>

@@ -11,7 +11,7 @@ const StudentCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
 
   return (
     <div
-      className="max-w-sm flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
+      className="max-w-md flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
       onClick={handleUserDetailToggler}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {

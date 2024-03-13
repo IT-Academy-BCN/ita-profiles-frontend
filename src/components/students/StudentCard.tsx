@@ -2,7 +2,7 @@ import { useAppDispatch } from '../../hooks/ReduxHooks';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import { IStudentList } from '../../interfaces/interfaces';
 
-const StudentCard = ({ fullname, photo, subtitle, tags }: IStudentList) => {
+const StudentCard: React.FC<IStudentList> = ({ fullname, photo, subtitle, tags }) => {
   const dispatch = useAppDispatch();
 
   const handleUserDetailToggler = () => {

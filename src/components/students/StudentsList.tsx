@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { IStudentList } from '../../interfaces/interfaces';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
-const StudentsList = () => {
+const StudentsList: React.FC = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
   );

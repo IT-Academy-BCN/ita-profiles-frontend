@@ -3,7 +3,7 @@ import { Lock, ArrowDown, BurgerMenu } from '../../assets/svg';
 import LoginPopup from '../login_&_register/LoginPopup';
 import RegisterPopup from '../login_&_register/RegisterPopup';
 
-const UserNavbar = () => {
+const UserNavbar: React.FC = () => {
   const [isRestrictedPopupOpen, setIsRestrictedPopupOpen] = useState(false);
   const [isRegisterPopupOpen, setIsRegisterPopupOpen] = useState(false);
   const [isLoginPopupOpen, setIsLoginPopupOpen] = useState(false);

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import StudentsList from './StudentsList';
 import StudentsFiltersModal from '../studentFilters/StudentFiltersModal';
 
-const StudentsLayout = () => {
+const StudentsLayout: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
   const handleOpenModal = () => {
     setOpenModal(!openModal);

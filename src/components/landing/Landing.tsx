@@ -8,7 +8,7 @@ const Landing = () => {
   return (
     <div className="flex h-screen">
       <MenuNavbar />
-      <div className="flex w-full md:w-[calc(100%-176px)] flex-col gap-3 p-4 md:p-2 md:pb-8 md:pr-14">
+      <div className="flex w-full md:w-[calc(100%-176px)] flex-col gap-3 p-2.5 md:p-2 md:pb-8 md:pr-14">
         <UserNavbar />
         <div className="flex h-[90vh] gap-10">
           <div className="flex flex-1 w-auto h-full rounded-xl bg-white p-10">

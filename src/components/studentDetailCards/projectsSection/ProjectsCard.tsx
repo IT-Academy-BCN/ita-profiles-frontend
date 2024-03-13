@@ -2,7 +2,7 @@ import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg';
 import { ArrowRightProjects } from '../../../assets/img';
 import { useRef } from 'react';
 
-const ProjectsCard = () => {
+const ProjectsCard: React.FC = () => {
   const projects = [
     {
       name: 'ITA-Landing',

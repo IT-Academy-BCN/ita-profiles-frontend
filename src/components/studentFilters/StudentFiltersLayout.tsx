@@ -1,6 +1,6 @@
 import StudentFiltersContent from './StudentFiltersContent';
 
-const StudentFiltersLayout = () => {
+const StudentFiltersLayout: React.FC = () => {
   return (
     <div className="hidden flex-col md:flex">
       <StudentFiltersContent />

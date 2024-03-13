@@ -1,5 +1,6 @@
 import folder from '../../../assets/img/folder.png';
-const ResourcesCard = () => {
+
+const ResourcesCard: React.FC = () => {
   return (
     <div className="flex w-2/3 md:w-1/2 items-start justify-between rounded-md bg-ita-wiki p-3 pl-7 pt-3">
       <div className="flex flex-col">

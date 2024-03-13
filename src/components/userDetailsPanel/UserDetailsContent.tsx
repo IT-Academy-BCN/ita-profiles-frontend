@@ -24,6 +24,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
         </h3>
         <button className="cursor-pointer " onClick={handleIsPanelOpen}>
           <img src={close} alt="close icon" className="h-5" />
+          
         </button>
       </div>
 

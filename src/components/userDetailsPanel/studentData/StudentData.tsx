@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import profilePicture from '../../../assets/img/stud_1.png';
 import bookmark from '../../../assets/svg/bookmark.svg';
 import email from '../../../assets/img/mail-gray.png';
@@ -5,6 +6,12 @@ import github from '../../../assets/svg/github.svg';
 import linkedin from '../../../assets/svg/linkedin.svg';
 
 const StudentData = () => {
+  const [showFullDescription, setShowFullDescription] = useState(false);
+
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
+
   const studentsData = [
     {
       id: 1,
@@ -41,7 +48,6 @@ const StudentData = () => {
 
   return (
     <div>
-     
       {studentsData.map((student) => (
         <div key={student.id} className="flex flex-col gap-4">
           <div className="flex gap-3 mb-3">
@@ -57,12 +63,12 @@ const StudentData = () => {
                     <h1 className="text-xl font-bold">
                       {student.profileDetail.fullname}
                     </h1>
-                    <h2 className=" text-gray-2">
+                    <h2 className="text-gray-2">
                       {student.profileDetail.subtitle}
                     </h2>
                   </div>
 
-                  <div className=" hidden items-center gap-2  lg:flex ">
+                  <div className=" hidden items-center gap-2 lg:flex ">
                     <img
                       src={bookmark}
                       alt="bookmark icon"
@@ -71,8 +77,7 @@ const StudentData = () => {
                     <img src={email} alt="email icon" className="h-6 w-6" />
                   </div>
                 </div>
-
-                <div className="flex gap-4 ">
+                <div className="flex gap-4">
                   <div className="flex gap-1">
                     <img src={github} alt="github icon" />
                     {student.profileDetail.socialMedia.github.url}
@@ -85,14 +90,33 @@ const StudentData = () => {
               </div>
             </div>
           </div>
-          
-          <h2 className="text-md font-bold">About</h2>
-          <p>{student.profileDetail.about.description}</p>
-          <ul className="flex flex-wrap gap-1">
+          <div className='flex flex-col gap-2'>
+            <h2 className="text-lg font-bold">About</h2>
+            <div>
+              <p className='text-sm'>
+                {showFullDescription
+                  ? student.profileDetail.about.description
+                  : `${student.profileDetail.about.description.split(' ').slice(0, 15).join(' ')}...`}
+                {!showFullDescription && (
+                  <button onClick={toggleDescription} className='text-gray-3 text-sm'>
+                    ver más
+                  </button>
+                )}
+              </p>
+              {showFullDescription && (
+                <p className='text-sm'>
+                  <button onClick={toggleDescription} className='text-gray-3 text-sm'>
+                    ver menos
+                  </button>
+                </p>
+              )}
+            </div>
+          </div>
+          <ul className="flex flex-wrap gap-2">
             {student.profileDetail.tags.map((tag, index) => (
               <li
                 key={index}
-                className="rounded-md bg-gray-4-base px-2 py-1 text-sm"
+                className="rounded-md bg-[#d9d8d8] px-2 py-1 text-sm"
               >
                 {tag}
               </li>

@@ -8,7 +8,7 @@ const ModalityCard: React.FC = () => {
             <h1 className="font-bold pb-5 pt-8 text-lg">Modalidad</h1>
             <div className="flex row">
                 <img src={remoto} className="w- full pr-2" />
-                <h2 className="text-sm font-semibold leading-tight text-black pt-1">Remoto</h2>
+                <h2 className="text-sm font-semibold leading-tight text-black-3 pt-1">Remoto</h2>
             </div>
         </div>
 

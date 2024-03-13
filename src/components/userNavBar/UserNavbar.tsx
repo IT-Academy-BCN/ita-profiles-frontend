@@ -35,7 +35,7 @@ const UserNavbar = () => {
   };
 
   return (
-    <div className="mx-4 mb-4 mt-3 flex w-full items-center justify-between md:mr-8 md:justify-end">
+    <div className="flex w-full items-center justify-between md:justify-end">
       <div className="md:hidden">
         <img
           src={BurgerMenu}
@@ -44,7 +44,7 @@ const UserNavbar = () => {
         />
       </div>
       <div className="flex cursor-pointer items-center gap-4">
-        <div className="p-.5 dropdown relative rounded-xl  bg-white px-3 py-2 font-medium">
+        <div className="p-.5 dropdown relative rounded-lg  bg-white px-3 py-2 font-medium">
           <div
             tabIndex={0}
             role="button"
@@ -55,7 +55,7 @@ const UserNavbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu dropdown-content absolute left-0 top-12 z-[1] rounded-box bg-base-100 shadow"
+            className="menu dropdown-content absolute left-0 top-12 z-[1] rounded-lg bg-base-100 shadow"
           >
             <li className="text-gray">
               <a>Español</a>
@@ -66,7 +66,7 @@ const UserNavbar = () => {
           </ul>
         </div>
         <button
-          className="rounded-xl bg-white px-3 py-2 font-medium text-gray"
+          className="rounded-lg bg-white px-3 py-2 font-medium text-gray"
           onClick={handleOpenRestrictedPopup}
         >
           Login/registro
@@ -77,7 +77,7 @@ const UserNavbar = () => {
         <div className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
           <div className="relative flex w-72 flex-col items-center rounded-lg bg-white p-4">
             <button
-              className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
+              className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-lg border-none bg-transparent"
               onClick={handleCloseRestrictedPopup}
             >
               ✕

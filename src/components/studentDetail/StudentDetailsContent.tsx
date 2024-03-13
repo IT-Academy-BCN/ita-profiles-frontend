@@ -17,7 +17,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
 
   return (
     <div
-      className={`flex flex-col gap-4 ${
+      className={`flex flex-col gap-6 ${
         isMobile ? 'modal-box rounded-2xl p-2 pl-4' : 'h-full'
       }`}
     >
@@ -29,7 +29,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
       </div>
 
       <div className={`overflow-auto ${isMobile ? 'pr-4' : 'pr-12'}`}>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-9">
           <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
             User Data component<p> (user + about + skills)</p>
           </div>

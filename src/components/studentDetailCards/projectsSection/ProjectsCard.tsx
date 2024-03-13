@@ -50,15 +50,15 @@ const ProjectsCard = () => {
   };
 
   return (
-    <div className="carousel-item flex flex-col">
-      <div className="flex h-8">
+    <div className="carousel-item flex flex-col gap-4">
+      <div className="flex justify-between">
         <h1 className="text-lg font-bold">Proyectos</h1>
-        <div className="ml-auto flex items-end">
-          <button onClick={scrollLeft} className="w-6">
-            <img src={ArrowLeft} alt="github link" className="w-6" />
+        <div className="h-3 self-end">
+          <button onClick={scrollLeft}>
+            <img src={ArrowLeft} alt="arrow left" className="w-5" />
           </button>
-          <button onClick={scrollRight} className="w-6">
-            <img src={ArrowRight} alt="github link" className="w-6" />
+          <button onClick={scrollRight}>
+            <img src={ArrowRight} alt="arrow right" className="w-5" />
           </button>
         </div>
       </div>
@@ -66,27 +66,25 @@ const ProjectsCard = () => {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="mt-3 h-32 rounded-xl border border-gray-3 px-4 py-2"
+            className="flex flex-col gap-1 rounded-xl border border-gray-3 px-5 py-3.5 "
           >
             <div className="flex items-center justify-between">
-              <div className="flex w-52 items-center  gap-2">
-                <p className="text-lg font-semibold">{project.name}</p>
+              <div className="flex w-48 items-center gap-3">
+                <p className="text-md font-semibold">{project.name}</p>
                 <a href={project.url} className="flex items-center">
                   <img src={Github} alt="github link" className="w-6" />
                 </a>
               </div>
-              <div>
-                <button className="hover:scale-12 flex w-6 items-center">
-                  <img src={Dots} alt="pencil icon" />
-                </button>
-              </div>
+              <button className="-mt-1 flex w-6 self-start">
+                <img src={Dots} alt="3 dots" />
+              </button>
             </div>
-            <p className="text-gray-3">{project.company}</p>
-            <div className="mt-4 flex items-center justify-between">
-              <p className="rounded-lg border border-black-3 px-2 py-1 font-semibold">
+            <p className="text-sm text-gray-3">{project.company}</p>
+            <div className="flex items-center justify-between pt-3">
+              <div className="text-sm rounded-lg border border-black-3 px-2 py-1 font-semibold">
                 {project.tags.join(' · ')}
-              </p>
-              <button className="h-8 rounded-lg border border-black-3 hover:scale-110">
+              </div>
+              <button className="h-8 rounded-lg border border-black-3">
                 <img
                   src={ArrowRightProjects}
                   alt="right arrow button"

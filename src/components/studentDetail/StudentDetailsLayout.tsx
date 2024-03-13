@@ -3,9 +3,9 @@ import { SmallScreenContext } from '../../context/SmallScreenContext';
 import { useAppDispatch, useAppSelector } from '../../hooks/ReduxHooks';
 import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
-import UserDetailsContent from './UserDetailsContent';
+import StudentDetailsContent from './StudentDetailsContent';
 
-const UserDetails: React.FC = () => {
+const StudentDetailsLayout: React.FC = () => {
   // aqui cogemos el estado que viene por default "false".
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
@@ -32,15 +32,13 @@ const UserDetails: React.FC = () => {
     };
   }, [setIsMobile]);
 
-  const mobileScreen = isMobile
-    ? 'modal modal-open md:hidden'
-    : 'max-h-[90vh] overflow-hidden overflow-y-auto md:block';
+  const mobileScreen = isMobile ? 'modal modal-open md:hidden' : 'w-1/3';
 
   return (
-    <div className={`${isPanelOpen ? mobileScreen : 'hidden'}`}>
-      <UserDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
+    <div className= {`${isPanelOpen ? mobileScreen : 'hidden'}`}>
+      <StudentDetailsContent handleIsPanelOpen={handleIsPanelOpen} />
     </div>
   );
 };
 
-export default UserDetails;
+export default StudentDetailsLayout;

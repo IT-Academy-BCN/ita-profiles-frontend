@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import type { ThemeContextT } from '../context/ThemeContext';
 
-const SwitchTheme = () => {
+const SwitchTheme: React.FC = () => {
   const themeContext = useContext<ThemeContextT>(ThemeContext);
   const { theme, setTheme } = themeContext;
 

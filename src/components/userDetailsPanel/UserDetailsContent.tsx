@@ -30,9 +30,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
 
       <div className="overflow-auto pr-3">
         <div className="flex flex-col gap-8">
-          
-            <StudentData />
-          
+          <StudentData />          
           <div className="h-[175px]">
             <Projects />
           </div>

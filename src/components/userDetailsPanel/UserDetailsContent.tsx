@@ -5,7 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
 import Collaboration from './collaborationSection/Collaboration';
 import Bootcamp from './bootcampSection/BootcampCard';
-import LenguagesCard from './lenguagesSection/LenguagesCard';
+import LenguageCard from './lenguageSection/LenguageCard';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -41,7 +41,7 @@ const UserDetailsContent: React.FC<TUserDetailsContent> = ({
           </div>
           <Collaboration />
           <Bootcamp />
-          <LenguagesCard />
+          <LenguageCard />
           <div className="border-gray-300 h-[70px] rounded-xl border-2 p-2">
             Modality component
           </div>

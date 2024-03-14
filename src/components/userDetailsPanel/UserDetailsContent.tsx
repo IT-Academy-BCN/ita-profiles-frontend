@@ -5,7 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import Projects from './projects/ProjectsCard';
 import Collaboration from './collaborationSection/Collaboration';
 import Bootcamp from './bootcampSection/BootcampCard';
-import LanguageCard from './languageSection/LanguageCard';
+import LanguageCard from './languagesSection/LanguagesCard';
 
 type TUserDetailsContent = {
   handleIsPanelOpen: () => void;

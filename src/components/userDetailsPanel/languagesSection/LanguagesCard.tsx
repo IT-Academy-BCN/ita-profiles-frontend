@@ -1,4 +1,4 @@
-const LanguageCard: React.FC = () => {
+const LanguagesCard: React.FC = () => {
   return (
     <div>
       <h3 className="pb-6 pt-8 text-lg font-bold">Idiomas</h3>
@@ -14,4 +14,4 @@ const LanguageCard: React.FC = () => {
   );
 };
 
-export default LanguageCard;
+export default LanguagesCard;

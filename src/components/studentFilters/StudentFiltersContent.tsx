@@ -33,8 +33,8 @@ const StudentFiltersContent: React.FC = () => {
   }, [urlDevelopment]);
 
   return (
-    <div className="flex flex-col gap-16">
-      <h3 className="w-40 text-2xl font-bold text-black-3">Filtros</h3>
+    <div className="w-40 flex flex-col gap-16 flex:none">
+      <h3 className="text-2xl font-bold text-black-3">Filtros</h3>
       <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Roles</h4>

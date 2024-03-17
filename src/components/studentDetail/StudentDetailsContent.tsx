@@ -5,6 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
 import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
+import LanguagesCard from '../userDetailsPanel/languagesSection/LanguagesCard';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -39,9 +40,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Other Education
           </div>
-          <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
-            Languages component
-          </div>
+          <LanguagesCard />
           <div className="border-gray-300 h-[70px] rounded-xl border-2 p-2">
             Modality component
           </div>

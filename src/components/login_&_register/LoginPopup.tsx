@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { loginForm } from '../interfaces/interfaces';
+import { loginForm } from '../../interfaces/interfaces';
 
 type LoginPopupProps = {
   onClose: () => void;
@@ -22,11 +22,11 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="relative w-72 rounded-lg bg-white flex flex-col items-center p-4 md:p-8">
-      <h2 className="text-lg text-black font-bold">Login</h2>
+    <div className="relative flex w-72 flex-col items-center rounded-lg bg-white p-4 md:p-8">
+      <h2 className="text-lg font-bold text-black">Login</h2>
       <form className="flex flex-col space-y-4">
         <button
-          className="absolute top-2 right-2 w-8 h-8 rounded-full bg-transparent border-none cursor-pointer"
+          className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
           onClick={onClose}
         >
           ✕
@@ -34,37 +34,37 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
         <input
           type="text"
           id="dni"
-          className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+          className="border-gray-300 w-full rounded-lg border p-2 focus:border-blue-300 focus:outline-none focus:ring"
           placeholder="email por ahora."
           {...register('email')}
         />
         <input
           type="password"
           id="password"
-          className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+          className="border-gray-300 w-full rounded-lg border p-2 focus:border-blue-300 focus:outline-none focus:ring"
           placeholder="Contraseña"
           {...register('password')}
         />
-        <div className="text-center mt-4">
+        <div className="mt-4 text-center">
           <a
             href="#"
-            className="text-black cursor-pointer"
+            className="cursor-pointer text-black"
             style={{ textDecoration: 'underline' }}
           >
             Recordar/cambiar contraseña
           </a>
         </div>
         <button
-          className="w-full h-12 rounded-lg bg-pink-500 text-white font-bold"
+          className="h-12 w-full rounded-lg bg-pink-500 font-bold text-white"
           onClick={handleSubmit(handleLogin)}
         >
           Login
         </button>
       </form>
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <a
           href="#"
-          className="text-black font-bold cursor-pointer"
+          className="cursor-pointer font-bold text-black"
           style={{ textDecoration: 'underline' }}
         >
           ¿No tienes cuenta? crear una

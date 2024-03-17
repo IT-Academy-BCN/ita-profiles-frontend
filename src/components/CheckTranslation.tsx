@@ -2,7 +2,7 @@ import cookies from 'js-cookie';
 import { useTranslation } from 'react-i18next';
 import { supportedLanguages } from '../lib/data/supportedLngs';
 
-const CheckTranslation = () => {
+const CheckTranslation: React.FC = () => {
   const cookieLanguage = cookies.get('i18next');
   const {
     t,

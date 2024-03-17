@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { UserSchema } from '../schemes/schemas';
+import { UserSchema } from '../../schemes/schemas';
 
 type RegisterPopupProps = {
   onClose: () => void;
@@ -60,7 +60,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('dni')}
               type="text"
               id="dni"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="DNI o NIE"
             />
             {errors.dni && (
@@ -72,7 +72,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('username')}
               type="text"
               id="username"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Username"
             />
             {errors.username && (
@@ -86,7 +86,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('password')}
               type="password"
               id="password"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Password"
             />
             {errors.password && (
@@ -98,7 +98,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               {...register('email')}
               type="email"
               id="email"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Email"
             />
             {errors.email && (
@@ -112,7 +112,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               type="password"
               {...register('confirmPassword')}
               id="confirmPassword"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Confirm Password"
             />
             {errors.confirmPassword && (
@@ -125,7 +125,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
               type="text"
               {...register('specialization')}
               id="specialization"
-              className="w-full rounded-lg border border-gray-300 p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
+              className="border-gray-300 w-full rounded-lg border p-2 px-4 py-4 focus:border-blue-300 focus:outline-none focus:ring md:p-4 md:px-6 md:py-2"
               placeholder="Specialization"
             />
             {errors.specialization && (

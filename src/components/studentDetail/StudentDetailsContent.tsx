@@ -5,6 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
 import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
+import StudentData from '../userDetailsPanel/studentData/StudentDataCard.tsx';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -30,9 +31,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
 
       <div className={`overflow-auto ${isMobile ? 'pr-4' : 'pr-12'}`}>
         <div className="flex flex-col gap-9">
-          <div className="border-gray-300 h-[220px] rounded-xl border-2 p-2">
-            User Data component<p> (user + about + skills)</p>
-          </div>
+          <StudentData />
           <ProjectsCard />
           <CollaborationCard />
           <BootcampCard />

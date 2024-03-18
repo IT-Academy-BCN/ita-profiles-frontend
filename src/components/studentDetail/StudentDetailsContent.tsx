@@ -5,7 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
 import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
-import StudentData from '../userDetailsPanel/studentData/StudentData.tsx';
+import StudentData from '../userDetailsPanel/studentData/StudentDataCard.tsx';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;

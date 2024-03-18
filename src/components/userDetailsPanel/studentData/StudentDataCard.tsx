@@ -3,7 +3,7 @@ import profilePicture from '../../../assets/img/stud_1.png';
 import github from '../../../assets/svg/github.svg';
 import linkedin from '../../../assets/svg/linkedin.svg';
 
-const StudentData = () => {
+const StudentData: React.FC = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => {
@@ -48,7 +48,7 @@ const StudentData = () => {
     <div>
       {studentsData.map((student) => (
         <div key={student.id} className="flex flex-col gap-4">
-          <div className="flex gap-3 mb-3">
+          <div className="flex gap-3 pb-3">
             <img
               src={profilePicture}
               alt="Profile picture"
@@ -58,12 +58,12 @@ const StudentData = () => {
               <div className="flex flex-col justify-between w-full">
                 <div className="flex justify-between w-full ">
                   <div className="flex flex-col ">
-                    <h1 className="text-xl font-bold">
+                    <h3 className="text-xl font-bold">
                       {student.profileDetail.fullname}
-                    </h1>
-                    <h2 className="text-gray-2">
+                    </h3>
+                    <p className="text-gray-2">
                       {student.profileDetail.subtitle}
-                    </h2>
+                    </p>
                   </div>                 
                 </div>
                 <div className="flex gap-4">
@@ -80,7 +80,7 @@ const StudentData = () => {
             </div>
           </div>
           <div className='flex flex-col gap-2'>
-            <h2 className="text-lg font-bold">About</h2>
+            <h4 className="text-lg font-bold">About</h4>
             <div>
               <p className='text-sm'>
                 {showFullDescription
@@ -105,7 +105,7 @@ const StudentData = () => {
             {student.profileDetail.tags.map((tag, index) => (
               <li
                 key={index}
-                className="rounded-md bg-[#d9d8d8] px-2 py-1 text-sm"
+                className="rounded-md bg-gray-5-background px-2 py-1 text-sm"
               >
                 {tag}
               </li>

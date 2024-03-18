@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import profilePicture from '../../../assets/img/stud_1.png';
-import bookmark from '../../../assets/svg/bookmark.svg';
-import email from '../../../assets/img/mail-gray.png';
 import github from '../../../assets/svg/github.svg';
 import linkedin from '../../../assets/svg/linkedin.svg';
 
@@ -66,16 +64,7 @@ const StudentData = () => {
                     <h2 className="text-gray-2">
                       {student.profileDetail.subtitle}
                     </h2>
-                  </div>
-
-                  <div className=" hidden items-center gap-2 lg:flex ">
-                    <img
-                      src={bookmark}
-                      alt="bookmark icon"
-                      className="h-6 w-6"
-                    />
-                    <img src={email} alt="email icon" className="h-6 w-6" />
-                  </div>
+                  </div>                 
                 </div>
                 <div className="flex gap-4">
                   <div className="flex gap-1">

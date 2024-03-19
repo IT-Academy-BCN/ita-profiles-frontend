@@ -3,7 +3,7 @@ import profilePicture from '../../../assets/img/stud_1.png';
 import github from '../../../assets/svg/github.svg';
 import linkedin from '../../../assets/svg/linkedin.svg';
 
-const StudentData: React.FC = () => {
+const StudentDataCard: React.FC = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   const toggleDescription = () => {
@@ -117,4 +117,4 @@ const StudentData: React.FC = () => {
   );
 };
 
-export default StudentData;
+export default StudentDataCard;

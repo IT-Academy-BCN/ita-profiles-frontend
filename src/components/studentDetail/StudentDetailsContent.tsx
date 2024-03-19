@@ -5,7 +5,8 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
 import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
-import StudentData from '../userDetailsPanel/studentData/StudentDataCard.tsx';
+import StudentDataCard from '../studentDetailCards/studentDataSection/StudentDataCard';
+import LanguagesCard from '../studentDetailCards/languagesSection/LanguagesCard';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -31,16 +32,14 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
 
       <div className={`overflow-auto ${isMobile ? 'pr-4' : 'pr-12'}`}>
         <div className="flex flex-col gap-9">
-          <StudentData />
+          <StudentDataCard />
           <ProjectsCard />
           <CollaborationCard />
           <BootcampCard />
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Other Education
           </div>
-          <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
-            Languages component
-          </div>
+          <LanguagesCard />
           <div className="border-gray-300 h-[70px] rounded-xl border-2 p-2">
             Modality component
           </div>

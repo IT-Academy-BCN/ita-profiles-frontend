@@ -18,17 +18,17 @@ const OtherEducationCard: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-lg font-bold ">Otra formación</h1>
+      <h3 className="text-lg font-bold text-black-3">Otra formación</h3>
       <div className="flex flex-col pt-3">
         {education.map((item, index) => (
           <div key={item.id} className="flex flex-col ">
             <h4 className=" font-bold">{item.title}</h4>
             <div className="flex flex-col ">
-              <p className="text-sm font-semibold text-black-3">{item.site}</p>
-              <p className="text-sm font-semibold text-black-3">
+              <p className="text-sm font-semibold text-black-2">{item.site}</p>
+              <p className="text-sm font-semibold text-black-2">
                 {item.years.join(' - ')} · {item.hours} horas
               </p>
-              {index !== education.length - 1 && <span className="h-px w-full bg-gray-4-base my-3"></span>}
+              {index !== education.length - 1 && <span className="h-px w-full bg-gray-4-base md:bg-gray-5-background my-3"></span>}
             </div>
            
           </div>

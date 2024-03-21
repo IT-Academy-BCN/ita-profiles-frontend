@@ -10,16 +10,17 @@ export default {
       colors: {
         'primary-hover': '#811155',
         'primary-active': '#CE5DA1',
-        'black-2': '#1D1D1D',
+        'black-1': '#000000',
+        'black-2': '#1E1E1E',
         'black-3': '#282828', //used in titles
-        gray: '#808080',
         'gray-1': '#333333',
         'gray-2': '#4F4F4F',
         'gray-3': '#7E7E7E',
         'gray-4-base': '#EBEBEB', //background of the app
+        'gray-5-background': '#D9D9D9',
         'ita-wiki': '#3E6990',
         'ita-challenges': '#F29559',
-        'gray-5-background': '#D9D9D9',
+        'white': '#FFFFFF',
       },
     },
   },

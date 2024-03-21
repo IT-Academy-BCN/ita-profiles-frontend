@@ -22,7 +22,7 @@ const MenuNavbar = () => {
             key={index}
             onClick={() => setActiveItem(item)}
             className={`flex items-center ${
-              activeItem === item ? 'text-black' : 'text-gray-3'
+              activeItem === item ? 'text-black-2' : 'text-gray-3'
             }`}
           >
             {activeItem === item && (
@@ -30,7 +30,7 @@ const MenuNavbar = () => {
             )}
             <p
               className={`font-poppins text-left text-sm font-semibold leading-4 tracking-tight ${
-                activeItem === item ? 'text-black' : 'text-gray-3'
+                activeItem === item ? 'text-black-2' : 'text-gray-3'
               }`}
             >
               {item}

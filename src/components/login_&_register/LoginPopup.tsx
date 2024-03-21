@@ -23,7 +23,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
 
   return (
     <div className="relative flex w-72 flex-col items-center rounded-lg bg-white p-4 md:p-8">
-      <h2 className="text-lg font-bold text-black">Login</h2>
+      <h2 className="text-lg font-bold text-black-3">Login</h2>
       <form className="flex flex-col space-y-4">
         <button
           className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
@@ -48,7 +48,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
         <div className="mt-4 text-center">
           <a
             href="#"
-            className="cursor-pointer text-black"
+            className="cursor-pointer text-black-2"
             style={{ textDecoration: 'underline' }}
           >
             Recordar/cambiar contraseña
@@ -64,7 +64,7 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
       <div className="mt-4 text-center">
         <a
           href="#"
-          className="cursor-pointer font-bold text-black"
+          className="cursor-pointer font-bold text-black-2"
           style={{ textDecoration: 'underline' }}
         >
           ¿No tienes cuenta? crear una

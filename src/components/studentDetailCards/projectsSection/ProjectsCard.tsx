@@ -52,7 +52,7 @@ const ProjectsCard: React.FC = () => {
   return (
     <div className="carousel-item flex flex-col gap-4">
       <div className="flex justify-between">
-        <h1 className="text-lg font-bold">Proyectos</h1>
+        <h3 className="text-lg font-bold">Proyectos</h3>
         <div className="h-3 self-end">
           <button onClick={scrollLeft}>
             <img src={ArrowLeft} alt="arrow left" className="w-5" />

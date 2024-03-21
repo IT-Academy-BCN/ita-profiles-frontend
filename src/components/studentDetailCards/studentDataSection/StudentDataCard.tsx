@@ -56,9 +56,9 @@ const StudentDataCard: React.FC = () => {
             <div className="flex">
               <div className="flex flex-col gap-2">
                 <div className="flex flex-col">
-                  <h3 className="text-xl font-bold">
+                  <h2 className="text-xl font-bold">
                     {student.profileDetail.fullname}
-                  </h3>
+                  </h2>
                   <p className="text-gray-2">
                     {student.profileDetail.subtitle}
                   </p>
@@ -78,7 +78,7 @@ const StudentDataCard: React.FC = () => {
           </div>
           <div className="flex flex-col gap-6">
             <div className='flex flex-col gap-2'>
-              <h4 className="text-lg font-bold">About</h4>
+              <h3 className="text-lg font-bold">About</h3>
               <div>
                 <p className="text-sm">
                   {showFullDescription

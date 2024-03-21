@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import profilePicture from '../../../assets/img/stud_1.png';
-import github from '../../../assets/svg/github.svg';
-import linkedin from '../../../assets/svg/linkedin.svg';
+import { Github, Linkedin } from '../../../assets/svg';
+import { Stud1 as ProfilePicture } from '../../../assets/img';
 
 const StudentDataCard: React.FC = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
@@ -10,7 +9,7 @@ const StudentDataCard: React.FC = () => {
     setShowFullDescription(!showFullDescription);
   };
 
-  const studentsData = [
+  const studentData = [
     {
       id: 1,
       profileDetail: {
@@ -46,71 +45,80 @@ const StudentDataCard: React.FC = () => {
 
   return (
     <div>
-      {studentsData.map((student) => (
+      {studentData.map((student) => (
         <div key={student.id} className="flex flex-col gap-4">
-          <div className="flex gap-3 pb-3">
+          <div className="flex gap-3">
             <img
-              src={profilePicture}
+              src={ProfilePicture}
               alt="Profile picture"
-              className="w-32 rounded-lg"
+              className="h-20 w-20 flex-none rounded-lg"
             />
-            <div className="flex w-full justify-between ">
-              <div className="flex flex-col justify-between w-full">
-                <div className="flex justify-between w-full ">
-                  <div className="flex flex-col ">
-                    <h3 className="text-xl font-bold">
-                      {student.profileDetail.fullname}
-                    </h3>
-                    <p className="text-gray-2">
-                      {student.profileDetail.subtitle}
-                    </p>
-                  </div>                 
+            <div className="flex">
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col">
+                  <h2 className="text-xl font-bold">
+                    {student.profileDetail.fullname}
+                  </h2>
+                  <p className="text-gray-2">
+                    {student.profileDetail.subtitle}
+                  </p>
                 </div>
                 <div className="flex gap-4">
                   <div className="flex gap-1">
-                    <img src={github} alt="github icon" />
+                    <img src={Github} alt="github icon" />
                     {student.profileDetail.socialMedia.github.url}
                   </div>
                   <div className="flex gap-1">
-                    <img src={linkedin} alt="linkedin icon" />
+                    <img src={Linkedin} alt="linkedin icon" />
                     {student.profileDetail.socialMedia.linkedin.url}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className='flex flex-col gap-2'>
-            <h4 className="text-lg font-bold">About</h4>
-            <div>
-              <p className='text-sm'>
-                {showFullDescription
-                  ? student.profileDetail.about.description
-                  : `${student.profileDetail.about.description.split(' ').slice(0, 15).join(' ')}...`}
-                {!showFullDescription && (
-                  <button onClick={toggleDescription} className='text-gray-3 text-sm'>
-                    ver más
-                  </button>
-                )}
-              </p>
-              {showFullDescription && (
-                <p className='text-sm'>
-                  <button onClick={toggleDescription} className='text-gray-3 text-sm'>
-                    ver menos
-                  </button>
+          <div className="flex flex-col gap-6">
+            <div className='flex flex-col gap-2'>
+              <h3 className="text-lg font-bold">About</h3>
+              <div>
+                <p className="text-sm">
+                  {showFullDescription
+                    ? student.profileDetail.about.description
+                    : `${student.profileDetail.about.description
+                        .split(' ')
+                        .slice(0, 15)
+                        .join(' ')}...`}
+                  {!showFullDescription && (
+                    <button
+                      onClick={toggleDescription}
+                      className="text-sm text-gray-3"
+                    >
+                      ver más
+                    </button>
+                  )}
                 </p>
-              )}
+                {showFullDescription && (
+                  <p className="text-sm">
+                    <button
+                      onClick={toggleDescription}
+                      className="text-sm text-gray-3"
+                    >
+                      ver menos
+                    </button>
+                  </p>
+                )}
+              </div>
             </div>
+            <ul className="flex flex-wrap gap-2">
+              {student.profileDetail.tags.map((tag, index) => (
+                <li
+                  key={index}
+                  className="rounded-md bg-gray-5-background px-2 py-1 text-sm"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul className="flex flex-wrap gap-2">
-            {student.profileDetail.tags.map((tag, index) => (
-              <li
-                key={index}
-                className="rounded-md bg-gray-5-background px-2 py-1 text-sm"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
         </div>
       ))}
     </div>

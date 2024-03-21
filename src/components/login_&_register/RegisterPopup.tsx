@@ -168,7 +168,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
         <a
           href="#"
           onClick={onOpenLoginPopup}
-          className="cursor-pointer font-bold text-black"
+          className="cursor-pointer font-bold text-black-2"
           style={{ textDecoration: 'underline' }}
         >
           ¿Tienes cuenta? acceder

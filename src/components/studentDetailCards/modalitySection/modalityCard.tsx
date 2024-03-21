@@ -4,11 +4,11 @@ const ModalityCard: React.FC = () => {
 
     return (
 
-        <div className="modal-card">
-            <h1 className="font-bold pb-5 pt-8 text-lg">Modalidad</h1>
-            <div className="flex row">
-                <img src={remoto} className="w- full pr-2" />
-                <h2 className="text-sm font-semibold leading-tight text-black-3 pt-1">Remoto</h2>
+        <div className="flex flex-col gap-5">
+            <h3 className="font-bold text-lg">Modalidad</h3>
+            <div className="flex items-center gap-2">
+                <img src={remoto} className="pr-2" />
+                <p className="text-sm font-semibold leading-tight text-black-3">Remoto</p>
             </div>
         </div>
 

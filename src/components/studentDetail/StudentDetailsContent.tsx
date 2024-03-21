@@ -5,6 +5,7 @@ import type { TSmallScreenContext } from '../../interfaces/interfaces';
 import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
 import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
+import ModalityCard from '../studentDetailCards/modalitySection/modalityCard';
 import StudentDataCard from '../studentDetailCards/studentDataSection/StudentDataCard';
 import LanguagesCard from '../studentDetailCards/languagesSection/LanguagesCard';
 
@@ -19,9 +20,8 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
 
   return (
     <div
-      className={`flex flex-col gap-6 ${
-        isMobile ? 'modal-box rounded-2xl p-2 pl-4' : 'h-full'
-      }`}
+      className={`flex flex-col gap-6 ${isMobile ? 'modal-box rounded-2xl p-2 pl-4' : 'h-full'
+        }`}
     >
       <div className="flex items-center justify-end p-3 md:justify-between">
         <h3 className="hidden text-2xl font-bold md:block">Detalle Perfil</h3>
@@ -36,8 +36,13 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
           <ProjectsCard />
           <CollaborationCard />
           <BootcampCard />
+          <ModalityCard />
           <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
             Other Education
+            M</div>
+          <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
+            Languages component
+          </div>
           </div>
           <LanguagesCard />
           <div className="border-gray-300 h-[70px] rounded-xl border-2 p-2">

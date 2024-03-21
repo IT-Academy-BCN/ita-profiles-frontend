@@ -7,6 +7,7 @@ import CollaborationCard from '../studentDetailCards/collaborationSection/Collab
 import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
 import StudentDataCard from '../studentDetailCards/studentDataSection/StudentDataCard';
 import LanguagesCard from '../studentDetailCards/languagesSection/LanguagesCard';
+import OtherEducationCard from '../studentDetailCards/otherEducationSection/OtherEducationCard';
 
 type TStudentDetailsContent = {
   handleIsPanelOpen: () => void;
@@ -36,9 +37,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
           <ProjectsCard />
           <CollaborationCard />
           <BootcampCard />
-          <div className="border-gray-300 h-[100px] rounded-xl border-2 p-2">
-            Other Education
-          </div>
+          <OtherEducationCard />
           <LanguagesCard />
           <div className="border-gray-300 h-[70px] rounded-xl border-2 p-2">
             Modality component

@@ -1,19 +1,28 @@
-import { ADD_FILTER, REMOVE_FILTER } from './actions';
+import { State } from './state';
+import { Action, SET_STUDENTS, SET_FILTER } from './actions';
 
-interface Action {
-	type: string;
-	payload: string;
-  }
+const initialState: State = {
+  students: [],
+  filters: [],
+  isUserPanelOpen: false,
+};
 
-const filtersReducer = (state = [], action: Action) => {
+function reducer(state = initialState, action: Action) {
   switch (action.type) {
-    case ADD_FILTER:
-      return [...state, action.payload];
-    case REMOVE_FILTER:
-      return state.filter(filter => filter !== action.payload);
+    case SET_STUDENTS:
+      return {
+        ...state,
+        students: action.payload,
+      };
+    case SET_FILTER:
+      return {
+        ...state,
+        filters: [...state.filters, action.payload],
+      };
+	  
     default:
       return state;
   }
-};
+}
 
-export default filtersReducer;
+export default reducer;

@@ -1,24 +1,29 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
+import { State } from '../redux/state';
 
-interface Student {
-  id: number;
-  name: string;
-  // Add more properties here as needed
-}
+function StudentsList() {
+  const { students, filters } = useSelector((state: State) => state);
 
-interface StudentListProps {
-  students: Student[];
-}
+  const filteredStudents = students.filter(student =>
+    filters.includes(student.subtitle)
+  );
 
-const StudentList: React.FC<StudentListProps> = ({ students }) => {
   return (
     <div>
-      {students.map((student) => (
-        <div key={student.id}>
-          {student.name}
-          {/* Display more student details here as needed */}
+      {filteredStudents.map(student => (
+        <div key={student.fullname}>
+          <h2>{student.fullname}</h2>
+          <h3>{student.subtitle}</h3>
+          <img src={student.photo} alt={student.fullname} />
+          <ul>
+            {student.tags.map(tag => (
+              <li key={tag.id}>{tag.name}</li>
+            ))}
+          </ul>
         </div>
       ))}
     </div>
   );
-};
+}
+
+export default StudentsList;

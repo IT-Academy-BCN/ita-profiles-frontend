@@ -1,15 +1,19 @@
 import { Provider } from 'react-redux';
-import store from '../src/redux/store';
-import type { Store } from 'redux'; 
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './redux/reducers';
 import SmallScreenProvider from './context/SmallScreenContext';
 import Home from './pages/Home';
+import StudentsList from './components/StudentList';
 import './styles/App.css';
+
+const store = configureStore({ reducer: rootReducer });
 
 const App = () => {
   return (
-    <Provider store={store as Store}> // Specify the type for the store
+    <Provider store={store}> 
       <SmallScreenProvider>
         <Home />
+        <StudentsList />
       </SmallScreenProvider>
     </Provider> 
   );

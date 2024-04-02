@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     isUserPanelOpen: false,
+    filteredStudents : []
 }
 
 const showUserInfo = createSlice({

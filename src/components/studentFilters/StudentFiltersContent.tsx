@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
 const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
@@ -38,11 +39,14 @@ const StudentFiltersContent: React.FC = () => {
   }, [urlDevelopment]);
 
   const changeHandler = (role: string) => {
+    let newSelectedRoles;
    if (!selectedRoles.includes(role)) {
-      setSelectedRoles([...selectedRoles, role]);
+    newSelectedRoles = [...selectedRoles, role];
     } else {
-      setSelectedRoles(selectedRoles.filter((r) => r !== role));
+      newSelectedRoles = selectedRoles.filter((r) => r !== role);
     }
+    setSelectedRoles(newSelectedRoles);
+    FetchStudentsListHome(newSelectedRoles.join(','));
   }
 
   useEffect(() => {

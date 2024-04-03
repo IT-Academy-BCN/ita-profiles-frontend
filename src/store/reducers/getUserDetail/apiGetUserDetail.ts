@@ -10,8 +10,9 @@ const showUserInfo = createSlice({
     name: "showUserReducer",
     initialState,
     reducers: {
-        toggleUserPanel: (state) => {state.isUserPanelOpen = !state.isUserPanelOpen}
+        toggleUserPanel: (state) => {state.isUserPanelOpen = !state.isUserPanelOpen},
+        setFilteredStudents: (state, action) => {state.filteredStudents = action.payload}
     }
 })
-export const { toggleUserPanel } = showUserInfo.actions;
+export const { toggleUserPanel, setFilteredStudents  } = showUserInfo.actions;
 export default showUserInfo.reducer

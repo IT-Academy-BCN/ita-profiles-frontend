@@ -1,15 +1,13 @@
-import SwitchTheme from './components/SwitchTheme'
-import { ThemeProvider } from './context/ThemeProvider'
-import './styles/App.css'
+import SmallScreenProvider from './context/SmallScreenContext';
+import Home from './pages/Home';
+import './styles/App.css';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <ThemeProvider>
-        <SwitchTheme />
-      </ThemeProvider>
-    </>
-  )
-}
+    <SmallScreenProvider>
+      <Home />
+    </SmallScreenProvider>
+  );
+};
 
-export default App
+export default App;

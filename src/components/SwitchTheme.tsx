@@ -1,21 +1,22 @@
-import { useContext, useEffect } from 'react'
-import { ThemeContext, ThemeContextType } from '../context/ThemeContext'
+import { useContext, useEffect } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+import type { ThemeContextT } from '../context/ThemeContext';
 
-const SwitchTheme = () => {
-  const themeContext = useContext<ThemeContextType>(ThemeContext)
-  const { theme, setTheme } = themeContext
+const SwitchTheme: React.FC = () => {
+  const themeContext = useContext<ThemeContextT>(ThemeContext);
+  const { theme, setTheme } = themeContext;
 
   useEffect(() => {
     if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove('dark');
     }
-  }, [theme])
+  }, [theme]);
 
   const handleThemeToggle = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <>
@@ -31,7 +32,7 @@ const SwitchTheme = () => {
         LIGHT = RED y DARK = BLUE
       </p>
     </>
-  )
-}
+  );
+};
 
-export default SwitchTheme
+export default SwitchTheme;

@@ -14,7 +14,7 @@ const OtherEducationCard: React.FC = () => {
       years: ['2018'],
       hours: '80',
     },
-  ];
+  ]
 
   return (
     <div>
@@ -28,14 +28,15 @@ const OtherEducationCard: React.FC = () => {
               <p className="text-sm font-semibold text-black-2">
                 {item.years.join(' - ')} · {item.hours} horas
               </p>
-              {index !== education.length - 1 && <span className="h-px w-full bg-gray-4-base md:bg-gray-5-background my-3"></span>}
+              {index !== education.length - 1 && (
+                <span className="h-px w-full bg-gray-4-base md:bg-gray-5-background my-3" />
+              )}
             </div>
-           
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default OtherEducationCard;
+export default OtherEducationCard

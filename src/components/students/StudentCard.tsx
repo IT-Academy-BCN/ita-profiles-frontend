@@ -1,24 +1,29 @@
-import { useAppDispatch } from '../../hooks/ReduxHooks';
-import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
-import { IStudentList } from '../../interfaces/interfaces';
+import { useAppDispatch } from '../../hooks/ReduxHooks'
+import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
+import { IStudentList } from '../../interfaces/interfaces'
 
-const StudentCard: React.FC<IStudentList> = ({ fullname, photo, subtitle, tags }) => {
-  const dispatch = useAppDispatch();
+const StudentCard: React.FC<IStudentList> = ({
+  fullname,
+  photo,
+  subtitle,
+  tags,
+}) => {
+  const dispatch = useAppDispatch()
 
   const handleUserDetailToggler = () => {
-    dispatch(toggleUserPanel());
-  };
+    dispatch(toggleUserPanel())
+  }
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className="max-w-md flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
       onClick={handleUserDetailToggler}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          handleUserDetailToggler();
+          handleUserDetailToggler()
         }
       }}
-      tabIndex={0}
     >
       <div className="flex gap-5">
         <div className="flex-none">
@@ -47,7 +52,7 @@ const StudentCard: React.FC<IStudentList> = ({ fullname, photo, subtitle, tags }
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentCard;
+export default StudentCard

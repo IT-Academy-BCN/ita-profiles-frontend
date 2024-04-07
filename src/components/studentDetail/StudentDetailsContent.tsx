@@ -1,23 +1,23 @@
-import React, { useContext } from 'react';
-import { Close } from '../../assets/svg';
-import { SmallScreenContext } from '../../context/SmallScreenContext';
-import type { TSmallScreenContext } from '../../interfaces/interfaces';
-import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard';
-import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard';
-import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard';
-import ModalityCard from '../studentDetailCards/modalitySection/modalityCard';
-import StudentDataCard from '../studentDetailCards/studentDataSection/StudentDataCard';
-import LanguagesCard from '../studentDetailCards/languagesSection/LanguagesCard';
-import OtherEducationCard from '../studentDetailCards/otherEducationSection/OtherEducationCard';
+import React, { useContext } from 'react'
+import { Close } from '../../assets/svg'
+import { SmallScreenContext } from '../../context/SmallScreenContext'
+import type { TSmallScreenContext } from '../../interfaces/interfaces'
+import ProjectsCard from '../studentDetailCards/projectsSection/ProjectsCard'
+import CollaborationCard from '../studentDetailCards/collaborationSection/CollaborationCard'
+import BootcampCard from '../studentDetailCards/bootcampSection/BootcampCard'
+import ModalityCard from '../studentDetailCards/modalitySection/modalityCard'
+import StudentDataCard from '../studentDetailCards/studentDataSection/StudentDataCard'
+import LanguagesCard from '../studentDetailCards/languagesSection/LanguagesCard'
+import OtherEducationCard from '../studentDetailCards/otherEducationSection/OtherEducationCard'
 
 type TStudentDetailsContent = {
-  handleIsPanelOpen: () => void;
-};
+  handleIsPanelOpen: () => void
+}
 
 const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
   handleIsPanelOpen,
 }) => {
-  const { isMobile }: TSmallScreenContext = useContext(SmallScreenContext);
+  const { isMobile }: TSmallScreenContext = useContext(SmallScreenContext)
 
   return (
     <div
@@ -27,7 +27,11 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
     >
       <div className="flex items-center justify-end p-3 md:justify-between">
         <h3 className="hidden text-2xl font-bold md:block">Detalle Perfil</h3>
-        <button className="cursor-pointer" onClick={handleIsPanelOpen}>
+        <button
+          type="button"
+          className="cursor-pointer"
+          onClick={handleIsPanelOpen}
+        >
           <img src={Close} alt="close icon" className="h-5" />
         </button>
       </div>
@@ -44,7 +48,7 @@ const StudentDetailsContent: React.FC<TStudentDetailsContent> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentDetailsContent;
+export default StudentDetailsContent

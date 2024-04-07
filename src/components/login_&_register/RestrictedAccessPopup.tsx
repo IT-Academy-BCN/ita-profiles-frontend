@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { Lock } from '../../assets/svg';
-import RegisterPopup from './RegisterPopup';
+import React, { useState } from 'react'
+import { Lock } from '../../assets/svg'
+import RegisterPopup from './RegisterPopup'
 
 type ModalProps = {
-  onClose: () => void;
-};
+  onClose: () => void
+}
 const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
-  const [showRegisterPopup, setShowRegisterPopup] = useState(false);
+  const [showRegisterPopup, setShowRegisterPopup] = useState(false)
 
   const handleOpenRegisterPopup = () => {
-    setShowRegisterPopup(true);
+    setShowRegisterPopup(true)
     /*  onClose(); */
-  };
+  }
 
   const handleCloseRegisterPopup = () => {
-    setShowRegisterPopup(false);
-  };
+    setShowRegisterPopup(false)
+  }
 
   return (
     <div
@@ -45,6 +45,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
         }}
       >
         <button
+          type="button"
           style={{
             position: 'absolute',
             top: '10px',
@@ -77,6 +78,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
         </p>
         <div>
           <button
+            type="button"
             style={{
               width: '100%',
               height: '63px',
@@ -91,6 +93,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
             Soy candidato/a
           </button>
           <button
+            type="button"
             style={{
               width: '100%',
               height: '63px',
@@ -112,7 +115,7 @@ const RestrictedAccessPopup: React.FC<ModalProps> = ({ onClose }) => {
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default RestrictedAccessPopup;
+export default RestrictedAccessPopup

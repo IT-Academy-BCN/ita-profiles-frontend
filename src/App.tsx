@@ -1,13 +1,11 @@
-import SmallScreenProvider from './context/SmallScreenContext';
-import Home from './pages/Home';
-import './styles/App.css';
+import SmallScreenProvider from './context/SmallScreenContext'
+import Home from './pages/Home'
+import './styles/App.css'
 
-const App = () => {
-  return (
-    <SmallScreenProvider>
-      <Home />
-    </SmallScreenProvider>
-  );
-};
+const App = () => (
+  <SmallScreenProvider>
+    <Home />
+  </SmallScreenProvider>
+)
 
-export default App;
+export default App

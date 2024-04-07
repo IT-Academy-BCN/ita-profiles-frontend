@@ -1,31 +1,32 @@
-import axios from 'axios';
-import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { loginForm } from '../../interfaces/interfaces';
+import axios from 'axios'
+import React from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { ILoginForm } from '../../interfaces/interfaces'
 
 type LoginPopupProps = {
-  onClose: () => void;
-};
+  onClose: () => void
+}
 
 const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
-  const { handleSubmit, register } = useForm<loginForm>();
-  const handleLogin: SubmitHandler<loginForm> = async (data) => {
+  const { handleSubmit, register } = useForm<ILoginForm>()
+  const handleLogin: SubmitHandler<ILoginForm> = async (data) => {
     try {
-      const response = await axios.post('http://localhost:3000/login', data);
-      console.log('El data de login =>', response.data);
-      //token se devuelve solo cuando utilizamos email y password.
+      const response = await axios.post('http://localhost:3000/login', data)
+      console.log('El data de login =>', response.data)
+      // token se devuelve solo cuando utilizamos email y password.
       // Imposible modificar los campos a dni y password.
-      onClose();
+      onClose()
     } catch (e) {
-      console.log('el error =>', e);
+      console.log('el error =>', e)
     }
-  };
+  }
 
   return (
     <div className="relative flex w-72 flex-col items-center rounded-lg bg-white p-4 md:p-8">
       <h2 className="text-lg font-bold text-black-3">Login</h2>
       <form className="flex flex-col space-y-4">
         <button
+          type="button"
           className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
           onClick={onClose}
         >
@@ -46,15 +47,16 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
           {...register('password')}
         />
         <div className="mt-4 text-center">
-          <a
-            href="#"
+          <button
+            type="button"
             className="cursor-pointer text-black-2"
             style={{ textDecoration: 'underline' }}
           >
             Recordar/cambiar contraseña
-          </a>
+          </button>
         </div>
         <button
+          type="button"
           className="h-12 w-full rounded-lg bg-pink-500 font-bold text-white"
           onClick={handleSubmit(handleLogin)}
         >
@@ -62,16 +64,16 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
         </button>
       </form>
       <div className="mt-4 text-center">
-        <a
-          href="#"
+        <button
+          type="button"
           className="cursor-pointer font-bold text-black-2"
           style={{ textDecoration: 'underline' }}
         >
           ¿No tienes cuenta? crear una
-        </a>
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPopup;
+export default LoginPopup

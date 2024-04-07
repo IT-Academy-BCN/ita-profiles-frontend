@@ -12,11 +12,13 @@ const LoginPopup: React.FC<LoginPopupProps> = ({ onClose }) => {
   const handleLogin: SubmitHandler<ILoginForm> = async (data) => {
     try {
       const response = await axios.post('http://localhost:3000/login', data)
+      // eslint-disable-next-line no-console
       console.log('El data de login =>', response.data)
       // token se devuelve solo cuando utilizamos email y password.
       // Imposible modificar los campos a dni y password.
       onClose()
     } catch (e) {
+      // eslint-disable-next-line no-console
       console.log('el error =>', e)
     }
   }

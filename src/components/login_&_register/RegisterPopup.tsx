@@ -34,6 +34,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
           'http://localhost:3000/users/register',
           data,
         )
+        // eslint-disable-next-line no-console
         console.log('response de register =>', response.data)
         reset()
         onClose()
@@ -41,6 +42,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
         setCheckError(true)
       }
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error)
     }
   }

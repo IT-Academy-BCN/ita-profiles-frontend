@@ -7,21 +7,25 @@ import { FetchStudentsListHome } from '../../api/FetchStudentsList'
 const StudentsList: React.FC = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
-  )
+  );
+  const filteredStudents = useAppSelector(
+    (state) => state.ShowUserReducer.filteredStudents,
+  );
 
   const [students, setStudents] = useState<IStudentList[]>()
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const studentsList = await FetchStudentsListHome()
-        setStudents(studentsList)
+       // const studentsList = await FetchStudentsListHome();
+        const studentsList = await FetchStudentsListHome(filteredStudents);
+        setStudents(studentsList);
       } catch (error) {
         console.error('Error fetching students:', error)
       }
-    }
-    fetchStudents()
-  }, [])
+    };
+    fetchStudents();
+  }, [filteredStudents]);
 
   return (
     <div

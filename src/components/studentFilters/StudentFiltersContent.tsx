@@ -1,14 +1,20 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
 const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [students, setStudents] = useState<string[]>([]);
 
   const urlRoles =
     'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
   const urlDevelopment =
     'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+  const urlFilterStudents =
+    'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home?specialization=';
+
 
   const fetchData = (
     url: string,
@@ -32,6 +38,31 @@ const StudentFiltersContent: React.FC = () => {
     fetchData(urlDevelopment, setDevelopment);
   }, [urlDevelopment]);
 
+  const changeHandler = (role: string) => {
+    let newSelectedRoles;
+   if (!selectedRoles.includes(role)) {
+    newSelectedRoles = [...selectedRoles, role];
+    } else {
+      newSelectedRoles = selectedRoles.filter((r) => r !== role);
+    }
+    setSelectedRoles(newSelectedRoles);
+    FetchStudentsListHome(newSelectedRoles.join(','));
+  }
+
+  useEffect(() => {
+    console.log('selectedRoles', selectedRoles);
+    if (selectedRoles.length > 0) {
+      const roles = selectedRoles.join(',');
+      //Here we have to save selectedRoles to state and use it in component StudentList.tsx
+      console.log('roles', `${urlFilterStudents}${roles}`);
+      fetchData(`${urlFilterStudents}${roles}`, setStudents);
+    }
+  }, [selectedRoles]);
+
+  useEffect(() => {
+    console.log('students', students);
+  }, [students]);
+  
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
       <h3 className="text-2xl font-bold text-black-3">Filtros</h3>
@@ -46,6 +77,9 @@ const StudentFiltersContent: React.FC = () => {
               >
                 <input
                   type="checkbox"
+                  value={role}
+                 
+                  onChange={() => changeHandler(role)}
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />
                 <span>{role}</span>

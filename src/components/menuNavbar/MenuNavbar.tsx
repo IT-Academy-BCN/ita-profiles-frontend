@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { ItAcademyLogo } from '../../assets/svg';
+import { useState } from 'react'
+import { ItAcademyLogo } from '../../assets/svg'
 
 const MenuNavbar = () => {
-  const [activeItem, setActiveItem] = useState('Perfiles');
+  const [activeItem, setActiveItem] = useState('Perfiles')
   const menuItems = [
     'Perfiles',
     'Matching',
     'Proyectos',
     'Estadísticas',
     'Guías útiles',
-  ];
+  ]
 
   return (
     <nav className="hidden gap-28 w-44 flex-none px-6 py-7 md:flex md:flex-col">
@@ -17,9 +17,10 @@ const MenuNavbar = () => {
         <img src={ItAcademyLogo} alt="itAcademy Logo" />
       </div>
       <div className="flex flex-col gap-9">
-        {menuItems.map((item, index) => (
+        {menuItems.map((item) => (
           <button
-            key={index}
+            type="button"
+            key={item}
             onClick={() => setActiveItem(item)}
             className={`flex items-center ${
               activeItem === item ? 'text-black-2' : 'text-gray-3'
@@ -39,7 +40,7 @@ const MenuNavbar = () => {
         ))}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default MenuNavbar;
+export default MenuNavbar

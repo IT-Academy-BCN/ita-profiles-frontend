@@ -1,6 +1,6 @@
-import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg';
-import { ArrowRightProjects } from '../../../assets/img';
-import { useRef } from 'react';
+import { useRef } from 'react'
+import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg'
+import { ArrowRightProjects } from '../../../assets/img'
 
 const ProjectsCard: React.FC = () => {
   const projects = [
@@ -22,50 +22,50 @@ const ProjectsCard: React.FC = () => {
       company: 'Barcelona Activa',
       tags: ['PHP', 'React'],
     },
-  ];
+  ]
 
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null)
   const scrollLeft = () => {
     if (carouselRef.current) {
       const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
-        ?.offsetWidth;
-      const scrollAmount = carouselRef.current.scrollLeft - cardWidth;
+        ?.offsetWidth
+      const scrollAmount = carouselRef.current.scrollLeft - cardWidth
       carouselRef.current.scrollTo({
         left: scrollAmount,
         behavior: 'smooth',
-      });
+      })
     }
-  };
+  }
 
   const scrollRight = () => {
     if (carouselRef.current) {
       const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
-        ?.offsetWidth;
-      const scrollAmount = carouselRef.current.scrollLeft + cardWidth;
+        ?.offsetWidth
+      const scrollAmount = carouselRef.current.scrollLeft + cardWidth
       carouselRef.current.scrollTo({
         left: scrollAmount,
         behavior: 'smooth',
-      });
+      })
     }
-  };
+  }
 
   return (
     <div className="carousel-item flex flex-col gap-4">
       <div className="flex justify-between">
         <h3 className="text-lg font-bold">Proyectos</h3>
         <div className="h-3 self-end">
-          <button onClick={scrollLeft}>
+          <button type="button" onClick={scrollLeft}>
             <img src={ArrowLeft} alt="arrow left" className="w-5" />
           </button>
-          <button onClick={scrollRight}>
+          <button type="button" onClick={scrollRight}>
             <img src={ArrowRight} alt="arrow right" className="w-5" />
           </button>
         </div>
       </div>
       <div ref={carouselRef} className="flex gap-3 overflow-x-hidden">
-        {projects.map((project, index) => (
+        {projects.map((project) => (
           <div
-            key={index}
+            key={project.url}
             className="flex flex-col gap-1 rounded-xl border border-gray-3 px-5 py-3.5 "
           >
             <div className="flex items-center justify-between">
@@ -75,7 +75,7 @@ const ProjectsCard: React.FC = () => {
                   <img src={Github} alt="github link" className="w-6" />
                 </a>
               </div>
-              <button className="-mt-1 flex w-6 self-start">
+              <button type="button" className="-mt-1 flex w-6 self-start">
                 <img src={Dots} alt="3 dots" />
               </button>
             </div>
@@ -84,7 +84,10 @@ const ProjectsCard: React.FC = () => {
               <div className="text-sm rounded-lg border border-black-3 px-2 py-1 font-semibold">
                 {project.tags.join(' · ')}
               </div>
-              <button className="h-8 rounded-lg border border-black-3">
+              <button
+                type="button"
+                className="h-8 rounded-lg border border-black-3"
+              >
                 <img
                   src={ArrowRightProjects}
                   alt="right arrow button"
@@ -96,7 +99,7 @@ const ProjectsCard: React.FC = () => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProjectsCard;
+export default ProjectsCard

@@ -1,14 +1,14 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const StudentFiltersContent: React.FC = () => {
-  const [roles, setRoles] = useState<string[]>([]);
-  const [development, setDevelopment] = useState<string[]>([]);
+  const [roles, setRoles] = useState<string[]>([])
+  const [development, setDevelopment] = useState<string[]>([])
 
   const urlRoles =
-    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
+    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
   const urlDevelopment =
-    'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+    'https://itaperfils.eurecatacademy.org/api/v1/development/list'
 
   const fetchData = (
     url: string,
@@ -17,20 +17,20 @@ const StudentFiltersContent: React.FC = () => {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data);
+        setData(response.data)
       })
       .catch((error) => {
-        console.error(error);
-      });
-  };
+        console.error(error)
+      })
+  }
 
   useEffect(() => {
-    fetchData(urlRoles, setRoles);
-  }, [urlRoles]);
+    fetchData(urlRoles, setRoles)
+  }, [urlRoles])
 
   useEffect(() => {
-    fetchData(urlDevelopment, setDevelopment);
-  }, [urlDevelopment]);
+    fetchData(urlDevelopment, setDevelopment)
+  }, [urlDevelopment])
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
@@ -39,12 +39,14 @@ const StudentFiltersContent: React.FC = () => {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Roles</h4>
           <div>
-            {roles.map((role, index) => (
+            {roles.map((role) => (
               <label
-                key={index}
+                key={role}
                 className="label cursor-pointer justify-start p-1"
+                htmlFor="roleInput"
               >
                 <input
+                  id="roleInput"
                   type="checkbox"
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />
@@ -56,13 +58,15 @@ const StudentFiltersContent: React.FC = () => {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Desarrollo</h4>
           <div>
-            {development.map((role, index) => (
+            {development.map((role) => (
               <label
-                key={index}
+                key={role}
                 className="label cursor-pointer justify-start p-1"
+                htmlFor="developmentInput"
               >
                 <input
                   type="checkbox"
+                  id="developmentInput"
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />
                 <span>{role}</span>
@@ -72,7 +76,7 @@ const StudentFiltersContent: React.FC = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentFiltersContent;
+export default StudentFiltersContent

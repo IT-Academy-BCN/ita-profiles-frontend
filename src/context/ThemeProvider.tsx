@@ -9,6 +9,7 @@ interface ThemeProviderProps {
 export const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = useState<string>('light')
 
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const themeValue: ThemeContextT = {
     theme,
     setTheme,

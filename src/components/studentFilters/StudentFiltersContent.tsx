@@ -1,8 +1,12 @@
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { setFilteredStudents } from '../../../src/store/reducers/getUserDetail/apiGetUserDetail'; //Import the setFilteredStudents function from the appropriate file
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
+
 const StudentFiltersContent: React.FC = () => {
+  const dispatch = useDispatch();
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
@@ -49,19 +53,18 @@ const StudentFiltersContent: React.FC = () => {
     FetchStudentsListHome(newSelectedRoles.join(','));
   }
 
+ 
   useEffect(() => {
-    console.log('selectedRoles', selectedRoles);
-    if (selectedRoles.length > 0) {
+    //console.log('selectedRoles', selectedRoles);
+    //if (selectedRoles.length > 0) {
       const roles = selectedRoles.join(',');
-      //Here we have to save selectedRoles to state and use it in component StudentList.tsx
-      console.log('roles', `${urlFilterStudents}${roles}`);
-      fetchData(`${urlFilterStudents}${roles}`, setStudents);
-    }
+      dispatch(setFilteredStudents(roles)); // Call the setFilteredStudents function with the appropriate arguments
+      /* console.log('roles', `${urlFilterStudents}${roles}`);
+      fetchData(`${urlFilterStudents}${roles}`, setStudents); */
+    //}
   }, [selectedRoles]);
 
-  useEffect(() => {
-    console.log('students', students);
-  }, [students]);
+  // ...
   
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">

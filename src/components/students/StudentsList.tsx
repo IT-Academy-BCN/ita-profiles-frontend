@@ -18,14 +18,14 @@ const StudentsList: React.FC = () => {
     const fetchStudents = async () => {
       try {
        // const studentsList = await FetchStudentsListHome();
-        const studentsList = await FetchStudentsListHome(filteredStudents.join(','));
+        const studentsList = await FetchStudentsListHome(filteredStudents);
         setStudents(studentsList);
       } catch (error) {
         console.error('Error fetching students:', error);
       }
     };
     fetchStudents();
-  }, []);
+  }, [filteredStudents]);
 
   return (
     <div

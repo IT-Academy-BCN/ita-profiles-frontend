@@ -1,18 +1,24 @@
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { setFilteredStudents } from '../../../src/store/reducers/getUserDetail/apiGetUserDetail'; //Import the setFilteredStudents function from the appropriate file
+import { setFilteredStudents } from '../../../src/store/reducers/getUserDetail/apiGetUserDetail';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
 
 const StudentFiltersContent: React.FC = () => {
+  const dispatch = useDispatch();
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [students, setStudents] = useState<string[]>([]);
+
 
   const urlRoles =
     'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
   const urlDevelopment =
     'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+    const urlFilterStudents =
+    'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home?specialization=';
 
   const fetchData = (
     url: string,
@@ -35,6 +41,25 @@ const StudentFiltersContent: React.FC = () => {
   useEffect(() => {
     fetchData(urlDevelopment, setDevelopment);
   }, [urlDevelopment]);
+
+  const changeHandler = (role: string) => {
+    let newSelectedRoles;
+   if (!selectedRoles.includes(role)) {
+    newSelectedRoles = [...selectedRoles, role];
+    } else {
+      newSelectedRoles = selectedRoles.filter((r) => r !== role);
+    }
+    setSelectedRoles(newSelectedRoles);
+    FetchStudentsListHome(newSelectedRoles.join(','));
+  }
+
+
+  useEffect(() => {
+    //console.log('selectedRoles', selectedRoles);
+      const roles = selectedRoles.join(',');
+      dispatch(setFilteredStudents(roles)); // Call the setFilteredStudents function with the appropriate arguments
+      //console.log('roles', `${urlFilterStudents}${roles}`);
+  }, [selectedRoles]);
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">

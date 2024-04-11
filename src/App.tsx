@@ -7,8 +7,7 @@ import { useState } from 'react';
 const App = () => {
   const [appState, setAppState] = useState(
     {
-      message: '',
-      disabled: false,
+      aState: 'a default state',
     }
   )
 

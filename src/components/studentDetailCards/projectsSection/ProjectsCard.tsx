@@ -1,28 +1,32 @@
 import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg';
 import { ArrowRightProjects } from '../../../assets/img';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useContext } from 'react';
+import { getStudentProjects } from '../../../api/getStudentProjects';
+import { SelectedStudentIdContext } from '../../../context/StudentIdContext';
+import { TProject } from '../../../interfaces/interfaces';
 
 const ProjectsCard: React.FC = () => {
-  const projects = [
-    {
-      name: 'ITA-Landing',
-      url: 'https://github.com',
-      company: 'Barcelona Activa',
-      tags: ['PHP', 'Laravel'],
-    },
-    {
-      name: 'mygamelore.com',
-      url: 'https://github.com',
-      company: 'Freelance',
-      tags: ['PHP', 'Laravel + React'],
-    },
-    {
-      name: 'ITA-Profiles',
-      url: 'https://github.com',
-      company: 'Barcelona Activa',
-      tags: ['PHP', 'React'],
-    },
-  ];
+  const [projects, setProjects] = useState<TProject[] | null>();
+
+  // we grab the id from the selected student
+  const { studentUUID } = useContext(SelectedStudentIdContext);
+
+  useEffect(() => {
+    const getProjects = async () => {
+      try {
+        // we pass the id to the getStudentProjects call
+        const studentProjects = await getStudentProjects(studentUUID);
+        setProjects(studentProjects);
+      } catch (error) {
+        throw new Error('Failed to obtain projects');
+      }
+    };
+
+    if (studentUUID) {
+      getProjects();
+    }
+  }, [studentUUID]);
 
   const carouselRef = useRef<HTMLDivElement>(null);
   const scrollLeft = () => {
@@ -63,15 +67,15 @@ const ProjectsCard: React.FC = () => {
         </div>
       </div>
       <div ref={carouselRef} className="flex gap-3 overflow-x-hidden">
-        {projects.map((project, index) => (
+        {projects?.map((project) => (
           <div
-            key={index}
+            key={project.uuid}
             className="flex flex-col gap-1 rounded-xl border border-gray-3 px-5 py-3.5 "
           >
             <div className="flex items-center justify-between">
               <div className="flex w-48 items-center gap-3">
-                <p className="text-md font-semibold">{project.name}</p>
-                <a href={project.url} className="flex items-center">
+                <p className="text-md font-semibold">{project.project_name}</p>
+                <a href={project.github_url} className="flex items-center">
                   <img src={Github} alt="github link" className="w-6" />
                 </a>
               </div>
@@ -79,9 +83,9 @@ const ProjectsCard: React.FC = () => {
                 <img src={Dots} alt="3 dots" />
               </button>
             </div>
-            <p className="text-sm text-gray-3">{project.company}</p>
+            <p className="text-sm text-gray-3">{project.company_name}</p>
             <div className="flex items-center justify-between pt-3">
-              <div className="text-sm rounded-lg border border-black-3 px-2 py-1 font-semibold">
+              <div className="rounded-lg border border-black-3 px-2 py-1 text-sm font-semibold">
                 {project.tags.join(' · ')}
               </div>
               <button className="h-8 rounded-lg border border-black-3">

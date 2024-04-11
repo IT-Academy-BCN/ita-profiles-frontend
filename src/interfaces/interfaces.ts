@@ -31,6 +31,13 @@ export interface ITag {
   id:   number;
   name: string;
 }
-
+export type TProject = {
+  uuid: string;
+  company_name: string;
+  github_url: string;
+  project_name: string;
+  project_url: string;
+  tags: string[];
+};
 
      

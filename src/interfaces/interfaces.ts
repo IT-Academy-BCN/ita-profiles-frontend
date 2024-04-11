@@ -24,7 +24,7 @@ export interface IStudentList {
   subtitle: string
   photo: string
   tags: ITag[]
-  id: number
+  id: string
 }
 
 export interface ITag {

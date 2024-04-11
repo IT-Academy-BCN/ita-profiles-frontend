@@ -31,3 +31,7 @@ export interface ITag {
   id: number
   name: string
 }
+
+export interface IModality {
+  modality: string
+}

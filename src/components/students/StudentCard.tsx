@@ -2,7 +2,7 @@ import { useAppDispatch } from '../../hooks/ReduxHooks';
 import { useContext } from 'react';
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import { IStudentList } from '../../interfaces/interfaces';
-import { SelectedStudentIdContext } from '../../context/StudentProjectsContext';
+import { SelectedStudentIdContext } from '../../context/StudentIdContext';
 
 const StudentCard = ({ fullname, photo, subtitle, tags, id }: IStudentList) => {
   const dispatch = useAppDispatch();

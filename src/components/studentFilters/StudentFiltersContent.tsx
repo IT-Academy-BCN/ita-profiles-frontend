@@ -20,6 +20,7 @@ const StudentFiltersContent: React.FC = () => {
         setData(response.data)
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error(error)
       })
   }

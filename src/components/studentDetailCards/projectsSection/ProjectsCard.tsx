@@ -6,19 +6,19 @@ const ProjectsCard: React.FC = () => {
   const projects = [
     {
       name: 'ITA-Landing',
-      url: 'https://github.com',
+      url: 'https://ita-landing-test-url.com',
       company: 'Barcelona Activa',
       tags: ['PHP', 'Laravel'],
     },
     {
       name: 'mygamelore.com',
-      url: 'https://github.com',
+      url: 'https://my-game-lore-test.com',
       company: 'Freelance',
       tags: ['PHP', 'Laravel + React'],
     },
     {
       name: 'ITA-Profiles',
-      url: 'https://github.com',
+      url: 'https://ita-profiles-test.com',
       company: 'Barcelona Activa',
       tags: ['PHP', 'React'],
     },
@@ -50,7 +50,7 @@ const ProjectsCard: React.FC = () => {
   }
 
   return (
-    <div className="carousel-item flex flex-col gap-4">
+    <div className="carousel-item flex flex-col gap-4" data-testid="ProjectsCard">
       <div className="flex justify-between">
         <h3 className="text-lg font-bold">Proyectos</h3>
         <div className="h-3 self-end">

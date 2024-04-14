@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Github, Linkedin } from '../../../assets/svg';
-import { Stud1 as ProfilePicture } from '../../../assets/img';
+import { useState } from 'react'
+import { Github, Linkedin } from '../../../assets/svg'
+import { Stud1 as ProfilePicture } from '../../../assets/img'
 
 const StudentDataCard: React.FC = () => {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const [showFullDescription, setShowFullDescription] = useState(false)
 
   const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription);
-  };
+    setShowFullDescription(!showFullDescription)
+  }
 
   const studentData = [
     {
@@ -41,16 +41,16 @@ const StudentDataCard: React.FC = () => {
         ],
       },
     },
-  ];
+  ]
 
   return (
-    <div>
+    <div data-testid="StudentDataCard">
       {studentData.map((student) => (
         <div key={student.id} className="flex flex-col gap-4">
           <div className="flex gap-3">
             <img
               src={ProfilePicture}
-              alt="Profile picture"
+              alt="Profile"
               className="h-20 w-20 flex-none rounded-lg"
             />
             <div className="flex">
@@ -77,7 +77,7 @@ const StudentDataCard: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col gap-6">
-            <div className='flex flex-col gap-2'>
+            <div className="flex flex-col gap-2">
               <h3 className="text-lg font-bold">About</h3>
               <div>
                 <p className="text-sm">
@@ -89,6 +89,7 @@ const StudentDataCard: React.FC = () => {
                         .join(' ')}...`}
                   {!showFullDescription && (
                     <button
+                      type="button"
                       onClick={toggleDescription}
                       className="text-sm text-gray-3"
                     >
@@ -99,6 +100,7 @@ const StudentDataCard: React.FC = () => {
                 {showFullDescription && (
                   <p className="text-sm">
                     <button
+                      type="button"
                       onClick={toggleDescription}
                       className="text-sm text-gray-3"
                     >
@@ -109,9 +111,9 @@ const StudentDataCard: React.FC = () => {
               </div>
             </div>
             <ul className="flex flex-wrap gap-2">
-              {student.profileDetail.tags.map((tag, index) => (
+              {student.profileDetail.tags.map((tag) => (
                 <li
-                  key={index}
+                  key={tag}
                   className="rounded-md bg-gray-5-background px-2 py-1 text-sm"
                 >
                   {tag}
@@ -122,7 +124,7 @@ const StudentDataCard: React.FC = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default StudentDataCard;
+export default StudentDataCard

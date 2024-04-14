@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
-import './styles/normalize.css';
-import './styles/index.css';
-import { Provider } from 'react-redux';
-import { I18nextProvider } from 'react-i18next';
-import i18n from './locales/i18n.ts';
-import { store } from './store/store.ts';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { Provider } from 'react-redux'
+import { I18nextProvider } from 'react-i18next'
+import App from './App'
+import i18n from './locales/i18n'
+import { store } from './store/store'
+
+import './styles/normalize.css'
+import './styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -16,4 +17,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </I18nextProvider>
     </Provider>
   </React.StrictMode>,
-);
+)

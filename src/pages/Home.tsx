@@ -1,13 +1,5 @@
-import Landing from '../components/landing/Landing';
-// import CheckTranslation from '../components/CheckTranslation';
+import Landing from '../components/landing/Landing'
 
-const Home = () => {
-  return (
-    <>
-      {/* <CheckTranslation /> */}
-      <Landing />
-    </>
-  );
-};
+const Home = () => <Landing />
 
-export default Home;
+export default Home

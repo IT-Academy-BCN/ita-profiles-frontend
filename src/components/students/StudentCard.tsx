@@ -1,33 +1,33 @@
-import { useAppDispatch } from '../../hooks/ReduxHooks';
-import { useContext } from 'react';
-import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail';
-import { IStudentList } from '../../interfaces/interfaces';
-import { SelectedStudentIdContext } from '../../context/StudentIdContext';
+import { useAppDispatch } from '../../hooks/ReduxHooks'
+import { useContext } from 'react'
+import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
+import { IStudentList } from '../../interfaces/interfaces'
+import { SelectedStudentIdContext } from '../../context/StudentIdContext'
 
 const StudentCard = ({ fullname, photo, subtitle, tags, id }: IStudentList) => {
-  const dispatch = useAppDispatch();
-  const { setStudentUUID } = useContext(SelectedStudentIdContext);
+  const dispatch = useAppDispatch()
+  const { setStudentUUID } = useContext(SelectedStudentIdContext)
 
   const handleUserDetailToggler = () => {
-    dispatch(toggleUserPanel());
-  };
+    dispatch(toggleUserPanel())
+  }
   const handleStudentSelect = () => {
     // el id del usuario
-    setStudentUUID(id);
-  };
+    setStudentUUID(id)
+  }
 
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className="flex max-w-md cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
       onClick={() => {
-        handleUserDetailToggler(), handleStudentSelect();
+        handleUserDetailToggler(), handleStudentSelect()
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          handleUserDetailToggler();
+          handleUserDetailToggler()
         }
       }}
-      tabIndex={0}
     >
       <div className="flex gap-5">
         <div className="flex-none">
@@ -56,7 +56,7 @@ const StudentCard = ({ fullname, photo, subtitle, tags, id }: IStudentList) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default StudentCard;
+export default StudentCard

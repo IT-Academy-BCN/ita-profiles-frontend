@@ -1,7 +1,7 @@
-import SmallScreenProvider from './context/SmallScreenContext';
-import { SelectedStudentProvider } from './context/StudentIdContext';
-import Home from './pages/Home';
-import './styles/App.css';
+import SmallScreenProvider from './context/SmallScreenContext'
+import { SelectedStudentProvider } from './context/StudentIdContext'
+import Home from './pages/Home'
+import './styles/App.css'
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
         <Home />
       </SmallScreenProvider>
     </SelectedStudentProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

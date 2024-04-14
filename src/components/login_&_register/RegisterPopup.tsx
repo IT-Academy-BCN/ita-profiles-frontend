@@ -1,54 +1,58 @@
-import { zodResolver } from '@hookform/resolvers/zod';
-import axios from 'axios';
-import React, { useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { UserSchema } from '../../schemes/schemas';
+import { zodResolver } from '@hookform/resolvers/zod'
+import axios from 'axios'
+import React, { useState } from 'react'
+import { SubmitHandler, useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { UserSchema } from '../../schemes/schemas'
 
 type RegisterPopupProps = {
-  onClose: () => void;
-  onOpenLoginPopup: () => void;
-};
+  onClose: () => void
+  onOpenLoginPopup: () => void
+}
+
+type TFormSchema = z.infer<typeof UserSchema>
 
 const RegisterPopup: React.FC<RegisterPopupProps> = ({
   onClose,
   onOpenLoginPopup,
 }) => {
-  type formSchema = z.infer<typeof UserSchema>;
-  const [isChecked, setIsChecked] = useState(false);
-  const [checkError, setCheckError] = useState(false);
+  const [isChecked, setIsChecked] = useState(false)
+  const [checkError, setCheckError] = useState(false)
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<formSchema>({ resolver: zodResolver(UserSchema) });
+  } = useForm<TFormSchema>({ resolver: zodResolver(UserSchema) })
 
-  const sendRegister: SubmitHandler<formSchema> = async (data) => {
+  const sendRegister: SubmitHandler<TFormSchema> = async (data) => {
     try {
       if (isChecked) {
-        //This creates a user in db.json.
+        // This creates a user in db.json.
         const response = await axios.post(
           'http://localhost:3000/users/register',
           data,
-        );
-        console.log('response de register =>', response.data);
-        reset();
-        onClose();
+        )
+        // eslint-disable-next-line no-console
+        console.log('response de register =>', response.data)
+        reset()
+        onClose()
       } else {
-        setCheckError(true);
+        setCheckError(true)
       }
     } catch (error) {
-      console.log(error);
+      // eslint-disable-next-line no-console
+      console.log(error)
     }
-  };
+  }
 
   return (
     <div className="w-120 relative flex flex-col items-center rounded-lg bg-white p-5 md:p-20">
       <h2 className="text-lg font-bold md:text-2xl">Registro</h2>
       <form className="flex flex-col space-y-4">
         <button
+          type="button"
           className="absolute right-2 top-2 h-8 w-8 cursor-pointer rounded-full border-none bg-transparent"
           onClick={onClose}
         >
@@ -157,6 +161,7 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
             )}
           </div>
           <button
+            type="button"
             className="w-102 mr-6 h-12 cursor-pointer rounded-lg border-none bg-primary text-white md:h-12 md:w-60 md:text-lg"
             onClick={handleSubmit(sendRegister)}
           >
@@ -165,17 +170,17 @@ const RegisterPopup: React.FC<RegisterPopupProps> = ({
         </div>
       </form>
       <div className="mt-4 text-center">
-        <a
-          href="#"
+        <button
+          type="button"
           onClick={onOpenLoginPopup}
           className="cursor-pointer font-bold text-black-2"
           style={{ textDecoration: 'underline' }}
         >
           ¿Tienes cuenta? acceder
-        </a>
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RegisterPopup;
+export default RegisterPopup

@@ -1,5 +1,5 @@
-import typography from '@tailwindcss/typography';
-import daisyui from 'daisyui';
+import typography from '@tailwindcss/typography'
+import daisyui from 'daisyui'
 
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -8,6 +8,7 @@ export default {
     extend: {
       // same names as style guidelines on figma
       colors: {
+        primary: '#B91879',
         'primary-hover': '#811155',
         'primary-active': '#CE5DA1',
         'black-1': '#000000',
@@ -20,7 +21,7 @@ export default {
         'gray-5-background': '#D9D9D9',
         'ita-wiki': '#3E6990',
         'ita-challenges': '#F29559',
-        'white': '#FFFFFF',
+        white: '#FFFFFF',
       },
     },
   },
@@ -43,4 +44,4 @@ export default {
     ],
   },
   plugins: [typography, daisyui],
-};
+}

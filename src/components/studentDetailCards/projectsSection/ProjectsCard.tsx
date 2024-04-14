@@ -1,8 +1,7 @@
-import { Github, Dots, ArrowLeft, ArrowRight } from '../../../assets/svg'
-import { ArrowRightProjects } from '../../../assets/img'
-import { useEffect, useRef, useState } from 'react'
-import { useContext } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { getStudentProjects } from '../../../api/getStudentProjects'
+import { ArrowRightProjects } from '../../../assets/img'
+import { ArrowLeft, ArrowRight, Dots, Github } from '../../../assets/svg'
 import { SelectedStudentIdContext } from '../../../context/StudentIdContext'
 import { TProject } from '../../../interfaces/interfaces'
 

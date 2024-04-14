@@ -1,8 +1,8 @@
-import { useAppDispatch } from '../../hooks/ReduxHooks'
 import { useContext } from 'react'
-import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
-import { IStudentList } from '../../interfaces/interfaces'
 import { SelectedStudentIdContext } from '../../context/StudentIdContext'
+import { useAppDispatch } from '../../hooks/ReduxHooks'
+import { IStudentList } from '../../interfaces/interfaces'
+import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
 
 const StudentCard = ({ fullname, photo, subtitle, tags, id }: IStudentList) => {
   const dispatch = useAppDispatch()
@@ -21,7 +21,8 @@ const StudentCard = ({ fullname, photo, subtitle, tags, id }: IStudentList) => {
     <div
       className="flex max-w-md cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
       onClick={() => {
-        handleUserDetailToggler(), handleStudentSelect()
+        handleUserDetailToggler()
+        handleStudentSelect()
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {

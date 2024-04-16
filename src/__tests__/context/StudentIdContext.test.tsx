@@ -14,8 +14,17 @@ describe('SelectedStudentProvider', () => {
     const { result } = renderHook(() => useStudentIdContext(), { wrapper })
     expect(result.current.studentUUID)
   })
+  it('should throw an error', async () => {
+    renderHook(() => {
+      try {
+        useStudentIdContext()
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          expect(`${error.message}`).toEqual(
+            'useStudentIdContext has to be used inside a SelectedStudentProvider',
+          )
+        }
+      }
+    })
+  })
 })
-// describe('SelectedStudentIdContext', () => {
-// it('should return studentId when a card is selected', () => {})
-// it('should store studentId when a card is selected', () => {})
-// })

@@ -12,7 +12,7 @@ describe('SelectedStudentProvider', () => {
       <SelectedStudentProvider>{children}</SelectedStudentProvider>
     )
     const { result } = renderHook(() => useStudentIdContext(), { wrapper })
-    expect(result.current.studentUUID)
+    expect(result.current.studentUUID).toBeDefined()
   })
   it('should throw an error', async () => {
     renderHook(() => {

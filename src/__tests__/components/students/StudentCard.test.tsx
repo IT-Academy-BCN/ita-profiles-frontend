@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 import { Provider } from 'react-redux'
 import StudentCard from '../../../components/students/StudentCard'
 import { IStudentList } from '../../../interfaces/interfaces'
@@ -14,6 +14,7 @@ const mockStudentCard: IStudentList = {
     { id: 2, name: 'php' },
   ],
 }
+
 describe('StudentCard', () => {
   it('should render the student card component', () => {
     const { container } = render(
@@ -22,5 +23,16 @@ describe('StudentCard', () => {
       </Provider>,
     )
     expect(container).toBeInTheDocument()
+  })
+  it('should trigger actions correctly on click', () => {
+    const { getByText } = render(
+      <Provider store={store}>
+        <StudentCard {...mockStudentCard} />
+      </Provider>,
+    )
+
+    fireEvent.click(getByText('John'))
+
+    expect(store.getState().ShowUserReducer.isUserPanelOpen).toBe(true)
   })
 })

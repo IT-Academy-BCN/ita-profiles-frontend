@@ -1,15 +1,15 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { getStudentProjects } from '../../../api/getStudentProjects'
 import { ArrowRightProjects } from '../../../assets/img'
 import { ArrowLeft, ArrowRight, Dots, Github } from '../../../assets/svg'
-import { SelectedStudentIdContext } from '../../../context/StudentIdContext'
+import { useStudentIdContext } from '../../../context/StudentIdContext'
 import { TProject } from '../../../interfaces/interfaces'
 
 const ProjectsCard: React.FC = () => {
   const [projects, setProjects] = useState<TProject[] | null>()
 
   // we grab the id from the selected student
-  const { studentUUID } = useContext(SelectedStudentIdContext)
+  const { studentUUID } = useStudentIdContext()
 
   useEffect(() => {
     const getProjects = async () => {

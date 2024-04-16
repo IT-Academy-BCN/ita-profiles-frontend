@@ -30,6 +30,7 @@ const StudentCard: React.FC<IStudentList> = ({
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           handleUserDetailToggler()
+          handleStudentSelect()
         }
       }}
     >

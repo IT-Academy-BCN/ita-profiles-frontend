@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import type { TLanguage } from '../../../interfaces/interfaces'
 import { SelectedStudentProvider } from '../../../context/StudentIdContext'
 import LanguagesCard from '../../../components/studentDetailCards/languagesSection/LanguagesCard'
@@ -21,39 +21,54 @@ const mockLanguages: TLanguage[] = [
   },
 ]
 
+jest.mock('../../../context/StudentIdContext', () => ({
+  studentUUID: 'mocked-uuid',
+}))
+
+jest.mock('axios', () => ({
+  get: jest.fn().mockResolvedValue({ data: { languages: mockLanguages } }),
+}))
+
 describe('LanguagesCard', () => {
   it('should render the languages correctly', async () => {
-    render(
+    const { container } = render(
       <SelectedStudentProvider>
         <LanguagesCard />
       </SelectedStudentProvider>,
     )
-
+    expect(container).toBeInTheDocument()
     expect(mockLanguages.length).toBe(3)
     expect(screen.getByText('Idiomas')).toBeInTheDocument()
   })
 
-  it('check the map aover mockLanguages', () => {
+  it('renders ul and li elements for mockLanguages', async () => {
     render(
       <SelectedStudentProvider>
         <LanguagesCard />
       </SelectedStudentProvider>,
     )
-    render(
-      <div className="flex flex-col gap-1">
-        {mockLanguages &&
-          mockLanguages.map((mockLanguage) => (
-            <ul key={mockLanguage.language_id} className="flex flex-col">
-              <li className="text-sm font-semibold text-black-2">
-                {mockLanguage.language_name}
-              </li>
-            </ul>
-          ))}
-      </div>,
-    )
+    const ulElements = screen.getAllByRole('list')
+    const liElements = screen.getAllByRole('listitem')
+    expect(ulElements.length).toBeGreaterThan(0)
+    expect(liElements.length).toBeGreaterThan(0)
+  })
 
-    expect(screen.getByText('Español')).toBeInTheDocument()
-    expect(screen.getByText('Català')).toBeInTheDocument()
-    expect(screen.getByText('English')).toBeInTheDocument()
+  it('renders language list when languages request is successful', async () => {
+    render(
+      <SelectedStudentProvider>
+        <LanguagesCard />
+      </SelectedStudentProvider>,
+    )
+    await waitFor(() => {
+      const languageElements = screen.getAllByTestId('LanguagesCard')
+      expect(languageElements.length).toBeGreaterThan(0)
+
+      const languageList = languageElements[0].querySelectorAll('ul li')
+      expect(languageList.length).toBe(mockLanguages.length)
+
+      mockLanguages.forEach((mockLanguage) => {
+        expect(screen.getByText(mockLanguage.language_name)).toBeInTheDocument()
+      })
+    })
   })
 })

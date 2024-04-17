@@ -62,6 +62,7 @@ const StudentFiltersContent: React.FC = () => {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Roles</h4>
           <div>
+            <input name="Frontend" type="checkbox" test-id="Frontend" />
             {roles.map((role) => (
               <label
                 key={role}
@@ -72,7 +73,7 @@ const StudentFiltersContent: React.FC = () => {
                   id={`roleInput-${role}`}
                   type="checkbox"
                   value={role}
-                 
+                  name={role}
                   onChange={() => changeHandler(role)}
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />

@@ -1,37 +1,56 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState, useContext } from 'react';
+import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
 const StudentFiltersContent: React.FC = () => {
-  const [roles, setRoles] = useState<string[]>([])
-  const [development, setDevelopment] = useState<string[]>([])
+  const [roles, setRoles] = useState<string[]>([]);
+  const [development, setDevelopment] = useState<string[]>([]);
 
-  const urlRoles =
-    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
-  const urlDevelopment =
-    'https://itaperfils.eurecatacademy.org/api/v1/development/list'
+  if(!StudentFiltersContext) {
+    console.error('StudentFiltersContext must be provided');
+    return null;
+  }
+
+  // @ts-ignore
+  const { selectedRoles, addRole, removeRole, selectedTags, addTag, removeTag } = useContext(StudentFiltersContext);
+
+  const urlRoles = 'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
+  const urlDevelopment = 'https://itaperfils.eurecatacademy.org/api/v1/development/list';
 
   const fetchData = (
     url: string,
-    setData: React.Dispatch<React.SetStateAction<string[]>>,
+    setData: React.Dispatch<React.SetStateAction<string[]>>
   ) => {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data)
+        setData(response.data);
       })
       .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error(error)
-      })
-  }
+        console.error(error);
+      });
+  };
 
   useEffect(() => {
-    fetchData(urlRoles, setRoles)
-  }, [urlRoles])
+    fetchData(urlRoles, setRoles);
+    fetchData(urlDevelopment, setDevelopment);
+  }, [urlRoles, urlDevelopment]);
 
-  useEffect(() => {
-    fetchData(urlDevelopment, setDevelopment)
-  }, [urlDevelopment])
+  const toggleRole = (role: string) => {
+    if (selectedRoles.includes(role)) {
+      removeRole(role);
+    } else {
+      addRole(role);
+    }
+  };
+
+  const toggleTag = (tag: string) => {
+    if (selectedTags.includes(tag)) {
+      removeTag(tag);
+    } else {
+      addTag(tag);
+    }
+  };
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
@@ -50,6 +69,8 @@ const StudentFiltersContent: React.FC = () => {
                   id="roleInput"
                   type="checkbox"
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
+                  checked={selectedRoles.includes(role)} // Verificamos si el role está en tags
+                  onChange={() => toggleRole(role)}
                 />
                 <span>{role}</span>
               </label>
@@ -59,9 +80,9 @@ const StudentFiltersContent: React.FC = () => {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Desarrollo</h4>
           <div>
-            {development.map((role) => (
+            {development.map((tag) => (
               <label
-                key={role}
+                key={tag}
                 className="label cursor-pointer justify-start p-1"
                 htmlFor="developmentInput"
               >
@@ -69,15 +90,17 @@ const StudentFiltersContent: React.FC = () => {
                   type="checkbox"
                   id="developmentInput"
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
+                  checked={selectedTags.includes(tag)}
+                  onChange={() => toggleTag(tag)}
                 />
-                <span>{role}</span>
+                <span>{tag}</span>
               </label>
             ))}
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default StudentFiltersContent
+export default StudentFiltersContent;

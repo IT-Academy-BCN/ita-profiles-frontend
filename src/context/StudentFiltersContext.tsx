@@ -1,8 +1,8 @@
 import React, { createContext, useState, ReactNode } from 'react';
 
 interface StudentFiltersContextType {
-  roles: string[];
-  tags: string[];
+  selectedRoles: string[];
+  selectedTags: string[];
   addRole: (role: string) => void;
   removeRole: (role: string) => void;
   addTag: (tag: string) => void;
@@ -16,36 +16,27 @@ interface StudentFiltersProviderProps {
 }
 
 export const StudentFiltersProvider: React.FC<StudentFiltersProviderProps> = ({ children }) => {
-  const [roles, setRoles] = useState<string[]>([]);
-  const [tags, setTags] = useState<string[]>([]);
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
   const addRole = (role: string) => {
-    setRoles(prevRoles => [...prevRoles, role]);
+    setSelectedRoles(prevRoles => [...prevRoles, role]);
   };
 
   const removeRole = (role: string) => {
-    setRoles(prevRoles => prevRoles.filter(r => r !== role));
+    setSelectedRoles(prevRoles => prevRoles.filter(r => r !== role));
   };
 
   const addTag = (tag: string) => {
-    setTags(prevTags => [...prevTags, tag]);
+    setSelectedTags(prevTags => [...prevTags, tag]);
   };
 
   const removeTag = (tag: string) => {
-    setTags(prevTags => prevTags.filter(t => t !== tag));
-  };
-
-  const contextValue: StudentFiltersContextType = {
-    roles,
-    tags,
-    addRole,
-    removeRole,
-    addTag,
-    removeTag
+    setSelectedTags(prevTags => prevTags.filter(t => t !== tag));
   };
 
   return (
-    <StudentFiltersContext.Provider value={contextValue}>
+    <StudentFiltersContext.Provider value={{ selectedRoles, selectedTags, addRole, removeRole, addTag, removeTag }}>
       {children}
     </StudentFiltersContext.Provider>
   );

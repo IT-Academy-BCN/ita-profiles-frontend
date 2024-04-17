@@ -34,10 +34,10 @@ const ModalityCard: React.FC = () => {
       <div className="flex items-center gap-2">
         <img src={remoto} className="pr-2" alt="remoto" />
         {modalityData &&
-          modalityData.map((modality) => (
+          modalityData.map((modality, index) => (
             <ul key={studentUUID} className="flex flex-col">
               <li className="text-sm font-semibold text-black-2">
-                {modality.modality}
+                {modality.modality[index]}
               </li>
             </ul>
           ))}

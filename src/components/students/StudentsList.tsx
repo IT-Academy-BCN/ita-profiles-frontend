@@ -21,6 +21,7 @@ const StudentsList: React.FC = () => {
         const studentsList = await FetchStudentsListHome(filteredStudents);
         setStudents(studentsList);
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.error('Error fetching students:', error)
       }
     };

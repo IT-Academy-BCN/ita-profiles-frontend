@@ -20,11 +20,11 @@ export type TSmallScreenContext = {
 
 // === studentList ===
 export interface IStudentList {
+  id: string
   fullname: string
   subtitle: string
   photo: string
   tags: ITag[]
-  id: number
 }
 
 export interface ITag {

@@ -1,27 +1,36 @@
 import { useAppDispatch } from '../../hooks/ReduxHooks'
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
 import { IStudentList } from '../../interfaces/interfaces'
+import { useStudentIdContext } from '../../context/StudentIdContext'
 
 const StudentCard: React.FC<IStudentList> = ({
   fullname,
   photo,
   subtitle,
   tags,
+  id,
 }) => {
   const dispatch = useAppDispatch()
+  const { setStudentUUID } = useStudentIdContext()
 
   const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel())
   }
-
+  const handleStudentSelect = () => {
+    setStudentUUID(id)
+  }
   return (
     // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className="max-w-md flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
-      onClick={handleUserDetailToggler}
+      onClick={() => {
+        handleUserDetailToggler()
+        handleStudentSelect()
+      }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           handleUserDetailToggler()
+          handleStudentSelect()
         }
       }}
     >

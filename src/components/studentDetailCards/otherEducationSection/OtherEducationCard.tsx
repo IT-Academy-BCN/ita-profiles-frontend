@@ -17,7 +17,7 @@ const OtherEducationCard: React.FC = () => {
   ]
 
   return (
-    <div>
+    <div data-testid="OtherEducationCard">
       <h3 className="text-lg font-bold text-black-3">Otra formación</h3>
       <div className="flex flex-col pt-3">
         {education.map((item, index) => (

@@ -1,17 +1,24 @@
 import { useAppDispatch } from '../../hooks/ReduxHooks'
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
 import { IStudentList } from '../../interfaces/interfaces'
+import { StudentIdContext } from '../../context/StudentIdContext';
+import { useContext } from 'react';
 
 const StudentCard: React.FC<IStudentList> = ({
   fullname,
   photo,
   subtitle,
   tags,
+  id,
 }) => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+  const studentIdContext = useContext(StudentIdContext);
 
   const handleUserDetailToggler = () => {
-    dispatch(toggleUserPanel())
+    if (studentIdContext) {
+      studentIdContext.setStudentId(id);
+      dispatch(toggleUserPanel());
+    }
   }
 
   return (

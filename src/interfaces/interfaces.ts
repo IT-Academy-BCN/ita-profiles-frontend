@@ -32,6 +32,7 @@ export interface ITag {
   name: string
 }
 
-export interface IModality {
+export type TModality = {
+  id: string
   modality: string
 }

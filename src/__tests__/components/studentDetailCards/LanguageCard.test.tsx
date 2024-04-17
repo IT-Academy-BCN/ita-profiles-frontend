@@ -35,6 +35,11 @@ describe('LanguagesCard', () => {
 
   it('check the map aover mockLanguages', () => {
     render(
+      <SelectedStudentProvider>
+        <LanguagesCard />
+      </SelectedStudentProvider>,
+    )
+    render(
       <div className="flex flex-col gap-1">
         {mockLanguages &&
           mockLanguages.map((mockLanguage) => (

@@ -66,10 +66,10 @@ const StudentFiltersContent: React.FC = () => {
               <label
                 key={role}
                 className="label cursor-pointer justify-start p-1"
-                htmlFor="roleInput"
+                htmlFor={`roleInput-${role}`}
               >
                 <input
-                  id="roleInput"
+                  id={`roleInput-${role}`}
                   type="checkbox"
                   value={role}
                  

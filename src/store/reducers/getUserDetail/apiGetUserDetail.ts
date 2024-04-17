@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
     isUserPanelOpen: false,
@@ -10,11 +9,16 @@ const showUserInfo = createSlice({
     name: "showUserReducer",
     initialState,
     reducers: {
-        toggleUserPanel: (state) => {state.isUserPanelOpen = !state.isUserPanelOpen},
+        toggleUserPanel: (state) => {
+            // eslint-disable-next-line no-param-reassign
+            state.isUserPanelOpen = !state.isUserPanelOpen;
+        },
         setFilteredStudents: (state, action: PayloadAction<string>) => {
+            // eslint-disable-next-line no-param-reassign
             state.filteredStudents = action.payload;
         }  
     }
 })
+
 export const { toggleUserPanel, setFilteredStudents  } = showUserInfo.actions;
-export default showUserInfo.reducer
+export default showUserInfo.reducer;

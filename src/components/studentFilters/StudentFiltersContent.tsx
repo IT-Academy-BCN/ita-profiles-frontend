@@ -10,16 +10,12 @@ const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
- /*  const [students, setStudents] = useState<string[]>([]); */
-
 
   const urlRoles =
     'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
   const urlDevelopment =
     'https://itaperfils.eurecatacademy.org/api/v1/development/list';
-  /* const urlFilterStudents =
-    'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home?specialization=';
- */
+
   const fetchData = (
     url: string,
     setData: React.Dispatch<React.SetStateAction<string[]>>,
@@ -55,11 +51,9 @@ const StudentFiltersContent: React.FC = () => {
 
 
   useEffect(() => {
-    //console.log('selectedRoles', selectedRoles);
-      const roles = selectedRoles.join(',');
-      dispatch(setFilteredStudents(roles)); // Call the setFilteredStudents function with the appropriate arguments
-      //console.log('roles', `${urlFilterStudents}${roles}`);
-  }, [selectedRoles]);
+      const rolesSlug = selectedRoles.join(',');
+      dispatch(setFilteredStudents(rolesSlug)); 
+  }, [selectedRoles, dispatch]);
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">

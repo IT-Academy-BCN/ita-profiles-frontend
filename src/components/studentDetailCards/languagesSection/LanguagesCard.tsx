@@ -6,6 +6,7 @@ import type { TLanguage } from '../../../interfaces/interfaces'
 const LanguagesCard: React.FC = () => {
   const { studentUUID } = useStudentIdContext()
   const [languages, setLanguages] = useState<TLanguage[]>([])
+  const [error, setError] = useState('')
 
   const endpointLanguages = `https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`
 
@@ -20,12 +21,15 @@ const LanguagesCard: React.FC = () => {
         .then((response) => {
           setLanguages(response.data.languages)
         })
-        .catch((error) => {
-          console.error(error.message)
+        .catch((err) => {
+          setError(err.message)
         })
     }
   }, [studentUUID, endpointLanguages])
 
+  if (error) {
+    return <p>{error}</p>
+  }
   return (
     <div className="flex flex-col gap-2" data-testid="LanguagesCard">
       <h3 className="text-lg font-bold">Idiomas</h3>

@@ -1,8 +1,7 @@
 import { useAppDispatch } from '../../hooks/ReduxHooks'
 import { toggleUserPanel } from '../../store/reducers/getUserDetail/apiGetUserDetail'
 import { IStudentList } from '../../interfaces/interfaces'
-import { useContext } from 'react'
-import Context from '../../context/Context'
+import { useStudentIdContext } from '../../context/StudentIdContext'
 
 const StudentCard: React.FC<IStudentList> = ({
   id, // Add ID to be used in setSelectedStudentId
@@ -10,25 +9,28 @@ const StudentCard: React.FC<IStudentList> = ({
   photo,
   subtitle,
   tags,
+  id,
 }) => {
   const dispatch = useAppDispatch()
-  const { setStudentUUID } = useContext(Context)
+  const { setStudentUUID } = useStudentIdContext()
+
   const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel())
   }
-
-  const handleStudentClick = () => {
-    setStudentUUID(id) // Set the selected student ID
-    handleUserDetailToggler() // Optionally toggle user panel
+  const handleStudentSelect = () => {
+    setStudentUUID(id)
   }
-
   return (
     <div
       className="max-w-md flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
-      onClick={handleStudentClick} // Attach handleStudentClick function
+      onClick={() => {
+        handleUserDetailToggler()
+        handleStudentSelect()
+      }}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
-          handleStudentClick()
+          handleUserDetailToggler()
+          handleStudentSelect()
         }
       }}
     >

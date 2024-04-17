@@ -44,7 +44,7 @@ const StudentDataCard: React.FC = () => {
   ]
 
   return (
-    <div>
+    <div data-testid="StudentDataCard">
       {studentData.map((student) => (
         <div key={student.id} className="flex flex-col gap-4">
           <div className="flex gap-3">

@@ -9,7 +9,6 @@ const StudentCard: React.FC<IStudentList> = ({
   photo,
   subtitle,
   tags,
-  id,
 }) => {
   const dispatch = useAppDispatch()
   const { setStudentUUID } = useStudentIdContext()

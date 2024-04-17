@@ -33,6 +33,5 @@ export interface ITag {
 }
 
 export type TModality = {
-  id: string
-  modality: string
+   modality: string[]
 }

@@ -12,14 +12,15 @@ const StudentsList: React.FC = () => {
     (state) => state.ShowUserReducer.filteredStudents,
   );
 
-  const [students, setStudents] = useState<IStudentList[]>()
+  const [students, setStudents] = useState<IStudentList[] | null>()
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-       // const studentsList = await FetchStudentsListHome();
         const studentsList = await FetchStudentsListHome(filteredStudents);
-        setStudents(studentsList);
+        if (studentsList !== null) {
+          setStudents(studentsList);
+        }
       } catch (error) {
         // eslint-disable-next-line no-console
         console.error('Error fetching students:', error)

@@ -10,13 +10,13 @@ import { FetchStudentsListHome } from '../api/FetchStudentsList'
 
 export const Context = createContext<{
   students: IStudentList[]
-  selectedStudentId: string | null
-  setSelectedStudentId: React.Dispatch<React.SetStateAction<string | null>>
+  studentUUID: string | null
+  setStudentUUID: React.Dispatch<React.SetStateAction<string | null>>
   handleStudentClick: (studentId: string) => void
 }>({
   students: [],
-  selectedStudentId: null,
-  setSelectedStudentId: () => {},
+  studentUUID: null,
+  setStudentUUID: () => {},
   handleStudentClick: () => {},
 })
 
@@ -28,11 +28,9 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
   children,
 }) => {
   const [students, setStudents] = useState<IStudentList[]>([])
-  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(
-    null,
-  )
+  const [studentUUID, setStudentUUID] = useState<string | null>(null)
   const handleStudentClick = (studentId: string) => {
-    setSelectedStudentId(studentId)
+    setStudentUUID(studentId)
   }
 
   useEffect(() => {
@@ -57,8 +55,8 @@ export const ContextProvider: React.FC<ContextProviderProps> = ({
     <Context.Provider
       value={{
         students,
-        selectedStudentId,
-        setSelectedStudentId,
+        studentUUID,
+        setStudentUUID,
         handleStudentClick,
       }}
     >

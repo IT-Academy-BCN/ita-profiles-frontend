@@ -12,13 +12,13 @@ const StudentCard: React.FC<IStudentList> = ({
   tags,
 }) => {
   const dispatch = useAppDispatch()
-  const { setSelectedStudentId } = useContext(Context)
+  const { setStudentUUID } = useContext(Context)
   const handleUserDetailToggler = () => {
     dispatch(toggleUserPanel())
   }
 
   const handleStudentClick = () => {
-    setSelectedStudentId(id) // Set the selected student ID
+    setStudentUUID(id) // Set the selected student ID
     handleUserDetailToggler() // Optionally toggle user panel
   }
 

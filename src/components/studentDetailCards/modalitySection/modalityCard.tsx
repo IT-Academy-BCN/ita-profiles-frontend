@@ -4,18 +4,18 @@ import axios from 'axios'
 import Context from '../../../context/Context'
 
 const ModalityCard = () => {
-  const { selectedStudentId } = useContext(Context)
+  const { studentUUID } = useContext(Context)
 
   // State to store the modality data
   const [modalityData, setModalityData] = useState(null)
 
   // Effect hook to make an API call when selectedStudentId changes
   useEffect(() => {
-    if (selectedStudentId) {
+    if (studentUUID) {
       const fetchModalityData = async () => {
         try {
           const response = await axios.get(
-            `https://itaperfils.eurecatacademy.org/api/v1/modality/${selectedStudentId}`,
+            `https://itaperfils.eurecatacademy.org/api/v1/modality/${studentUUID}`,
           )
           setModalityData(response.data)
         } catch (error) {
@@ -25,8 +25,8 @@ const ModalityCard = () => {
 
       fetchModalityData()
     }
-  }, [selectedStudentId])
-  console.log(selectedStudentId)
+  }, [studentUUID])
+  console.log(studentUUID)
 
   // Render the modality data or a loading state
   return (

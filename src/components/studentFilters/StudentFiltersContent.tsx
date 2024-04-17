@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { setFilteredStudents } from '../../../src/store/reducers/getUserDetail/apiGetUserDetail';
+import { setFilteredStudents } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
 
 
@@ -10,16 +10,16 @@ const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
-  const [students, setStudents] = useState<string[]>([]);
+ /*  const [students, setStudents] = useState<string[]>([]); */
 
 
   const urlRoles =
     'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
   const urlDevelopment =
     'https://itaperfils.eurecatacademy.org/api/v1/development/list';
-    const urlFilterStudents =
+  /* const urlFilterStudents =
     'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home?specialization=';
-
+ */
   const fetchData = (
     url: string,
     setData: React.Dispatch<React.SetStateAction<string[]>>,
@@ -30,7 +30,7 @@ const StudentFiltersContent: React.FC = () => {
         setData(response.data)
       })
       .catch((error) => {
-        console.error(error)
+        throw new Error(error)
       })
   }
 

@@ -8,11 +8,11 @@ const OtherEducationCard = () => {
   const [additionalTraining, setAdditionalTraining] = useState<
     TAdditionalTraining[] | null
   >()
-  const [isLoading, setIsLoading] = useState(true)
+  // const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const getStudentTraining = async () => {
-      setIsLoading(true)
+      // setIsLoading(true)
 
       try {
         const studentTraining = await getAdditionalTraining(studentUUID)
@@ -20,7 +20,7 @@ const OtherEducationCard = () => {
       } catch (error) {
         throw new Error('Error fetching the student Additional Training')
       } finally {
-        setIsLoading(false)
+        // setIsLoading(false)
       }
     }
 
@@ -29,9 +29,9 @@ const OtherEducationCard = () => {
     }
   }, [studentUUID])
 
-  if (isLoading) {
-    return <div>Wait for Additional Training data to load...</div>
-  }
+  // if (isLoading) {
+  //   return <div>Wait for Additional Training data to load...</div>
+  // }
   return (
     <div data-testid="OtherEducationCard">
       <h3 className="text-lg font-bold text-black-3">Otra formación</h3>

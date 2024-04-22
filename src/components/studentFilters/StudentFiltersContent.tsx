@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { setFilteredStudents } from '../../store/reducers/getUserDetail/apiGetUserDetail';
 import { FetchStudentsListHome } from '../../api/FetchStudentsList';
+import { set } from 'zod';
+import { use } from 'i18next';
 
 
 const StudentFiltersContent: React.FC = () => {
@@ -10,12 +12,24 @@ const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
-
-  const urlRoles =
-    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
-  const urlDevelopment =
-    'https://itaperfils.eurecatacademy.org/api/v1/development/list';
-
+  const rolesJson = [
+    {
+      id: 1,
+      name: 'Frontend',
+    },
+    {
+      id: 2,
+      name: 'Backend',
+    },
+    {
+      id: 3,
+      name: 'Fullstack',
+    },
+    {
+      id: 4,
+      name: 'DevOps',
+    }
+  ]
   const fetchData = (
     url: string,
     setData: React.Dispatch<React.SetStateAction<string[]>>,
@@ -26,13 +40,22 @@ const StudentFiltersContent: React.FC = () => {
         setData(response.data)
       })
       .catch((error) => {
-        throw new Error(error)
+        /* throw new Error(error) */
+        setRoles(rolesJson.map((role) => role.name));
       })
   }
+  const urlRoles =
+  'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
+  const urlDevelopment =
+    'https://itaperfils.eurecatacademy.org/api/v1/development/list';
 
-  useEffect(() => {
+
+  /* useEffect(() => {
     fetchData(urlRoles, setRoles)
-  }, [urlRoles])
+  }, [urlRoles]) */
+  useEffect(() => {
+  setRoles(rolesJson.map((role) => role.name));
+  }, []);
 
   useEffect(() => {
     fetchData(urlDevelopment, setDevelopment);
@@ -48,12 +71,16 @@ const StudentFiltersContent: React.FC = () => {
     setSelectedRoles(newSelectedRoles);
     FetchStudentsListHome(newSelectedRoles.join(','));
   }
+  
 
 
   useEffect(() => {
       const rolesSlug = selectedRoles.join(',');
       dispatch(setFilteredStudents(rolesSlug)); 
   }, [selectedRoles, dispatch]);
+
+  console.log(roles);
+
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
@@ -62,7 +89,6 @@ const StudentFiltersContent: React.FC = () => {
         <div className="flex flex-col gap-2">
           <h4 className="font-bold">Roles</h4>
           <div>
-            <input name="Frontend" type="checkbox" test-id="Frontend" />
             {roles.map((role) => (
               <label
                 key={role}
@@ -74,6 +100,7 @@ const StudentFiltersContent: React.FC = () => {
                   type="checkbox"
                   value={role}
                   name={role}
+                  test-id={role}
                   onChange={() => changeHandler(role)}
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />

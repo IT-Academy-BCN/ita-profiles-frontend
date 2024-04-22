@@ -31,3 +31,12 @@ export interface ITag {
   id: number
   name: string
 }
+
+export type TAdditionalTraining = {
+  uuid: string
+  course_name: string
+  study_center: string
+  course_beginning_year: number
+  course_ending_year: number
+  duration_hrs: number
+}

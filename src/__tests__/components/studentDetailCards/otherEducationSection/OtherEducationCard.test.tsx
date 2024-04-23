@@ -7,7 +7,10 @@ describe('OtherEducationCard', () => {
   it('should render OtherEducationCard component correctly', () => {
     render(<OtherEducationCard />)
   })
-  it('should fetch the student Additional Training correctly', () => {
+  it('should fetch the student Additional Training correctly', async () => {
+    const baseApi = 'https://itaperfils.eurecatacademy.org'
+    const studentUUID = 'abc'
+
     const additionalTraining = [
       {
         uuid: '123',
@@ -18,6 +21,9 @@ describe('OtherEducationCard', () => {
         duration_hrs: 100,
       },
     ]
-    mock.onGet('/additionaltraining').reply(200, { additionalTraining })
+
+    mock
+      .onGet(`${baseApi}/api/v1/students/${studentUUID}/additionaltraining`)
+      .reply(200, { additionalTraining })
   })
 })

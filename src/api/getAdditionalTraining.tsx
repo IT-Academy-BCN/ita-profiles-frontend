@@ -1,11 +1,11 @@
 import axios from 'axios'
 
-const baseApi = 'https://itaperfils.eurecatacademy.org/api/v1'
+const baseApi = 'https://itaperfils.eurecatacademy.org'
 
 export const getAdditionalTraining = async (studentUUID: string | null) => {
   try {
     const response = await axios.get(
-      `${baseApi}/students/${studentUUID}/additionaltraining`,
+      `${baseApi}/api/v1/students/${studentUUID}/additionaltraining`,
     )
 
     return response.data.additional_trainings

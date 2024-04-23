@@ -32,6 +32,12 @@ export interface ITag {
   name: string
 }
 
+export type TLanguage = {
+  language_id: string
+  language_name: string
+  language_level: string
+}
+
 export type TAdditionalTraining = {
   uuid: string
   course_name: string

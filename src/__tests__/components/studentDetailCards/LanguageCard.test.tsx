@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
@@ -19,21 +18,25 @@ describe('LanguagesCard component', () => {
   afterAll(() => {
     mock.restore();
   });
+  
+  const studentUUID = '123'; // You can replace this with a sample UUID
+  const setStudentUUID = () => {}
+  const languagesData = [
+    { language_id: 1, language_name: 'Spanish' },
+    { language_id: 2, language_name: 'English' },
+  ];
 
   test('renders languages correctly', async () => {
-    const studentUUID = '123'; // You can replace this with a sample UUID
-    const languagesData = [
-      { language_id: 1, language_name: 'Spanish' },
-      { language_id: 2, language_name: 'English' },
-    ];
 
     mock.onGet(`https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`).reply(200, { languages: languagesData });
 
     render(
-      <SelectedStudentIdContext.Provider value={{ studentUUID }}>
+      <SelectedStudentIdContext.Provider
+        value={{ studentUUID, setStudentUUID }}
+      >
         <LanguagesCard />
-      </SelectedStudentIdContext.Provider>
-    );
+      </SelectedStudentIdContext.Provider>,
+    )
 
     // Wait for languages to load
     const languageElements = await screen.findAllByRole('listitem');
@@ -50,10 +53,12 @@ describe('LanguagesCard component', () => {
     mock.onGet(`https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`).reply(500, { error: 'Internal Server Error' });
 
     render(
-      <SelectedStudentIdContext.Provider value={{ studentUUID }}>
+      <SelectedStudentIdContext.Provider
+        value={{ studentUUID, setStudentUUID }}
+      >
         <LanguagesCard />
-      </SelectedStudentIdContext.Provider>
-    );
+      </SelectedStudentIdContext.Provider>,
+    )
 
     // Wait for error message to appear
     const errorMessage = await screen.findByText('Request failed with status code 500');

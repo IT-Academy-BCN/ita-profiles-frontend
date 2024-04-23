@@ -1,20 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react';
 import StudentCard from './StudentCard'
 import { useAppSelector } from '../../hooks/ReduxHooks'
 import { IStudentList } from '../../interfaces/interfaces'
 import { FetchStudentsListHome } from '../../api/FetchStudentsList'
+import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
 const StudentsList: React.FC = () => {
   const isPanelOpen = useAppSelector(
     (state) => state.ShowUserReducer.isUserPanelOpen,
   )
 
+  const studentFilterContext = useContext(StudentFiltersContext)
+
   const [students, setStudents] = useState<IStudentList[]>()
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const studentsList = await FetchStudentsListHome()
+        const studentsList = await FetchStudentsListHome(studentFilterContext?.selectedRoles, studentFilterContext?.selectedTags)
         setStudents(studentsList)
       } catch (error) {
         // eslint-disable-next-line no-console
@@ -22,7 +25,7 @@ const StudentsList: React.FC = () => {
       }
     }
     fetchStudents()
-  }, [])
+  }, [studentFilterContext])
 
   return (
     <div

@@ -47,8 +47,7 @@ describe('LanguagesCard component', () => {
     expect(languageElements[1]).toHaveTextContent('English');
   });
 
-  test('renders error message when request fails', async () => {
-    const studentUUID = '123'; // You can replace this with a sample UUID
+  test('renders error message when request fails', async () => {  
 
     mock.onGet(`https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`).reply(500, { error: 'Internal Server Error' });
 

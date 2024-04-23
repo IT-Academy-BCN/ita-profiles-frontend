@@ -1,74 +1,64 @@
-import { render, screen, waitFor } from '@testing-library/react'
-import type { TLanguage } from '../../../interfaces/interfaces'
-import { SelectedStudentProvider } from '../../../context/StudentIdContext'
-import LanguagesCard from '../../../components/studentDetailCards/languagesSection/LanguagesCard'
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import LanguagesCard from '../../../components/studentDetailCards/languagesSection/LanguagesCard';
+import { SelectedStudentIdContext } from '../../../context/StudentIdContext';
 
-const mockLanguages: TLanguage[] = [
-  {
-    language_id: '1',
-    language_name: 'Español',
-    language_level: 'Nativo',
-  },
-  {
-    language_id: '2',
-    language_name: 'Català',
-    language_level: 'Nativo',
-  },
-  {
-    language_id: '3',
-    language_name: 'English',
-    language_level: 'Intermedio',
-  },
-]
+describe('LanguagesCard component', () => {
+  let mock: MockAdapter;
 
-jest.mock('../../../context/StudentIdContext', () => ({
-  studentUUID: 'mocked-uuid',
-}))
+  beforeAll(() => {
+    mock = new MockAdapter(axios);
+  });
 
-jest.mock('axios', () => ({
-  get: jest.fn().mockResolvedValue({ data: { languages: mockLanguages } }),
-}))
+  afterEach(() => {
+    mock.reset();
+  });
 
-describe('LanguagesCard', () => {
-  it('should render the languages correctly', async () => {
-    const { container } = render(
-      <SelectedStudentProvider>
-        <LanguagesCard />
-      </SelectedStudentProvider>,
-    )
-    expect(container).toBeInTheDocument()
-    expect(mockLanguages.length).toBe(3)
-    expect(screen.getByText('Idiomas')).toBeInTheDocument()
-  })
+  afterAll(() => {
+    mock.restore();
+  });
 
-  it('renders ul and li elements for mockLanguages', async () => {
+  test('renders languages correctly', async () => {
+    const studentUUID = '123'; // You can replace this with a sample UUID
+    const languagesData = [
+      { language_id: 1, language_name: 'Spanish' },
+      { language_id: 2, language_name: 'English' },
+    ];
+
+    mock.onGet(`https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`).reply(200, { languages: languagesData });
+
     render(
-      <SelectedStudentProvider>
+      <SelectedStudentIdContext.Provider value={{ studentUUID }}>
         <LanguagesCard />
-      </SelectedStudentProvider>,
-    )
-    const ulElements = screen.getAllByRole('list')
-    const liElements = screen.getAllByRole('listitem')
-    expect(ulElements.length).toBeGreaterThan(0)
-    expect(liElements.length).toBeGreaterThan(0)
-  })
+      </SelectedStudentIdContext.Provider>
+    );
 
-  it('renders language list when languages request is successful', async () => {
+    // Wait for languages to load
+    const languageElements = await screen.findAllByRole('listitem');
+
+    // Check if languages are rendered correctly
+    expect(languageElements).toHaveLength(2);
+    expect(languageElements[0]).toHaveTextContent('Spanish');
+    expect(languageElements[1]).toHaveTextContent('English');
+  });
+
+  test('renders error message when request fails', async () => {
+    const studentUUID = '123'; // You can replace this with a sample UUID
+
+    mock.onGet(`https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/languages`).reply(500, { error: 'Internal Server Error' });
+
     render(
-      <SelectedStudentProvider>
+      <SelectedStudentIdContext.Provider value={{ studentUUID }}>
         <LanguagesCard />
-      </SelectedStudentProvider>,
-    )
-    await waitFor(() => {
-      const languageElements = screen.getAllByTestId('LanguagesCard')
-      expect(languageElements.length).toBeGreaterThan(0)
+      </SelectedStudentIdContext.Provider>
+    );
 
-      const languageList = languageElements[0].querySelectorAll('ul li')
-      expect(languageList.length).toBe(mockLanguages.length)
+    // Wait for error message to appear
+    const errorMessage = await screen.findByText('Request failed with status code 500');
 
-      mockLanguages.forEach((mockLanguage) => {
-        expect(screen.getByText(mockLanguage.language_name)).toBeInTheDocument()
-      })
-    })
-  })
-})
+    // Check if error message is rendered correctly
+    expect(errorMessage).toBeInTheDocument();
+  });
+});

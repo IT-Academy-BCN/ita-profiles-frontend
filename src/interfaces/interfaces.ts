@@ -31,3 +31,9 @@ export interface ITag {
   id: number
   name: string
 }
+
+export type TLanguage = {
+  language_id: string
+  language_name: string
+  language_level: string
+}

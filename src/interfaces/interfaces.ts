@@ -31,3 +31,9 @@ export interface ITag {
   id: number
   name: string
 }
+
+export type TBootcamp = { 
+  bootcamp_id: string
+  bootcamp_name: string
+  bootcamp_end_date: string[]
+}

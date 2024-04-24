@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import remoto from '../../../assets/svg/remoto.svg'
 import { useStudentIdContext } from '../../../context/StudentIdContext'
-import { v4 as uuidv4 } from 'uuid'
 import type { TModality } from '../../../interfaces/interfaces'
 import { fetchModalityData } from '../../../api/FetchStudentModality'
 

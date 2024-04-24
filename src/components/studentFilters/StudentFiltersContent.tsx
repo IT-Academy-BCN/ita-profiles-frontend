@@ -1,35 +1,10 @@
-import axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { setFilteredStudents } from '../../store/reducers/getUserDetail/apiGetUserDetail';
-import { FetchStudentsListHome } from '../../api/FetchStudentsList';
-import { set } from 'zod';
-import { use } from 'i18next';
-
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const StudentFiltersContent: React.FC = () => {
-  const dispatch = useDispatch();
-  const [roles, setRoles] = useState<string[]>([]);
-  const [development, setDevelopment] = useState<string[]>([]);
-  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
-  const rolesJson = [
-    {
-      id: 1,
-      name: 'Frontend',
-    },
-    {
-      id: 2,
-      name: 'Backend',
-    },
-    {
-      id: 3,
-      name: 'Fullstack',
-    },
-    {
-      id: 4,
-      name: 'DevOps',
-    }
-  ]
+  const [roles, setRoles] = useState<string[]>([])
+  const [development, setDevelopment] = useState<string[]>([])
+  
   const fetchData = (
     url: string,
     setData: React.Dispatch<React.SetStateAction<string[]>>,
@@ -40,47 +15,20 @@ const StudentFiltersContent: React.FC = () => {
         setData(response.data)
       })
       .catch((error) => {
-        /* throw new Error(error) */
-        setRoles(rolesJson.map((role) => role.name));
+        throw new Error(error)
       })
   }
   const urlRoles =
-  'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
+    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
   const urlDevelopment =
-    'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+    'https://itaperfils.eurecatacademy.org/api/v1/development/list'
 
-
-  /* useEffect(() => {
+  useEffect(() => {
     fetchData(urlRoles, setRoles)
-  }, [urlRoles]) */
+  }, [urlRoles])
   useEffect(() => {
-  setRoles(rolesJson.map((role) => role.name));
-  }, []);
-
-  useEffect(() => {
-    fetchData(urlDevelopment, setDevelopment);
-  }, [urlDevelopment]);
-
-  const changeHandler = (role: string) => {
-    let newSelectedRoles;
-   if (!selectedRoles.includes(role)) {
-    newSelectedRoles = [...selectedRoles, role];
-    } else {
-      newSelectedRoles = selectedRoles.filter((r) => r !== role);
-    }
-    setSelectedRoles(newSelectedRoles);
-    FetchStudentsListHome(newSelectedRoles.join(','));
-  }
-  
-
-
-  useEffect(() => {
-      const rolesSlug = selectedRoles.join(',');
-      dispatch(setFilteredStudents(rolesSlug)); 
-  }, [selectedRoles, dispatch]);
-
-  console.log(roles);
-
+    fetchData(urlDevelopment, setDevelopment)
+  }, [urlDevelopment])
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
@@ -101,7 +49,6 @@ const StudentFiltersContent: React.FC = () => {
                   value={role}
                   name={role}
                   test-id={role}
-                  onChange={() => changeHandler(role)}
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                 />
                 <span>{role}</span>

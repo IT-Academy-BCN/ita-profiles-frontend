@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import ProjectsCard from '../../../components/studentDetailCards/projectsSection/ProjectsCard';
 
+
+
 describe('ProjectsCard component', () => {
   beforeEach(() => {
     render(<ProjectsCard />);
@@ -18,3 +20,6 @@ test('renders ProjectsCard component', () => {
     const projectsCardElement = getByTestId('ProjectsCard');
     expect(projectsCardElement).toBeInTheDocument();
 });
+
+
+

@@ -14,6 +14,7 @@
     "@hookform/resolvers": "3.3.2",
     "@reduxjs/toolkit": "1.9.7",
     "axios": "1.6.2",
+    "axios-mock-adapter": "^1.22.0",
     "classnames": "2.5.1",
     "i18next": "23.6.0",
     "i18next-browser-languagedetector": "7.1.0",

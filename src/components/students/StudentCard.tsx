@@ -4,11 +4,11 @@ import { IStudentList } from '../../interfaces/interfaces'
 import { useStudentIdContext } from '../../context/StudentIdContext'
 
 const StudentCard: React.FC<IStudentList> = ({
-  id, // Add ID to be used in setSelectedStudentId
   fullname,
   photo,
   subtitle,
   tags,
+  id,
 }) => {
   const dispatch = useAppDispatch()
   const { setStudentUUID } = useStudentIdContext()
@@ -20,6 +20,7 @@ const StudentCard: React.FC<IStudentList> = ({
     setStudentUUID(id)
   }
   return (
+    // eslint-disable-next-line jsx-a11y/no-static-element-interactions
     <div
       className="max-w-md flex cursor-pointer flex-col gap-3 rounded-2xl px-6 py-4 hover:bg-gray-4-base"
       onClick={() => {

@@ -32,6 +32,14 @@ export interface ITag {
   name: string
 }
 
+
 export type TModality = {
    modality: string[]
+}
+
+export type TLanguage = {
+  language_id: string
+  language_name: string
+  language_level: string
+
 }

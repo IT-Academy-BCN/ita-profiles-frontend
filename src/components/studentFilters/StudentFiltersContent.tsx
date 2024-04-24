@@ -1,10 +1,17 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react';
+import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
 const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([])
   const [development, setDevelopment] = useState<string[]>([])
   
+  const { selectedRoles, addRole, removeRole, selectedTags, addTag, removeTag } = useContext(StudentFiltersContext);
+
+  const urlRoles = 'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
+  const urlDevelopment = 'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+
+
   const fetchData = (
     url: string,
     setData: React.Dispatch<React.SetStateAction<string[]>>,
@@ -18,17 +25,29 @@ const StudentFiltersContent: React.FC = () => {
         throw new Error(error)
       })
   }
-  const urlRoles =
-    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
-  const urlDevelopment =
-    'https://itaperfils.eurecatacademy.org/api/v1/development/list'
 
   useEffect(() => {
     fetchData(urlRoles, setRoles)
   }, [urlRoles])
   useEffect(() => {
     fetchData(urlDevelopment, setDevelopment)
-  }, [urlDevelopment])
+  }, [urlRoles, urlDevelopment])
+
+  const toggleRole = (role: string) => {
+    if (selectedRoles.includes(role)) {
+      removeRole(role);
+    } else {
+      addRole(role);
+    }
+  };
+
+  const toggleTag = (tag: string) => {
+    if (selectedTags.includes(tag)) {
+      removeTag(tag);
+    } else {
+      addTag(tag);
+    }
+  };
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">
@@ -46,10 +65,9 @@ const StudentFiltersContent: React.FC = () => {
                 <input
                   id={`roleInput-${role}`}
                   type="checkbox"
-                  value={role}
-                  name={role}
-                  test-id={role}
                   className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
+                  checked={selectedRoles.includes(role)}
+                  onChange={() => toggleRole(role)}
                 />
                 <span>{role}</span>
               </label>

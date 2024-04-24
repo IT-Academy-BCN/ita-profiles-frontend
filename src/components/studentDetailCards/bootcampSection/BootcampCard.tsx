@@ -1,34 +1,23 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import medal from '../../../assets/img/medal-dynamic-color.png'
 import { useStudentIdContext } from '../../../context/StudentIdContext'
 import type { TBootcamp } from '../../../interfaces/interfaces'
+import { fetchBootcampData } from '../../../api/FetchStudentBootcamp'
 
 const BootcampCard: React.FC = () => {
   const { studentUUID } = useStudentIdContext()
 
   const [bootcampData, setBootcampData] = useState<TBootcamp[]>([])
 
-  const endpointBootcamp = `https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/bootcamp`
-
   useEffect(() => {
-    if (studentUUID) {
-      axios
-        .get(endpointBootcamp, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        .then((response) => {
-          setBootcampData(response.data.bootcamp)
-        })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.error(error.message)
-          throw error
-        })
+    const fetchBootcamp = async () => {
+      if (studentUUID) {
+        const data = await fetchBootcampData(studentUUID)
+        setBootcampData(data)
+      }
     }
-  }, [studentUUID, endpointBootcamp])
+    fetchBootcamp()
+  }, [studentUUID])
 
   return (
     <div className="flex flex-col gap-4" data-testid="BootcampCard">

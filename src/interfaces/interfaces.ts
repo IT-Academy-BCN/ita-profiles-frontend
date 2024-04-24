@@ -37,3 +37,9 @@ export type TBootcamp = {
   bootcamp_name: string
   bootcamp_end_date: string[]
 }
+
+export type TLanguage = {
+  language_id: string
+  language_name: string
+  language_level: string
+}

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import ProjectsCard from '../../../components/studentDetailCards/projectsSection/ProjectsCard';
-
+import axios from "axios";
+import { FetchStudentsProjects } from "../../../api/FetchStudentsProjects";
 
 
 describe('ProjectsCard component', () => {
@@ -22,4 +23,18 @@ test('renders ProjectsCard component', () => {
 });
 
 
+describe("FetchStudentsProjects", () => {
+  it("should throw an error when fetching projects fails", async () => {
+    
+    const studentUUID = "student123";
+    const axiosGetOriginal = axios.get;
+    axios.get = (url) => {
+      return new Promise((resolve, reject) => {
+        reject(new Error("API Error"));
+      });
+    };
 
+    await expect(FetchStudentsProjects(studentUUID)).rejects.toThrow("Error fetching projects");
+    axios.get = axiosGetOriginal;
+  });
+});

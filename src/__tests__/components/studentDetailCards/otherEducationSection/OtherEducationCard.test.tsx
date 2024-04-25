@@ -1,9 +1,13 @@
-import { render } from '@testing-library/react'
 import '@testing-library/jest-dom'
+import axios from 'axios'
 import OtherEducationCard from '../../../../components/studentDetailCards/otherEducationSection/OtherEducationCard'
-import { mock } from '../../../setup'
+import { configureMockAdapter } from '../../../setup'
+import { render } from '../../../test-utils'
 
 describe('OtherEducationCard', () => {
+  const axiosInstance = axios.create()
+  const mock = configureMockAdapter(axiosInstance)
+
   it('should render OtherEducationCard component correctly', () => {
     render(<OtherEducationCard />)
   })

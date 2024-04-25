@@ -9,13 +9,16 @@ import { store } from './store/store'
 
 import './styles/index.css'
 import './styles/normalize.css'
+import SmallScreenProvider from './context/SmallScreenContext'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
       <I18nextProvider i18n={i18n}>
         <SelectedStudentProvider>
-          <App />
+          <SmallScreenProvider>
+            <App />
+          </SmallScreenProvider>
         </SelectedStudentProvider>
       </I18nextProvider>
     </Provider>

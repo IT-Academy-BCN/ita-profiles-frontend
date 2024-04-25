@@ -1,11 +1,6 @@
-import SmallScreenProvider from './context/SmallScreenContext'
 import Home from './pages/Home'
 import './styles/App.css'
 
-const App = () => (
-  <SmallScreenProvider>
-    <Home />
-  </SmallScreenProvider>
-)
+const App = () => <Home />
 
 export default App

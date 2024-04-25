@@ -25,6 +25,27 @@ test('renders ProjectsCard component', () => {
 
 
 describe("FetchStudentsProjects", () => {
+  it("should fetch projects successfully", async () => {
+    const studentUUID = "student123";
+    const mockResponse = {
+      projects: [
+        { id: 1, name: "Project 1" },
+        { id: 2, name: "Project 2" },
+      ],
+    };
+    const axiosGetOriginal = axios.get;
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    axios.get = () => new Promise<any>((resolve) => {
+      resolve({ data: mockResponse });
+    });
+
+    const result = await FetchStudentsProjects(studentUUID);
+
+    expect(result).toEqual(mockResponse.projects);
+    axios.get = axiosGetOriginal;
+  });
+
   it("should throw an error when fetching projects fails", async () => {
     const studentUUID = "student123";
     const axiosGetOriginal = axios.get;

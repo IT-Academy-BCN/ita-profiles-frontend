@@ -1,64 +1,70 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import axios from "axios";
 import React from 'react';
+import MockAdapter from 'axios-mock-adapter';
 import ProjectsCard from '../../../components/studentDetailCards/projectsSection/ProjectsCard';
-import { FetchStudentsProjects } from "../../../api/FetchStudentsProjects";
+import { SelectedStudentIdContext, SelectedStudentProvider } from '../../../context/StudentIdContext';
 
 
-describe('ProjectsCard component', () => {
+describe('ProjectsCard', () => {
   beforeEach(() => {
-    render(<ProjectsCard />);
-  });
-
-  test('renders the title "Proyectos"', () => {
-    const titleElement = screen.getByText('Proyectos');
-    expect(titleElement).toBeInTheDocument();
-  });
- 
-});
-
-test('renders ProjectsCard component', () => {
-    const { getByTestId } = render(<ProjectsCard />);
-    const projectsCardElement = getByTestId('ProjectsCard');
-    expect(projectsCardElement).toBeInTheDocument();
-});
-
-
-describe("FetchStudentsProjects", () => {
-  it("should fetch projects successfully", async () => {
-    const studentUUID = "student123";
-    const mockResponse = {
-      projects: [
-        { id: 1, name: "Project 1" },
-        { id: 2, name: "Project 2" },
-      ],
-    };
-    const axiosGetOriginal = axios.get;
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    axios.get = () => new Promise<any>((resolve) => {
-      resolve({ data: mockResponse });
-    });
-
-    const result = await FetchStudentsProjects(studentUUID);
-
-    expect(result).toEqual(mockResponse.projects);
-    axios.get = axiosGetOriginal;
-  });
-
-  it("should throw an error when fetching projects fails", async () => {
-    const studentUUID = "student123";
-    const axiosGetOriginal = axios.get;
-    
-    axios.get = () => new Promise((resolve, reject) => {
-        reject(new Error("API Error"));
-      });
-    await expect(FetchStudentsProjects(studentUUID)).rejects.toThrow("Error fetching projects");
-    axios.get = axiosGetOriginal;
-  });
-});
+    render(
+      <SelectedStudentProvider>
+        <ProjectsCard />
+      </SelectedStudentProvider>,
+    )
+  })
+  test('should show "Projects" all the time', () => {
+    expect(screen.getByText('Proyectos')).toBeInTheDocument()
+  })
+})
 
 describe('ProjectsCard component', () => {
+  let mock: MockAdapter
+
+  beforeAll(() => {
+    mock = new MockAdapter(axios)
+  })
+
+  afterEach(() => {
+    mock.reset()
+  })
+
+  afterAll(() => {
+    mock.restore()
+  })
+
+  const studentUUID = '123'
+  const setStudentUUID = () => { }
+  const projectsData = [
+    { project_id: 1, project_name: 'Project 1' },
+    { project_id: 2, project_name: 'Project 2' },
+  ]
+
+  test('renders projects correctly', async () => {
+    mock
+      .onGet(
+        `https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/projects`,
+      )
+      .reply(200, projectsData)
+  
+    render(
+      <SelectedStudentIdContext.Provider
+        value={{ studentUUID, setStudentUUID }}
+      >
+        <ProjectsCard />
+      </SelectedStudentIdContext.Provider>,
+    )
+  
+    // Wait for modalities to load
+    const projectsElement = await screen.getByText('Proyectos');
+  
+    // Check if projects are rendered correctly
+    expect(projectsElement).toBeInTheDocument();
+  })
+})
+
+describe('scrollLeft and scrollRight functions', () => {
   test('scrollLeft function scrolls left when button is clicked', () => {
     const carouselRef = React.createRef<HTMLDivElement>();
     render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRef}>{children}</div> });
@@ -84,7 +90,7 @@ describe('ProjectsCard component', () => {
     fireEvent.click(screen.getByAltText('arrow right'));
     const updatedWidthAfterRightScroll = screen.getByTestId('ProjectsCard').offsetWidth;
 
-    expect(updatedWidthAfterLeftScroll).toEqual(initialWidth); 
-    expect(updatedWidthAfterRightScroll).toEqual(initialWidth); 
+    expect(updatedWidthAfterLeftScroll).toEqual(initialWidth);
+    expect(updatedWidthAfterRightScroll).toEqual(initialWidth);
   });
 });

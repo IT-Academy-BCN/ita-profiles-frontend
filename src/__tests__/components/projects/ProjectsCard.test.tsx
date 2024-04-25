@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import axios from "axios";
+import React from 'react';
 import ProjectsCard from '../../../components/studentDetailCards/projectsSection/ProjectsCard';
 import { FetchStudentsProjects } from "../../../api/FetchStudentsProjects";
 
@@ -38,22 +39,22 @@ describe("FetchStudentsProjects", () => {
 
 describe('ProjectsCard component', () => {
   test('scrollLeft function scrolls left when button is clicked', () => {
-    const carouselRefMock = { current: document.createElement('div') }; 
-    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
+    const carouselRef = React.createRef<HTMLDivElement>();
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRef}>{children}</div> });
     fireEvent.click(screen.getByAltText('arrow left'));
     expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
   });
 
   test('scrollRight function scrolls right when button is clicked', () => {
-    const carouselRefMock = { current: document.createElement('div') }; 
-    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
+    const carouselRef = React.createRef<HTMLDivElement>();
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRef}>{children}</div> });
     fireEvent.click(screen.getByAltText('arrow right'));
     expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
   });
 
   test('carousel width changes after scrolling', () => {
-    const carouselRefMock = { current: document.createElement('div') }; 
-    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
+    const carouselRef = React.createRef<HTMLDivElement>();
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRef}>{children}</div> });
     const initialWidth = screen.getByTestId('ProjectsCard').offsetWidth;
 
     fireEvent.click(screen.getByAltText('arrow left'));

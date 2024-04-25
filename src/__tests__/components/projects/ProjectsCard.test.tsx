@@ -36,21 +36,24 @@ describe("FetchStudentsProjects", () => {
   });
 });
 
-describe('scrollLeft and scrollRight functions', () => {
+describe('ProjectsCard component', () => {
   test('scrollLeft function scrolls left when button is clicked', () => {
-    render(<ProjectsCard />);
+    const carouselRefMock = { current: document.createElement('div') }; 
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
     fireEvent.click(screen.getByAltText('arrow left'));
     expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
   });
 
   test('scrollRight function scrolls right when button is clicked', () => {
-    render(<ProjectsCard />);
+    const carouselRefMock = { current: document.createElement('div') }; 
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
     fireEvent.click(screen.getByAltText('arrow right'));
     expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
   });
 
   test('carousel width changes after scrolling', () => {
-    render(<ProjectsCard />);
+    const carouselRefMock = { current: document.createElement('div') }; 
+    render(<ProjectsCard />, { wrapper: ({ children }) => <div ref={carouselRefMock}>{children}</div> });
     const initialWidth = screen.getByTestId('ProjectsCard').offsetWidth;
 
     fireEvent.click(screen.getByAltText('arrow left'));
@@ -59,7 +62,7 @@ describe('scrollLeft and scrollRight functions', () => {
     fireEvent.click(screen.getByAltText('arrow right'));
     const updatedWidthAfterRightScroll = screen.getByTestId('ProjectsCard').offsetWidth;
 
-    expect(updatedWidthAfterLeftScroll).toEqual(initialWidth); // Assuming scrolling left doesn't change the width
-    expect(updatedWidthAfterRightScroll).toEqual(initialWidth); // Assuming scrolling right doesn't change the width
+    expect(updatedWidthAfterLeftScroll).toEqual(initialWidth); 
+    expect(updatedWidthAfterRightScroll).toEqual(initialWidth); 
   });
 });

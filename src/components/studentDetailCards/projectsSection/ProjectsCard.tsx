@@ -29,25 +29,17 @@ const ProjectsCard: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollLeft = () => {
     if (carouselRef.current) {
-      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
-        ?.offsetWidth
-      const scrollAmount = carouselRef.current.scrollLeft - cardWidth
-      carouselRef.current.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth',
-      })
+      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)?.offsetWidth;
+      const scrollAmount = carouselRef.current.scrollLeft - cardWidth;
+      carouselRef.current.scrollLeft = scrollAmount;
     }
   }
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
-        ?.offsetWidth
-      const scrollAmount = carouselRef.current.scrollLeft + cardWidth
-      carouselRef.current.scrollTo({
-        left: scrollAmount,
-        behavior: 'smooth',
-      })
+      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)?.offsetWidth;
+      const scrollAmount = carouselRef.current.scrollLeft + cardWidth;
+      carouselRef.current.scrollLeft = scrollAmount;
     }
   }
 
@@ -109,5 +101,7 @@ const ProjectsCard: React.FC = () => {
     </div>
   )
 }
+
+
 
 export default ProjectsCard

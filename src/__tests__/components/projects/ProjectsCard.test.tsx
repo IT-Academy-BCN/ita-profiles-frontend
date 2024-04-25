@@ -22,7 +22,6 @@ test('renders ProjectsCard component', () => {
     expect(projectsCardElement).toBeInTheDocument();
 });
 
-
 describe("FetchStudentsProjects", () => {
   it("should throw an error when fetching projects fails", async () => {
     const studentUUID = "student123";

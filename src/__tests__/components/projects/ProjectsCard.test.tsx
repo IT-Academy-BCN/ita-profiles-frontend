@@ -56,8 +56,8 @@ describe('ProjectsCard component', () => {
       </SelectedStudentIdContext.Provider>,
     )
   
-    // Wait for modalities to load
-    const projectsElement = await screen.getByText('Proyectos');
+    // Wait for projects to load
+    const projectsElement = screen.getByText('Proyectos');
   
     // Check if projects are rendered correctly
     expect(projectsElement).toBeInTheDocument();

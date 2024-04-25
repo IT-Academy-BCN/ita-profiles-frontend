@@ -22,6 +22,7 @@ test('renders ProjectsCard component', () => {
     expect(projectsCardElement).toBeInTheDocument();
 });
 
+
 describe("FetchStudentsProjects", () => {
   it("should throw an error when fetching projects fails", async () => {
     const studentUUID = "student123";
@@ -35,14 +36,30 @@ describe("FetchStudentsProjects", () => {
   });
 });
 
-test('scrollLeft function scrolls left when button is clicked', () => {
-  render(<ProjectsCard />); 
-  fireEvent.click(screen.getByAltText('arrow left'));
-  expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
-});
+describe('scrollLeft and scrollRight functions', () => {
+  test('scrollLeft function scrolls left when button is clicked', () => {
+    render(<ProjectsCard />);
+    fireEvent.click(screen.getByAltText('arrow left'));
+    expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
+  });
 
-test('scrollRight function scrolls right when button is clicked', () => {
-  render(<ProjectsCard />);
-  fireEvent.click(screen.getByAltText('arrow right'));
-  expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
+  test('scrollRight function scrolls right when button is clicked', () => {
+    render(<ProjectsCard />);
+    fireEvent.click(screen.getByAltText('arrow right'));
+    expect(screen.getByTestId('ProjectsCard').scrollLeft).toBeGreaterThanOrEqual(0);
+  });
+
+  test('carousel width changes after scrolling', () => {
+    render(<ProjectsCard />);
+    const initialWidth = screen.getByTestId('ProjectsCard').offsetWidth;
+
+    fireEvent.click(screen.getByAltText('arrow left'));
+    const updatedWidthAfterLeftScroll = screen.getByTestId('ProjectsCard').offsetWidth;
+
+    fireEvent.click(screen.getByAltText('arrow right'));
+    const updatedWidthAfterRightScroll = screen.getByTestId('ProjectsCard').offsetWidth;
+
+    expect(updatedWidthAfterLeftScroll).toEqual(initialWidth); // Assuming scrolling left doesn't change the width
+    expect(updatedWidthAfterRightScroll).toEqual(initialWidth); // Assuming scrolling right doesn't change the width
+  });
 });

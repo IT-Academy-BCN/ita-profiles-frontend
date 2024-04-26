@@ -32,6 +32,14 @@ export interface ITag {
   name: string
 }
 
+export type TProject = {
+  uuid: number
+  project_name: string
+  company_name: string
+  tags: string[]
+  project_url: string
+  github_url: string
+}
 export type TLanguage = {
   language_id: string
   language_name: string

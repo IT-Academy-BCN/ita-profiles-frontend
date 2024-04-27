@@ -1,49 +1,37 @@
- // @ts-ignore
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import '@testing-library/jest-dom/extend-expect';
-import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent'; 
-import rootReducer from '../../../store/reducers/getUserDetail/apiGetUserDetail';
-import fetchData from '../../../components/studentFilters/StudentFiltersContent';
+import axios from 'axios';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import MockAdapter from 'axios-mock-adapter';
+import { FetchStudentsListHome } from '../../../api/FetchStudentsList';
+import App from './../../../App';
 
-const store = configureStore({
-  reducer: rootReducer
-});
+const mockAxios = new MockAdapter(axios);
 
-describe('StudentFiltersContent', () => {
-  test('renders checkboxes', () => {
-    render(
-      <Provider store={store}>
-        <StudentFiltersContent />
-      </Provider>
-    );
-    
-	expect(screen.queryByRole("checkbox", { name: "Frontend"})).toBeInTheDocument();
-    
-});
+describe('FetchStudentsListHome function', () => {
+  afterEach(() => {
+    mockAxios.reset();
+  });
 
-test('can check the checkboxes', () => {
-	render(
-		<Provider store={store}>
-        	<StudentFiltersContent />
-      	</Provider>
-    );
-	
-	 // @ts-ignore
-	const checkboxes: HTMLInputElement | null = screen.getByRole("checkbox", { name: "Frontend" });
-	expect(checkboxes).toBeInTheDocument();
-	 // @ts-ignore
-	fireEvent.click(checkboxes);
-	 // @ts-ignore
-	expect(checkboxes.checked).toEqual(true);
-	 // @ts-ignore
-	fireEvent.click(checkboxes);
-	 // @ts-ignore
-	expect(checkboxes.checked).toEqual(false);
-	if (checkboxes) {
-	} else {
-		throw new Error("Checkbox not found");
-	}
-});
+  it('should fetch student list for home', async () => {
+    const selectedRoles = ['role1', 'role2'];
+
+    const expectedUrl = 'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home?specialization=role1,role2';
+
+    const mockData = [{ id: 1, name: 'Student 1' }, { id: 2, name: 'Student 2' }];
+
+    mockAxios.onGet(expectedUrl).reply(200, mockData);
+
+    const result = await FetchStudentsListHome(selectedRoles);
+
+    expect(result).toEqual(mockData);
+  });
+
+  it('should handle errors', async () => {
+    const selectedRoles: string[] = [];
+
+    const expectedUrl = 'https://itaperfils.eurecatacademy.org/api/v1/student/list/for-home';
+
+    mockAxios.onGet(expectedUrl).reply(500);
+
+    await expect(FetchStudentsListHome(selectedRoles)).rejects.toThrow();
+  });
 });

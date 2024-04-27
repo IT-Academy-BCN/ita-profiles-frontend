@@ -17,8 +17,7 @@ const StudentsList: React.FC = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const studentsList = await FetchStudentsListHome( studentFilterContext?.selectedRoles || [],
-          studentFilterContext?.selectedTags || []);
+        const studentsList = await FetchStudentsListHome( studentFilterContext?.selectedRoles || []);
         setStudents(studentsList);
       } catch (error) {
         // eslint-disable-next-line no-console

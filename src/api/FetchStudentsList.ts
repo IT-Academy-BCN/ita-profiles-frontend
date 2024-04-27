@@ -3,7 +3,7 @@ import axios, { AxiosError } from 'axios';
 import { IStudentList } from '../interfaces/interfaces';
 
 // eslint-disable-next-line consistent-return
-export const FetchStudentsListHome = async (selectedRoles:Array<string>, selectedTags:Array<string>) => {
+export const FetchStudentsListHome = async (selectedRoles:Array<string>= []) => {
 
   try {
     let queryParams = '';
@@ -11,11 +11,6 @@ export const FetchStudentsListHome = async (selectedRoles:Array<string>, selecte
     // Construir la cadena de consulta para roles seleccionados
     if (selectedRoles.length > 0) {
       queryParams += `specialization=${selectedRoles.join(',')}`;
-    }
-
-    // Añadir tags a la cadena de consulta si están presentes
-    if (selectedTags.length > 0) {
-      queryParams += `${queryParams ? '&' : ''}tags=${selectedTags.join(',')}`;
     }
 
     // Construir la URL completa con la cadena de consulta

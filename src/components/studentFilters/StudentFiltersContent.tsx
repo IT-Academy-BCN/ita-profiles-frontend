@@ -6,12 +6,13 @@ const StudentFiltersContent: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
   
-  if(!StudentFiltersContext) {
-    console.error('StudentFiltersContext must be provided');
-    return null;
+  const context = useContext(StudentFiltersContext);
+  
+  if(!context) {
+    throw new Error('StudentFiltersContext must be provided');
   }
 
-  // @ts-ignore
+  // @ts-expect-error
   const { selectedRoles, addRole, removeRole, selectedTags, addTag, removeTag } = useContext(StudentFiltersContext);
 
   const urlRoles = 'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
@@ -44,13 +45,6 @@ const StudentFiltersContent: React.FC = () => {
     }
   };
 
-  const toggleTag = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      removeTag(tag);
-    } else {
-      addTag(tag);
-    }
-  };
 
   return (
     <div className="w-40 flex flex-col gap-16 flex:none">

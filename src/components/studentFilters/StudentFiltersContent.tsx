@@ -1,4 +1,4 @@
-import axios, { AxiosError } from 'axios'
+import axios from 'axios'
 import React, { useEffect, useState, useContext, useMemo, ReactNode } from 'react';
 import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
@@ -32,10 +32,7 @@ const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
     selectedRoles,
     addRole,
     removeRole,
-    selectedTags: tags, // Añadido al objeto de contexto
-    addTag, // Añadido al objeto de contexto
-    removeTag, // Añadido al objeto de contexto
-  }), [selectedRoles, addRole, removeRole, tags]);
+  }), [selectedRoles, addRole, removeRole]);
 
   const urlRoles = 'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
   const urlDevelopment = 'https://itaperfils.eurecatacademy.org/api/v1/development/list';

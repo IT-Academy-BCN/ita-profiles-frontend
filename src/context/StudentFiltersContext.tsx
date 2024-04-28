@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode, useMemo } from 'react';
 
 interface StudentFiltersContextType {
   selectedRoles: string[];
@@ -22,6 +22,8 @@ export const StudentFiltersProvider: React.FC<StudentFiltersProviderProps> = ({ 
   const removeRole = (role: string) => {
     setSelectedRoles(prevRoles => prevRoles.filter(r => r !== role));
   };
+
+  const value = useMemo(() => ({ selectedRoles, addRole, removeRole }), [selectedRoles, addRole, removeRole]);
 
   return (
     <StudentFiltersContext.Provider value={{ selectedRoles, addRole, removeRole }}>

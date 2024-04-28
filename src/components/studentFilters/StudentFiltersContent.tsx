@@ -9,7 +9,6 @@ interface Props {
 const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
-  const [tags, setTags] = useState<string[]>([]); // Nuevo estado para los tags
 
   const context = useContext(StudentFiltersContext);
   
@@ -18,15 +17,6 @@ const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
   }
 
   const { selectedRoles, addRole, removeRole } = context;
-
-  // Funciones para añadir y eliminar tags
-  const addTag = (tag: string) => {
-    setTags(prevTags => [...prevTags, tag]);
-  };
-
-  const removeTag = (tag: string) => {
-    setTags(prevTags => prevTags.filter(t => t !== tag));
-  };
 
   const value = useMemo(() => ({
     selectedRoles,

@@ -25,7 +25,7 @@ const StudentsList: React.FC = () => {
       }
     };
     fetchStudents();
-  }, [studentFilterContext?.selectedRoles, studentFilterContext?.selectedTags]);
+  }, [studentFilterContext?.selectedRoles]);
 
   return (
     <div

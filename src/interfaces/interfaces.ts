@@ -35,7 +35,7 @@ export interface ITag {
 export type TBootcamp = { 
   bootcamp_id: string
   bootcamp_name: string
-  bootcamp_end_date: string[]
+  bootcamp_end_date: string 
 }
 
 export type TLanguage = {

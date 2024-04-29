@@ -2,16 +2,25 @@ import React, { ReactElement } from 'react'
 import { render, RenderOptions } from '@testing-library/react'
 import { I18nextProvider } from 'react-i18next'
 import i18n from '../locales/i18n'
-import { SelectedStudentProvider } from '../context/StudentIdContext'
+import { SelectedStudentIdContext } from '../context/StudentIdContext'
 import SmallScreenProvider from '../context/SmallScreenContext'
 
-const AllTheProviders = ({ children }: { children: React.ReactNode }) => (
-  <I18nextProvider i18n={i18n}>
-    <SelectedStudentProvider>
-      <SmallScreenProvider>{children}</SmallScreenProvider>
-    </SelectedStudentProvider>
-  </I18nextProvider>
-)
+const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
+  const studentUUID = 'abc'
+  const setStudentUUID = () => {}
+
+  return (
+    <I18nextProvider i18n={i18n}>
+      <SmallScreenProvider>
+        <SelectedStudentIdContext.Provider
+          value={{ studentUUID, setStudentUUID }}
+        >
+          {children}
+        </SelectedStudentIdContext.Provider>
+      </SmallScreenProvider>
+    </I18nextProvider>
+  )
+}
 
 const customRender = (
   ui: ReactElement,

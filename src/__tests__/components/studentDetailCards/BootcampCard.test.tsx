@@ -1,0 +1,79 @@
+import { render, screen } from '@testing-library/react'
+import { describe, test, expect } from 'vitest'
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter'
+import BootcampCard from '../../../components/studentDetailCards/bootcampSection/BootcampCard'
+import {
+  SelectedStudentIdContext,
+  SelectedStudentProvider,
+} from '../../../context/StudentIdContext'
+
+describe('BootcampCard', () => {
+  beforeEach(() => {
+    render(
+      <SelectedStudentProvider>
+        <BootcampCard />
+      </SelectedStudentProvider>,
+    )
+  })
+  test('should show "Bootcamp" all the time', () => {
+    expect(screen.getByText('Datos del bootcamp')).toBeInTheDocument()
+  })
+})
+
+describe('BootcampCard component', () => {
+  let mock: MockAdapter
+
+  beforeAll(() => {
+    mock = new MockAdapter(axios)
+  })
+
+  afterEach(() => {
+    mock.reset()
+  })
+
+  afterAll(() => {
+    mock.restore()
+  })
+
+  const studentUUID = '123' // You can replace this with a sample UUID
+  const setStudentUUID = () => {}
+  const bootcampData = [
+    {
+      bootcamp_id: '1',
+      bootcamp_name: 'Front End React',
+      bootcamp_end_data: 'November 2023',
+    },
+    {
+      bootcamp_id: '2',
+      bootcamp_name: 'Data Analytics',
+      bootcamp_end_data: 'January 2024',
+    },
+  ]
+
+  test('renders bootcamp data correctly', async () => {
+    mock
+      .onGet(
+        `https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/bootcamp`,
+      )
+      .reply(200, bootcampData)
+
+    render(
+      <SelectedStudentIdContext.Provider
+        value={{ studentUUID, setStudentUUID }}
+      >
+        <BootcampCard />
+      </SelectedStudentIdContext.Provider>,
+    )
+
+    // Wait for bootcamp name to load
+    const modalityElements = await screen.findAllByText(
+      /Front End React | Data Analytics/,
+    )
+
+    // Check if bootcamp names are rendered correctly
+    expect(modalityElements).toHaveLength(2)
+    expect(modalityElements[0]).toHaveTextContent('Front End React ')
+    expect(modalityElements[1]).toHaveTextContent('Data Analytics')
+  })
+})

@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import { describe, test, expect } from 'vitest'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter'
@@ -38,18 +38,11 @@ describe('BootcampCard component', () => {
 
   const studentUUID = '123' // You can replace this with a sample UUID
   const setStudentUUID = () => {}
-  const bootcampData = [
-    {
-      bootcamp_id: '1',
-      bootcamp_name: 'Front End React',
-      bootcamp_end_data: 'November 2023',
-    },
-    {
-      bootcamp_id: '2',
-      bootcamp_name: 'Data Analytics',
-      bootcamp_end_data: 'January 2024',
-    },
-  ]
+  const bootcampData = {
+    bootcamp_id: '1',
+    bootcamp_name: 'Front End React',
+    bootcamp_end_date: 'November 2023',
+  }
 
   test('renders bootcamp data correctly', async () => {
     mock
@@ -67,13 +60,9 @@ describe('BootcampCard component', () => {
     )
 
     // Wait for bootcamp name to load
-    const modalityElements = await screen.findAllByText(
-      /Front End React | Data Analytics/,
-    )
-
-    // Check if bootcamp names are rendered correctly
-    expect(modalityElements).toHaveLength(2)
-    expect(modalityElements[0]).toHaveTextContent('Front End React ')
-    expect(modalityElements[1]).toHaveTextContent('Data Analytics')
+    await waitFor(() => {
+      expect(screen.getByText('Datos del bootcamp')).toBeInTheDocument()
+      expect(screen.getByText('Front End React')).toBeInTheDocument()
+    })
   })
 })

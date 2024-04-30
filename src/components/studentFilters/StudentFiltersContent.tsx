@@ -1,18 +1,14 @@
-import axios from 'axios'
-import React, { useEffect, useState, useContext, useMemo, ReactNode } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
-interface Props {
-  children: ReactNode;
-}
-
-const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
+const StudentFiltersProvider: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
 
   const context = useContext(StudentFiltersContext);
-  
-  if(!context) {
+
+  if (!context) {
     throw new Error('StudentFiltersContext must be provided');
   }
 
@@ -37,9 +33,9 @@ const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
         setData(response.data);
       })
       .catch((error) => {
-        throw new Error(error)
-      })
-  }
+        throw new Error(error);
+      });
+  };
 
   useEffect(() => {
     fetchData(urlRoles, setRoles);
@@ -101,9 +97,8 @@ const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      {children}
     </StudentFiltersContext.Provider>
-  )
-}
+  );
+};
 
-export default StudentFiltersProvider
+export default StudentFiltersProvider;

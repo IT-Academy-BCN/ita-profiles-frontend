@@ -18,6 +18,7 @@ const OtherEducationCard = () => {
         const studentTraining = await getAdditionalTraining(studentUUID)
         setAdditionalTraining(studentTraining)
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.log(error)
       } finally {
         // setIsLoading(false)

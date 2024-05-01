@@ -18,7 +18,7 @@ const OtherEducationCard = () => {
         const studentTraining = await getAdditionalTraining(studentUUID)
         setAdditionalTraining(studentTraining)
       } catch (error) {
-        throw new Error('Error fetching the student Additional Training')
+        console.log(error)
       } finally {
         // setIsLoading(false)
       }

@@ -4,16 +4,18 @@ import OtherEducationCard from '../../../../components/studentDetailCards/otherE
 import { SelectedStudentIdContext } from '../../../../context/StudentIdContext'
 import { configureMockAdapter } from '../../../setup'
 
+const mock = configureMockAdapter()
+const baseApi = 'https://itaperfils.eurecatacademy.org'
+const studentUUID = 'abc'
+const setStudentUUID = () => {}
+
 describe('OtherEducationCard', () => {
   it('should render OtherEducationCard component correctly', () => {
     const { container } = render(<OtherEducationCard />)
     expect(container).toBeInTheDocument()
   })
+
   it('should fetch the student Additional Training correctly', async () => {
-    const mock = configureMockAdapter()
-    const baseApi = 'https://itaperfils.eurecatacademy.org'
-    const studentUUID = 'abc' // You can replace this with a sample UUID
-    const setStudentUUID = () => {}
     const additionalTraining = [
       {
         uuid: '123',

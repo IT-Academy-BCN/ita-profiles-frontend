@@ -2,8 +2,9 @@ import axios from 'axios';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import MockAdapter from 'axios-mock-adapter';
 import { FetchStudentsListHome } from '../../../api/FetchStudentsList';
-import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
+import { StudentFiltersProvider } from '../../../context/StudentFiltersContext';
 import { fireEvent, render } from '@testing-library/react';
+import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
 
 const mockAxios = new MockAdapter(axios);
 
@@ -39,7 +40,9 @@ describe('FetchStudentsListHome function', () => {
 
 describe('StudentFiltersContent component', () => {
   it('renders StudentFiltersContent and handles user events', () => {
-    const { getByTestId } = render(<StudentFiltersContent />);
+    const { getByTestId } = render(<StudentFiltersProvider>
+      <StudentFiltersContent />
+    </StudentFiltersProvider>);
     
     // Verifica que el componente se renderiza correctamente
     expect(getByTestId('student-filters-content')).toBeInTheDocument();

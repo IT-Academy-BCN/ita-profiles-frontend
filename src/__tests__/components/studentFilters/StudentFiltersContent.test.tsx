@@ -2,6 +2,8 @@ import axios from 'axios';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import MockAdapter from 'axios-mock-adapter';
 import { FetchStudentsListHome } from '../../../api/FetchStudentsList';
+import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
+import { fireEvent, render } from '@testing-library/react';
 
 const mockAxios = new MockAdapter(axios);
 
@@ -32,5 +34,18 @@ describe('FetchStudentsListHome function', () => {
     mockAxios.onGet(expectedUrl).reply(500);
 
     await expect(FetchStudentsListHome(selectedRoles)).rejects.toThrow();
+  });
+});
+
+describe('StudentFiltersContent component', () => {
+  it('renders StudentFiltersContent and handles user events', () => {
+    const { getByTestId } = render(<StudentFiltersContent />);
+    
+    // Verifica que el componente se renderiza correctamente
+    expect(getByTestId('student-filters-content')).toBeInTheDocument();
+
+    // Simula un evento de usuario y verifica que el componente responde como se espera
+    fireEvent.click(getByTestId('some-button'));
+    expect(getByTestId('some-result')).toBeInTheDocument();
   });
 });

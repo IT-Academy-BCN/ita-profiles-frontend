@@ -55,30 +55,32 @@ describe('StudentFiltersContent component', () => {
     expect(getByTestId('some-result')).toBeInTheDocument();
   });
 
-  const TestComponent = () => {
-    const { selectedRoles, addRole, removeRole } = useContext(StudentFiltersContext) || {};
-  
-    if (!selectedRoles || !addRole || !removeRole) {
-      throw new Error('Context is undefined');
-    }
-      return (
-        <div>
-          <button onClick={() => addRole('test')}>Add role</button>
-          <button onClick={() => removeRole('test')}>Remove role</button>
-          <div>{selectedRoles.join(',')}</div>
-        </div>
+  it('should add and remove role', () => {
+    const TestComponent = () => {
+      const { selectedRoles, addRole, removeRole } = useContext(StudentFiltersContext) || {};
+    
+      if (!selectedRoles || !addRole || !removeRole) {
+        throw new Error('Context is undefined');
+      }
+        return (
+          <div>
+            <button onClick={() => addRole('test')}>Add role</button>
+            <button onClick={() => removeRole('test')}>Remove role</button>
+            <div>{selectedRoles.join(',')}</div>
+          </div>
+        );
+      };
+
+      const { getByText, queryByText } = render(
+        <StudentFiltersProvider>
+          <TestComponent />
+        </StudentFiltersProvider>
       );
-    };
 
-    const { getByText } = render(
-      <StudentFiltersProvider>
-        <TestComponent />
-      </StudentFiltersProvider>
-    );
+      fireEvent.click(getByText('Add role'));
+      expect(getByText('test')).toBeInTheDocument();
 
-    fireEvent.click(getByText('Add role'));
-    expect(getByText('test')).toBeInTheDocument();
-
-    fireEvent.click(getByText('Remove role'));
-    expect(getByText('')).toBeInTheDocument();
-  });
+      fireEvent.click(getByText('Remove role'));
+      expect(queryByText('test')).not.toBeInTheDocument();
+    });
+});

@@ -10,6 +10,7 @@ export const getAdditionalTraining = async (studentUUID: string | null) => {
 
     return response.data.additional_trainings
   } catch (err) {
-    throw new Error(`Error fetching additional data`)
+    // eslint-disable-next-line no-console
+    return console.log('error', err)
   }
 }

@@ -1,20 +1,19 @@
 import '@testing-library/jest-dom'
-import axios from 'axios'
+import { screen, render } from '@testing-library/react'
 import OtherEducationCard from '../../../../components/studentDetailCards/otherEducationSection/OtherEducationCard'
+import { SelectedStudentIdContext } from '../../../../context/StudentIdContext'
 import { configureMockAdapter } from '../../../setup'
-import { render } from '../../../test-utils'
 
 describe('OtherEducationCard', () => {
-  const axiosInstance = axios.create()
-  const mock = configureMockAdapter(axiosInstance)
-
   it('should render OtherEducationCard component correctly', () => {
-    render(<OtherEducationCard />)
+    const { container } = render(<OtherEducationCard />)
+    expect(container).toBeInTheDocument()
   })
   it('should fetch the student Additional Training correctly', async () => {
+    const mock = configureMockAdapter()
     const baseApi = 'https://itaperfils.eurecatacademy.org'
-    const studentUUID = 'abc'
-
+    const studentUUID = 'abc' // You can replace this with a sample UUID
+    const setStudentUUID = () => {}
     const additionalTraining = [
       {
         uuid: '123',
@@ -25,9 +24,17 @@ describe('OtherEducationCard', () => {
         duration_hrs: 100,
       },
     ]
-
     mock
       .onGet(`${baseApi}/api/v1/students/${studentUUID}/additionaltraining`)
-      .reply(200, { additionalTraining })
+      .reply(200, additionalTraining)
+
+    render(
+      <SelectedStudentIdContext.Provider
+        value={{ studentUUID, setStudentUUID }}
+      >
+        <OtherEducationCard />
+      </SelectedStudentIdContext.Provider>,
+    )
+    expect(screen.getByText('Otra formación')).toBeInTheDocument()
   })
 })

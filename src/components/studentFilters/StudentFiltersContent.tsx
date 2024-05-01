@@ -1,12 +1,8 @@
 import axios from 'axios'
-import React, { useEffect, useState, useContext, useMemo, ReactNode } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { StudentFiltersContext } from '../../context/StudentFiltersContext';
 
-interface Props {
-  children: ReactNode;
-}
-
-const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
+const StudentFiltersProvider: React.FC = () => {
   const [roles, setRoles] = useState<string[]>([]);
   const [development, setDevelopment] = useState<string[]>([]);
 
@@ -101,7 +97,6 @@ const StudentFiltersProvider: React.FC<Props> = ({ children }) => {
           </div>
         </div>
       </div>
-      {children}
     </StudentFiltersContext.Provider>
   )
 }

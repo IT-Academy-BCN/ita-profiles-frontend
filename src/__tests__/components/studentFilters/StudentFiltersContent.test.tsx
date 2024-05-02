@@ -1,3 +1,4 @@
+import React, { useContext } from 'react';
 import axios from 'axios';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import MockAdapter from 'axios-mock-adapter';
@@ -5,7 +6,6 @@ import { FetchStudentsListHome } from '../../../api/FetchStudentsList';
 import { StudentFiltersProvider, StudentFiltersContext } from '../../../context/StudentFiltersContext';
 import { fireEvent, render } from '@testing-library/react';
 import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
-import React, { useContext } from 'react';
 
 const mockAxios = new MockAdapter(axios);
 
@@ -64,8 +64,8 @@ describe('StudentFiltersContent component', () => {
       }
         return (
           <div>
-            <button onClick={() => addRole('test')}>Add role</button>
-            <button onClick={() => removeRole('test')}>Remove role</button>
+            <button type="button" onClick={() => addRole('test')}>Add role</button>
+            <button type="button" onClick={() => removeRole('test')}>Remove role</button>
             <div>{selectedRoles.join(',')}</div>
           </div>
         );

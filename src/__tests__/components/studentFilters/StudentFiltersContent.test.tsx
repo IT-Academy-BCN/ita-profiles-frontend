@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
+import { fireEvent, render } from '@testing-library/react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import MockAdapter from 'axios-mock-adapter';
 import { FetchStudentsListHome } from '../../../api/FetchStudentsList';
 import { StudentFiltersProvider, StudentFiltersContext } from '../../../context/StudentFiltersContext';
-import { fireEvent, render } from '@testing-library/react';
 import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
 
 const mockAxios = new MockAdapter(axios);

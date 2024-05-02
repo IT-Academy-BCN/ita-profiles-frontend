@@ -32,6 +32,11 @@ export interface ITag {
   name: string
 }
 
+export type TBootcamp = { 
+  bootcamp_id: string
+  bootcamp_name: string
+  bootcamp_end_date: string 
+}
 
 export type TModality = {
    modality: string[]

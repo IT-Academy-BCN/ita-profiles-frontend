@@ -38,18 +38,25 @@ describe('BootcampCard component', () => {
 
   const studentUUID = '123' // You can replace this with a sample UUID
   const setStudentUUID = () => {}
-  const bootcampData = {
-    bootcamp_id: '1',
-    bootcamp_name: 'Front End React',
-    bootcamp_end_date: 'November 2023',
-  }
+  const bootcampData = [
+    {
+      bootcamp_id: '1',
+      bootcamp_name: 'Front End React',
+      bootcamp_end_date: 'November 2023',
+    },
+    {
+      bootcamp_id: '2',
+      bootcamp_name: 'Data Analyst',
+      bootcamp_end_date: 'November 2022',
+    },
+  ]
 
   test('renders bootcamp data correctly', async () => {
     mock
       .onGet(
         `https://itaperfils.eurecatacademy.org/api/v1/students/${studentUUID}/bootcamp`,
       )
-      .reply(200, bootcampData)
+      .reply(200, { bootcamps: bootcampData })
 
     render(
       <SelectedStudentIdContext.Provider
@@ -63,6 +70,7 @@ describe('BootcampCard component', () => {
     await waitFor(() => {
       expect(screen.getByText('Datos del bootcamp')).toBeInTheDocument()
       expect(screen.getByText('Front End React')).toBeInTheDocument()
+      expect(screen.getByText('Data Analyst')).toBeInTheDocument()
     })
   })
 })

@@ -85,9 +85,8 @@ const ProjectsCard: React.FC = () => {
               <div className="text-sm rounded-lg border border-black-3 px-2 py-1 font-semibold">
                 {project.tags.slice(0, 2).map((tag, index) => (
                   <span key={tag.id}>
-                    {index === 0 ? '' : ''}
                     {tag.name}
-                    {index === 1 ? '' : ' · '}
+                    {index !== 1 && ' · '}
                   </span>
                 ))}
               </div>

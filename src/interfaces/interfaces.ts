@@ -46,7 +46,7 @@ export type TProject = {
   uuid: number
   project_name: string
   company_name: string
-  tags: string[]
+  tags: ITag[]
   project_url: string
   github_url: string
 }

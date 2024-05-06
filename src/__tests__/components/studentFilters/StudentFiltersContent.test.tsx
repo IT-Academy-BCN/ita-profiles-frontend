@@ -50,9 +50,25 @@ describe('StudentFiltersContent component', () => {
     // Verifica que el componente se renderiza correctamente
     expect(getByTestId('student-filters-content')).toBeInTheDocument();
 
-    // Simula un evento de usuario y verifica que el componente responde como se espera
-    fireEvent.click(getByTestId('some-button'));
-    expect(getByTestId('some-result')).toBeInTheDocument();
+    // Supongamos que hay un checkbox que, cuando se marca o desmarca, cambia algún texto en el componente.
+    // Primero, obtenemos el checkbox y el elemento de texto por sus data-testid
+    const checkbox = getByTestId('my-checkbox');
+    const textElement = getByTestId('my-text');
+
+    // Verificamos que el texto inicial es el esperado
+    expect(textElement.textContent).toBe('Texto cuando el checkbox no está marcado');
+
+    // Marcamos el checkbox
+    fireEvent.change(checkbox, { target: { checked: true } });
+
+    // Verificamos que el texto ha cambiado como resultado de marcar el checkbox
+    expect(textElement.textContent).toBe('Texto cuando el checkbox está marcado');
+
+    // Desmarcamos el checkbox
+    fireEvent.change(checkbox, { target: { checked: false } });
+
+    // Verificamos que el texto ha vuelto al estado inicial
+    expect(textElement.textContent).toBe('Texto cuando el checkbox no está marcado');
   });
 
   it('should add and remove role', () => {
@@ -63,7 +79,7 @@ describe('StudentFiltersContent component', () => {
         throw new Error('Context is undefined');
       }
         return (
-          <div>
+          <div data-testid="student-filters-content">
             <button type="button" onClick={() => addRole('test')}>Add role</button>
             <button type="button" onClick={() => removeRole('test')}>Remove role</button>
             <div>{selectedRoles.join(',')}</div>

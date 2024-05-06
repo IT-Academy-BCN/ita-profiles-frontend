@@ -29,17 +29,19 @@ const ProjectsCard: React.FC = () => {
   const carouselRef = useRef<HTMLDivElement>(null)
   const scrollLeft = () => {
     if (carouselRef.current) {
-      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)?.offsetWidth;
-      const scrollAmount = carouselRef.current.scrollLeft - cardWidth;
-      carouselRef.current.scrollLeft = scrollAmount;
+      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
+        ?.offsetWidth
+      const scrollAmount = carouselRef.current.scrollLeft - cardWidth
+      carouselRef.current.scrollLeft = scrollAmount
     }
   }
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)?.offsetWidth;
-      const scrollAmount = carouselRef.current.scrollLeft + cardWidth;
-      carouselRef.current.scrollLeft = scrollAmount;
+      const cardWidth = (carouselRef.current?.firstChild as HTMLElement)
+        ?.offsetWidth
+      const scrollAmount = carouselRef.current.scrollLeft + cardWidth
+      carouselRef.current.scrollLeft = scrollAmount
     }
   }
 
@@ -60,17 +62,17 @@ const ProjectsCard: React.FC = () => {
         </div>
       </div>
       <div ref={carouselRef} className="flex gap-3 overflow-x-hidden">
-        {projects?.map((project) => (
+        {projects.map((project) => (
           <div
-            key={project?.uuid}
+            key={project.uuid}
             className="flex flex-col gap-1 rounded-xl border border-gray-3 px-5 py-3.5 "
           >
             <div className="flex items-center justify-between">
               <div className="flex w-48 items-center gap-3">
                 <p className="text-md font-semibold ">
-                  {project?.project_name?.slice(0, 15)}
+                  {project.project_name.slice(0, 15)}
                 </p>
-                <a href={project?.github_url} className="flex items-center">
+                <a href={project.github_url} className="flex items-center">
                   <img src={Github} alt="github link" className="w-6" />
                 </a>
               </div>
@@ -78,13 +80,19 @@ const ProjectsCard: React.FC = () => {
                 <img src={Dots} alt="3 dots" />
               </button>
             </div>
-            <p className="text-sm text-gray-3">{project?.company_name}</p>
+            <p className="text-sm text-gray-3">{project.company_name}</p>
             <div className="flex items-center justify-between pt-3">
               <div className="text-sm rounded-lg border border-black-3 px-2 py-1 font-semibold">
-                {project?.tags?.slice(0, 2).join(' · ')}
+                {project.tags.slice(0, 2).map((tag, index) => (
+                  <span key={tag.id}>
+                    {index === 0 ? '' : ''}
+                    {tag.name}
+                    {index === 1 ? '' : ' · '}
+                  </span>
+                ))}
               </div>
               <a
-                href={project?.project_url}
+                href={project.project_url}
                 type="button"
                 className="h-8 rounded-lg border border-black-3"
               >
@@ -101,7 +109,5 @@ const ProjectsCard: React.FC = () => {
     </div>
   )
 }
-
-
 
 export default ProjectsCard

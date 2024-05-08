@@ -32,21 +32,21 @@ export interface ITag {
   name: string
 }
 
-export type TBootcamp = { 
+export type TBootcamp = {
   bootcamp_id: string
   bootcamp_name: string
-  bootcamp_end_date: string 
+  bootcamp_end_date: string
 }
 
 export type TModality = {
-   modality: string[]
+  modality: string[]
 }
 
 export type TProject = {
   uuid: number
   project_name: string
   company_name: string
-  tags: string[]
+  tags: ITag[]
   project_url: string
   github_url: string
 }
@@ -57,19 +57,3 @@ export type TLanguage = {
   language_level: string
 }
 
-export type TAbout = {
-  id: number
-  fullname: string
-  subtitle: string
-  social_media: {
-    github: {
-      url: string
-    }
-    linkedin: {
-      url: string
-    }
-  }
-  about: string
-  photo: string
-  tags: ITag[]
-}

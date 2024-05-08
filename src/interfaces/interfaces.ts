@@ -56,6 +56,24 @@ export type TLanguage = {
   language_name: string
   language_level: string
 }
+
+export type TAbout = {
+  id: number
+  fullname: string
+  subtitle: string
+  social_media: {
+    github: {
+      url: string
+    }
+    linkedin: {
+      url: string
+    }
+  }
+  about: string
+  photo: string
+  tags: ITag[]
+}
+
 export type TAdditionalTraining = {
   uuid: string
   course_name: string

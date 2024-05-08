@@ -1,19 +1,21 @@
+/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit'
-// import { PayloadAction } from "@reduxjs/toolkit";
 
 const initialState = {
   isUserPanelOpen: false,
 }
 
-const showUserInfo = createSlice({
-  name: 'showUserReducer',
+const studentDetailPanel = createSlice({
+  name: 'userDetail',
   initialState,
   reducers: {
-    toggleUserPanel: (state) => {
-      // eslint-disable-next-line no-param-reassign
-      state.isUserPanelOpen = !state.isUserPanelOpen
+    openUserPanel: (state) => {
+      state.isUserPanelOpen = true
+    },
+    closeUserPanel: (state) => {
+      state.isUserPanelOpen = false
     },
   },
 })
-export const { toggleUserPanel } = showUserInfo.actions
-export default showUserInfo.reducer
+export const { openUserPanel, closeUserPanel } = studentDetailPanel.actions
+export default studentDetailPanel.reducer

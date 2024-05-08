@@ -73,3 +73,12 @@ export type TAbout = {
   photo: string
   tags: ITag[]
 }
+
+export type TAdditionalTraining = {
+  uuid: string
+  course_name: string
+  study_center: string
+  course_beginning_year: number
+  course_ending_year: number
+  duration_hrs: number
+}

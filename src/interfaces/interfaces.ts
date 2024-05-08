@@ -57,3 +57,19 @@ export type TLanguage = {
   language_level: string
 }
 
+export type TAbout = {
+  id: number
+  fullname: string
+  subtitle: string
+  social_media: {
+    github: {
+      url: string
+    }
+    linkedin: {
+      url: string
+    }
+  }
+  about: string
+  photo: string
+  tags: ITag[]
+}

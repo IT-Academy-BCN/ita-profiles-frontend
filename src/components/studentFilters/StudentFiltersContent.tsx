@@ -1,27 +1,32 @@
 import axios from 'axios'
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { StudentFiltersContext } from '../../context/StudentFiltersContext';
+import React, { useContext, useEffect, useMemo, useState } from 'react'
+import { StudentFiltersContext } from '../../context/StudentFiltersContext'
 
 const StudentFiltersProvider: React.FC = () => {
-  const [roles, setRoles] = useState<string[]>([]);
-  const [development, setDevelopment] = useState<string[]>([]);
+  const [roles, setRoles] = useState<string[]>([])
+  const [development, setDevelopment] = useState<string[]>([])
 
-  const context = useContext(StudentFiltersContext);
-  
-  if(!context) {
-    throw new Error('StudentFiltersContext must be provided');
+  const context = useContext(StudentFiltersContext)
+
+  if (!context) {
+    throw new Error('StudentFiltersContext must be provided')
   }
 
-  const { selectedRoles, addRole, removeRole } = context;
+  const { selectedRoles, addRole, removeRole } = context
 
-  const value = useMemo(() => ({
-    selectedRoles,
-    addRole,
-    removeRole,
-  }), [selectedRoles, addRole, removeRole]);
+  const value = useMemo(
+    () => ({
+      selectedRoles,
+      addRole,
+      removeRole,
+    }),
+    [selectedRoles, addRole, removeRole],
+  )
 
-  const urlRoles = 'https://itaperfils.eurecatacademy.org/api/v1/specialization/list';
-  const urlDevelopment = 'https://itaperfils.eurecatacademy.org/api/v1/development/list';
+  const urlRoles =
+    'https://itaperfils.eurecatacademy.org/api/v1/specialization/list'
+  const urlDevelopment =
+    'https://itaperfils.eurecatacademy.org/api/v1/development/list'
 
   const fetchData = (
     url: string,
@@ -30,7 +35,7 @@ const StudentFiltersProvider: React.FC = () => {
     axios
       .get(url)
       .then((response) => {
-        setData(response.data);
+        setData(response.data)
       })
       .catch((error) => {
         throw new Error(error)
@@ -38,21 +43,24 @@ const StudentFiltersProvider: React.FC = () => {
   }
 
   useEffect(() => {
-    fetchData(urlRoles, setRoles);
-    fetchData(urlDevelopment, setDevelopment);
-  }, [urlRoles, urlDevelopment]);
+    fetchData(urlRoles, setRoles)
+    fetchData(urlDevelopment, setDevelopment)
+  }, [urlRoles, urlDevelopment])
 
   const toggleRole = (role: string) => {
     if (selectedRoles.includes(role)) {
-      removeRole(role);
+      removeRole(role)
     } else {
-      addRole(role);
+      addRole(role)
     }
-  };
+  }
 
   return (
     <StudentFiltersContext.Provider value={value}>
-      <div className="w-40 flex flex-col gap-16 flex:none">
+      <div
+        className="w-40 flex flex-col gap-16 flex:none"
+        data-testid="student-filters-content"
+      >
         <h3 className="text-2xl font-bold text-black-3">Filtros</h3>
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">

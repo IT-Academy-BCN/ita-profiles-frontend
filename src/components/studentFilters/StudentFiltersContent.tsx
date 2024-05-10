@@ -28,18 +28,19 @@ const StudentFiltersProvider: React.FC = () => {
   const urlDevelopment =
     'https://itaperfils.eurecatacademy.org/api/v1/development/list'
 
-  const fetchData = (
+  const fetchData = async (
     url: string,
+
     setData: React.Dispatch<React.SetStateAction<string[]>>,
   ) => {
-    axios
-      .get(url)
-      .then((response) => {
-        setData(response.data)
-      })
-      .catch((error) => {
-        throw new Error(error)
-      })
+    try {
+      const response = await axios.get(url)
+      setData(response.data)
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error fetching data:', error)
+      // Handle error gracefully, e.g., show a message to the user
+    }
   }
 
   useEffect(() => {
@@ -78,6 +79,7 @@ const StudentFiltersProvider: React.FC = () => {
                     className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
                     checked={selectedRoles.includes(role)}
                     onChange={() => toggleRole(role)}
+                    data-testid={`my-checkbox-role-${role}`} // Add data-testid here
                   />
                   <span>{role}</span>
                 </label>
@@ -97,6 +99,7 @@ const StudentFiltersProvider: React.FC = () => {
                     type="checkbox"
                     id={`developmentInput-${tag}`}
                     className="border-gray-500 checkbox-primary checkbox mr-2 rounded-md border-2"
+                    data-testid="my-checkbox-tag"
                   />
                   <span>{tag}</span>
                 </label>

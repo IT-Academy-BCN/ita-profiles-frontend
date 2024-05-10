@@ -2,7 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { render, RenderResult, waitFor } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
-import StudentFiltersContent from '../../../components/studentFilters/StudentFiltersContent';
+import StudentFiltersProvider from '../../../components/studentFilters/StudentFiltersContent';
 import { StudentFiltersContext } from '../../../context/StudentFiltersContext';
 
 describe('StudentFiltersProvider', () => {
@@ -49,7 +49,7 @@ describe('StudentFiltersProvider', () => {
     await act(async () => {
         const renderResult = render(
           <StudentFiltersContext.Provider value={value}>
-            <StudentFiltersContent />
+            <StudentFiltersProvider />
           </StudentFiltersContext.Provider>
         );
         getByText = renderResult.getByText;      

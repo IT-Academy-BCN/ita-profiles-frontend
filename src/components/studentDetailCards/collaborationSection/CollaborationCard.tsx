@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
 import { useStudentIdContext } from '../../../context/StudentIdContext'
-import ChallengesCard from './ChallengesCard'
-import ResourcesCard from './ResourcesCard'
 import { TCollaboration } from '../../../interfaces/interfaces'
 import { FetchStudentsCollaboration } from '../../../api/FetchStudentCollaboration'
 import target from '../../../assets/img/target.png'

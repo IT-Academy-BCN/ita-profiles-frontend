@@ -82,3 +82,10 @@ export type TAdditionalTraining = {
   course_ending_year: number
   duration_hrs: number
 }
+
+export type TCollaboration = {
+  uuid: string
+  collaboration_name: string
+  collaboration_description: string
+  collaboration_quantity: number
+}

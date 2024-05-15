@@ -84,6 +84,7 @@ export type TAdditionalTraining = {
 }
 
 export type TCollaboration = {
+  uuid: string
   collaboration_name: string
   collaboration_description: string
   collaboration_quantity: number

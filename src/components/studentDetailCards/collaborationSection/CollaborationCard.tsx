@@ -1,8 +1,6 @@
 import ChallengesCard from './ChallengesCard'
 import ResourcesCard from './ResourcesCard'
 
-/* Prueba Aida */
-
 const CollaborationCard = () => (
   <div className="flex flex-col gap-4" data-testid="CollaborationCard">
     <h3 className="text-lg font-bold text-black-3">Colaboración</h3>
